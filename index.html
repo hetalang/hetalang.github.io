@@ -17,15 +17,16 @@
       repo: 'https://github.com/hetalang/hetalang.github.io',
       homepage: 'README.md',
       themeColor: '',
-      loadNavbar: true,
+      loadNavbar: true, // set true to use file _navbar.md
       loadSidebar: true,
       logo: '/assets/img/logo.png',
       maxLevel: 4,
       subMaxLevel: 2,
+      relativePath: true,
       alias: {
         //'/.*/_navbar.md': '/_navbar.md',
-        '/specifications/': 'https://raw.githubusercontent.com/hetalang/hetalang.github.io/dev/index',
-        '/specifications/([^_].*)': 'https://raw.githubusercontent.com/hetalang/hetalang.github.io/dev/$1',
+        '/specifications/': 'https://raw.githubusercontent.com/hetalang/hetalang.github.io/master/index',
+        '/specifications/([^_].*)': 'https://raw.githubusercontent.com/hetalang/hetalang.github.io/master/$1',
         '/heta-case-mini/': 'https://raw.githubusercontent.com/insysbio/heta-case-mini/master/README'
       },
       ga: 'UA-149749027-1'
