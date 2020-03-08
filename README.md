@@ -1,5 +1,7 @@
 
 [![Gitter](https://badges.gitter.im/hetalang/community.svg)](https://gitter.im/hetalang/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
+[![Subscription](https://img.shields.io/badge/mail-subscription-blueviolet)](/subscribe)
+[![GitHub stars](https://img.shields.io/github/stars/hetalang/hetalang.github.io?style=social)](https://github.com/hetalang/hetalang.github.io)
 
 **Heta language** is a domain specific programming language (not general-purpose) for dynamic quantitative models used in quantitative systems pharmacology and systems biology.
 
