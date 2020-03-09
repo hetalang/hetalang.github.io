@@ -1,34 +1,34 @@
 
 [![Gitter](https://badges.gitter.im/hetalang/community.svg)](https://gitter.im/hetalang/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 [![Subscription](https://img.shields.io/badge/mail-subscription-blueviolet)](/subscribe)
+[![GitHub issues](https://img.shields.io/github/issues/hetalang/hetalang.github.io.svg)](https://GitHub.com/hetalang/hetalang.github.io/issues/)
 [![GitHub stars](https://img.shields.io/github/stars/hetalang/hetalang.github.io?style=social)](https://github.com/hetalang/hetalang.github.io)
 
-**Heta language** is a domain specific programming language (not general-purpose) for dynamic quantitative models used in quantitative systems pharmacology and systems biology.
+**Heta project** is an initiative for the development of infrastructure for modeling in pharmacology and systems biology. The project also summarizes our experience in modeling of dynamical systems: systems biology, PK/PD, QSP as well as best practices of software development.
 
-## Current state and implementation
-Currently the standard is published on Github-pages <https://hetalang.github.io/>
+This is an open project which means the result will be available for everyone and any contribution is welcomed. For more details how you can help is on [contributing](CONTRIBUTING.md) page.
 
-A series of tools supporting Heta language has been developed:
-- Syntax highlighting VSCode: [heta-highlight-vscode](https://github.com/insysbio/heta-highlight-vscode) (published on GitHub )
-- Syntax highlighting Atom editor: [heta-highlight-atom](https://github.com/insysbio/heta-highlight-atom) (published on GitHub)
-- JavaScript framework with Heta support has been developed and tested: qs3p-js v0.4 (will be published soon)
+The project is currently focused on the following areas:
 
-The examples of Heta-based QSP platforms with CI/CD capabilitiew are shared on gitlab: 
-- <https://github.com/insysbio/heta-case-mini> 
-- <https://github.com/insysbio/faah-inhibitor>
+- The development of the unified data structures storing model parts, datasets and typical model tasks. Transformation of models and tasks to different modeling formats.
+- [Heta language](/specifications/) which is a domain specific programming language for dynamic quantitative models used in pharmacology and systems biology.
+- The development and support of QSP/SB **Open Source** development by providing [tools](implemented?id=Heta-supporting-tools), [examples](implemented?id=Open-source-QSP-platforms) and study materials.
+- The formulation of best practices and elaboration of workflows for model development.
 
-The Heta language and Heta-based QSP framework were used in several “real world” projects for the development of middle-scale and large-scale models:
--	IRT database: <https://irt.insysbio.com> 
--	Alzheimer-consortium QSP platform
--	PK/RO simulator for anti-PD-1 mAbs (Shiny app): <https://insysbio.shinyapps.io/mAb-app/>
--	InSysBio internal projects with more than 1000 components each.
+## Stay informed
 
-## Maintainers
-Evgeny Metelkin
+- <https://hetalang.github.io/>
+- [subscribe](subscribe) for project updates
+- [chat](https://gitter.im/hetalang/community?source=orgpage) on Gitter
+- Meet us on QSP/SB conferences to say hello
 
-## License
-The Heta language specification is licensed under a <a rel="license" href="">[Creative Commons Attribution-NoDerivatives 4.0 International License](http://creativecommons.org/licenses/by-nd/4.0/).
+## Contributors
 
-[![Creative Commons License](https://i.creativecommons.org/l/by-nd/4.0/80x15.png)](http://creativecommons.org/licenses/by-nd/4.0/)
+- [Evgeny Metelkin](https://github.com/metelkin)
+- [Ivan Borisov](https://github.com/ivborissov)
 
-InSysBio, 2018-2020
+---
+
+(c) Heta project, 2019-2020
+
+Heta project is sponsored by [InSysBio LLC](http://insysbio.com)

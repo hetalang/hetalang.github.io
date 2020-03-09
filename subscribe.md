@@ -7,6 +7,9 @@
 	/* Add your own Mailchimp form style overrides in your site stylesheet or in this style block.
 	   We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
 </style>
+
+**Heta team** will use your mail only to send you the important updates and news on Heta no more than once a month.
+
 <div id="mc_embed_signup">
 <form action="https://insysbio.us13.list-manage.com/subscribe/post?u=c63b401a5550d4043c547a2cc&amp;id=2bb2aa2b2d" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
     <div id="mc_embed_signup_scroll">
@@ -18,5 +21,6 @@
     </div>
 </form>
 </div>
-
 <!--End mc_embed_signup-->
+
+*You will be free to unsubscribe the mailing list any time.*
