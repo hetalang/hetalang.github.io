@@ -4,7 +4,9 @@ Any contribution is appriciated. Here we summarize how your can help.
 
 ## Most critical
 
-
+- Improvement and critical review of documentation: home-page, Heta specifications, cases.
+- Development of presentations and study meterials.
+- Testing and reporting issues on Heta-compiler.
 
 ## Project feedback
 
