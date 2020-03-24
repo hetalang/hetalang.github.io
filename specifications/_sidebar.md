@@ -8,5 +8,4 @@
 - [Math expressions](/specifications/math.md)
 - [Compilation steps](/specifications/compilation.md)
 - [Cases](/specifications/cases.md)
-- [Versions](/specifications/versions.md)
 - [Change Log](/specifications/changelog.md)
