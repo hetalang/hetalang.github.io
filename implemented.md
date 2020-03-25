@@ -20,6 +20,7 @@ The Heta language and Heta-based QSP framework were used in several “real worl
 - Syntax highlighting for VSCode: [heta-highlight-vscode](https://github.com/insysbio/heta-highlight-vscode) [![Visual Studio Marketplace Version](https://img.shields.io/visual-studio-marketplace/v/insysbio.heta-highlight-vscode?label=VSMarket)](https://marketplace.visualstudio.com/items?itemName=insysbio.heta-highlight-vscode)
 - Syntax highlighting Atom editor: [heta-highlight-atom](https://github.com/insysbio/heta-highlight-atom) [![APM](https://img.shields.io/apm/v/language-heta)](https://atom.io/packages/language-heta)
 - JavaScript framework and command line tool supporting Heta modules: ~~[heta-compiler](https://github.com/insysbio/heta-compiler)~~ [![npm](https://img.shields.io/npm/v/heta-compiler)](https://www.npmjs.com/package/heta-compiler)
+- Parsing of Heta language code in JavaScript.: [heta-compiler](https://github.com/insysbio/heta-parser) [![npm](https://img.shields.io/npm/v/heta-parser)](https://www.npmjs.com/package/heta-parser)
 
 ## Web applications
 

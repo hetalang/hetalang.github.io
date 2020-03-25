@@ -1,5 +1,6 @@
 - [Intro](/specifications/)
 
+- [Cases](/specifications/cases.md)
 - [Syntax](/specifications/syntax.md)
 - [Classes](/specifications/classes.md)
 - [Actions](/specifications/actions.md)
@@ -7,5 +8,4 @@
 - [Include statement](/specifications/include.md)
 - [Math expressions](/specifications/math.md)
 - [Compilation steps](/specifications/compilation.md)
-- [Cases](/specifications/cases.md)
 - [Change Log](/specifications/changelog.md)
