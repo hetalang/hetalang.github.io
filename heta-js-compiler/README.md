@@ -1,2 +1,0 @@
-# Heta JS compiler
-

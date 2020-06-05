@@ -8,6 +8,8 @@ The examples of Heta-based QSP platforms with CI/CD capabilities are shared on G
     A demo example of QSP platfrom developed with Heta and qs3p-js.
 - [FAAH inhibitor model](https://github.com/insysbio/faah-inhibitor)
     A platform describing Fatty Acid Amide Hydrolase inhibition in human.
+- [COVID-19 QSP model](https://github.com/insysbio/covid19-qsp-model)
+    QSP model describing SARS-CoV-2 virus and host cell life cycles, immune response and therapeutic treatments
 
 ## QSP projects
 
