@@ -7,6 +7,6 @@
 - [Math expressions](/specifications/math.md)
 - [Units](/specifications/units.md)
 - [Cases](/specifications/cases.md)
-- [Include statement](/specifications/include.md)
+- [Modules](/specifications/modules.md)
 - [Compilation steps](/specifications/compilation.md)
 - [Change Log](/specifications/changelog.md)
