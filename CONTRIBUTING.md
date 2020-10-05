@@ -18,6 +18,5 @@ List of supporting tools can be found on [implemented](implemented) page.
 ## Most critical
 
 - Improvement and critical review of documentation: home-page, Heta specifications, cases.
-- Development of presentations and study meterials.
+- Presentations and study meterials.
 - Testing and reporting issues on Heta-compiler.
-- Logo, other graphics and design.
