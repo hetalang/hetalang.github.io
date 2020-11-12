@@ -1,3 +1,20 @@
+## Publications
+
+### ACOP11
+
+*American Conference on Pharmacometrics. November 9-13, 2020 <https://acop11.pathable.co/>*
+
+**THU-023. "Heta compiler" is a framework for the development and management of Quantitative Systems Pharmacology modeling platforms**
+
+Evgeny Metelkin, InSysBio LLC, Moscow
+
+*PDF version*
+
+[DOWNLOAD](THU-023_upd.pdf)
+
+*YouTube version*
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/LdNh7Pj9RTM" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## Heta tutorial
 
@@ -19,6 +36,12 @@ Short scrincast videos 10-20 minutes explaining Heta features with examples.
 
 ### Lesson 2. Syntax
 
-*Data types. Base syntax. Heta statements. #include. Plain vs shortened form. Properties. "One compartment PK" model.*
+*Data types. Heta statements. #insert action. Properties. "One compartment PK" model. Plain vs shortened form.*
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/mgOmov_0UKo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+### Lesson 3. Components. Assignments
+
+*"ODE" vs "Process-description". Const. Record. Process. "Tanks and pipes" model.*
 
 Not published yet.

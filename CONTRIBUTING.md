@@ -17,6 +17,6 @@ List of supporting tools can be found on [implemented](implemented) page.
 
 ## Most critical
 
+- Implementation in OpenSource QSP projects.
 - Improvement and critical review of documentation: home-page, Heta specifications, cases.
-- Presentations and study meterials.
 - Testing and reporting issues on Heta-compiler.
