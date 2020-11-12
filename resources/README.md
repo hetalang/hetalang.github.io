@@ -8,11 +8,11 @@
 
 Evgeny Metelkin, InSysBio LLC, Moscow
 
-*PDF version*
+**PDF version**
 
-[DOWNLOAD](THU-023_upd.pdf)
+[DOWNLOAD](/resources/THU-023_upd.pdf)
 
-*YouTube version*
+**YouTube version**
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/LdNh7Pj9RTM" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
