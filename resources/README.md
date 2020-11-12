@@ -10,7 +10,7 @@ Evgeny Metelkin, InSysBio LLC, Moscow
 
 **PDF version**
 
-[DOWNLOAD](//resources/THU-023_upd.pdf)
+[DOWNLOAD](https://hetalang.github.io/resources/THU-023_upd.pdf)
 
 **YouTube version**
 
