@@ -32,3 +32,5 @@ Heta syntax and Heta infrastructure were utilized for the development of web-bas
     A Quantitative Systems Pharmacology (QSP) platform of immune system and tool for development of QSP and mechanistic models related to immune response.
 - [mAb-app](https://insysbio.shinyapps.io/mAb-app/)
     PK/RO simulator for anti-PD-1 monoclonal Antibodies (Shiny app)
+- [erythropoiesis-app](http://insysbio.shinyapps.io/erythropoiesis-app/)
+    PK/PD simulator for Erythropoiesis-Stimulating Agents (Shiny app)
