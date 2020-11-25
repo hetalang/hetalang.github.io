@@ -44,4 +44,10 @@ Short scrincast videos 10-20 minutes explaining Heta features with examples.
 
 *"ODE" vs "Process-description". Const. Record. Process. "Tanks and pipes" model.*
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/wb7K8bpCzkg" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+### Lesson 4. Compartment. Species. Reaction
+
+*Compartment. Species. Reaction*
+
 Not published yet.
