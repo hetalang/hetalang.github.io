@@ -14,6 +14,7 @@ a.app-name-link img {
 
 /* fix youtube iframes */
 iframe {
-    min-width: auto;
-    width: auto;
+    min-width: auto!important;
+    width: 640px!important;
+    max-width: 100%;
 }
