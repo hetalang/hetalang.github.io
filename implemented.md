@@ -28,6 +28,8 @@ The Heta language and Heta-based QSP framework were used in several “real worl
 
 Heta syntax and Heta infrastructure were utilized for the development of web-based tools.
 
+- [SbmlViewer](https://sv.insysbio.com/)
+    A tool for fast and easy reading of biological models written in SBML format. It allows you to open SBML in any browser.
 - [Immune Response Template](https://irt.insysbio.com)
     A Quantitative Systems Pharmacology (QSP) platform of immune system and tool for development of QSP and mechanistic models related to immune response.
 - [mAb-app](https://insysbio.shinyapps.io/mAb-app/)

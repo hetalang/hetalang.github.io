@@ -54,4 +54,6 @@ Short scrincast videos 10-20 minutes explaining Heta features with examples.
 
 ### Lesson 5. Updating components
 
-Not published yet.
+*Insert. Update. Delete. Remarks. Restyling of multi-compartment model.*
+
+It will be published on 2021-02-02.
