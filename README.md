@@ -28,6 +28,6 @@ The project is currently focused on the following areas:
 
 ---
 
-(c) Heta project, 2019-2020
+(c) Heta project, 2019-2021
 
 Heta project is sponsored by [InSysBio LLC](http://insysbio.com)
