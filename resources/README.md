@@ -56,4 +56,8 @@ Short scrincast videos 10-20 minutes explaining Heta features with examples.
 
 *Insert. Update. Delete. Remarks. Restyling of multi-compartment model.*
 
-It will be published on 2021-02-09.
+<iframe width="560" height="315" src="https://www.youtube.com/embed/pMOkwwP6kdY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+### Lesson 6. Events
+
+*Will be published 2021-02-16*
