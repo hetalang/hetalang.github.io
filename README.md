@@ -10,13 +10,13 @@ This is an open project which means the result will be available for everyone an
 The project is currently focused on the following areas:
 
 - The development of the unified data structures storing model parts, datasets and typical model tasks. Transformation of models and tasks to different modeling formats.
-- [Heta language](/specifications/) which is a domain specific programming language for dynamic quantitative models used in pharmacology and systems biology.
+- [Heta language](/specifications/) which is a domain specific programming language (DSL) for dynamic quantitative models used in pharmacology and systems biology.
 - The development and support of QSP/SB **Open Source** development by providing [tools](implemented?id=Heta-supporting-tools), [examples](implemented?id=Open-source-QSP-platforms) and study materials.
 - The formulation of best practices and elaboration of workflows for model development.
 
 ## Stay informed
 
-- <https://hetalang.github.io/>
+- <https://hetalang.github.io/> (this site)
 - [subscribe](subscribe) for project updates
 - [chat](https://gitter.im/hetalang/community?source=orgpage) on Gitter
 - Meet us on QSP/SB conferences to say hello

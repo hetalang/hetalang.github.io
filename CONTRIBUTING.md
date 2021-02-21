@@ -13,7 +13,7 @@ Any contribution is appriciated. Here we summarize how your can help.
 List of supporting tools can be found on [implemented](implemented) page.
 
 - Use **Issues** and **Pull requests** in the particular repository.
-- Let us know if you are developing the tool based on Heta-based packages.
+- Let us know if the Heta project helps you to develop model or tool.
 
 ## Most critical
 

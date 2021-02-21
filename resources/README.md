@@ -50,7 +50,7 @@ Short scrincast videos 10-20 minutes explaining Heta features with examples.
 
 *Biological meaning. Properties. Multi-compartment model. ODEs for Species.*
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/wb7K8bpCzkg" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/buCIJp9AK24" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ### Lesson 5. Updating components
 
