@@ -1,5 +1,5 @@
 * [About](/)
-* [Recommended software](software.md)
 * [Contributing](CONTRIBUTING.md)
 * [Implemented](implemented.md)
 * [Subscribe](/subscribe)
+* [Recommended software](software.md)
