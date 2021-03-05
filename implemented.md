@@ -5,7 +5,7 @@
 The examples of Heta-based QSP platforms with CI/CD capabilities are shared on GitHub.
 
 - [heta-case-mini](https://github.com/insysbio/heta-case-mini/)
-    A demo example of QSP platfrom developed in the framework of Heta.
+    A demo example of QSP platform developed in the framework of Heta.
 - [FAAH inhibitor model](https://github.com/insysbio/faah-inhibitor)
     A platform describing Fatty Acid Amide Hydrolase inhibition in human.
 - [COVID-19 QSP model](https://github.com/insysbio/covid19-qsp-model)
