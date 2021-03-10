@@ -4,3 +4,4 @@
 - [CLI references](/heta-compiler/cli-references.md)
 - [API references](/heta-compiler/api-references.md)
 - [Change Log](/heta-compiler/CHANGELOG.md)
+- [Migrate to v0.6](/heta-compiler/migrate-to-v0.6.md)
