@@ -23,6 +23,7 @@ The Heta language and Heta-based QSP framework were used in several “real worl
 - Syntax highlighting Atom editor: [heta-highlight-atom](https://github.com/insysbio/heta-highlight-atom) [![APM](https://img.shields.io/apm/v/language-heta)](https://atom.io/packages/language-heta)
 - Parsing of Heta language code in JavaScript: [heta-parser](https://github.com/insysbio/heta-parser) [![npm](https://img.shields.io/npm/v/heta-parser)](https://www.npmjs.com/package/heta-parser)
 - JavaScript framework and command line tool supporting Heta modules: [heta-compiler](https://github.com/hetalang/heta-compiler) [![npm](https://img.shields.io/npm/v/heta-compiler)](https://www.npmjs.com/package/heta-compiler)
+- Julia package for simulation of large scale QSP models supporting Heta syntax: [HetaSimulator.jl](https://github.com/hetalang/HetaSimulator.jl) [![GitHub release](https://img.shields.io/github/release/hetalang/HetaSimulator.jl.svg)](https://github.com/hetalang/HetaSimulator.jl/releases/)
 
 ## Web applications
 
