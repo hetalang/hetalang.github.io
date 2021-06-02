@@ -1,4 +1,4 @@
 - [README](/heta-simulator/)
 
-- [API references](/heta-simulator/api-references/)
+- [Documentation](https://hetalang.github.io/HetaSimulator.jl/dev/)
 - [Change Log](/heta-simulator/CHANGELOG.md)
