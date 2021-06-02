@@ -1,5 +1,4 @@
 - [README](/heta-simulator/)
 
-- [Tutorial](/heta-simulator/tutorial.md)
-- [API references](/heta-simulator/api-references.md)
+- [API references](/heta-simulator/api-references/)
 - [Change Log](/heta-simulator/CHANGELOG.md)
