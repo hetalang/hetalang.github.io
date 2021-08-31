@@ -1,6 +1,5 @@
 
 [![Gitter](https://badges.gitter.im/hetalang/community.svg)](https://gitter.im/hetalang/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
-[![Subscription](https://img.shields.io/badge/mail-subscription-blueviolet)](/subscribe)
 [![GitHub issues](https://img.shields.io/github/issues/hetalang/hetalang.github.io.svg)](https://GitHub.com/hetalang/hetalang.github.io/issues/)
 
 **Heta project** is an initiative for the development of infrastructure for modeling in pharmacology and systems biology. The project also summarizes our experience in modeling of dynamical systems: systems biology, PK/PD, QSP as well as best practices of software development.
