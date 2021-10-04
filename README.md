@@ -13,10 +13,15 @@ The project is currently focused on the following areas:
 - The development and support of QSP/SB **Open Source** development by providing [tools](implemented?id=Heta-supporting-tools), [examples](implemented?id=Open-source-QSP-platforms) and study materials.
 - The formulation of best practices and elaboration of workflows for model development.
 
+## How to start
+
+- Study [Heta tutorial]https://hetalang.github.io/#/resources/?id=heta-tutorial).
+- See [Heta code](https://hetalang.github.io/#/specifications/cases) examples.
+- Read more about [Specifications](https://hetalang.github.io/#/specifications/) and [Heta compiler](https://hetalang.github.io/#/heta-compiler/).
+
 ## Stay informed
 
 - <https://hetalang.github.io/> (this site)
-- [subscribe](subscribe) for project updates
 - [chat](https://gitter.im/hetalang/community?source=orgpage) on Gitter
 - Meet us on QSP/SB conferences to say hello
 
