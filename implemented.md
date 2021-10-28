@@ -12,6 +12,8 @@ The examples of Heta-based QSP platforms with CI/CD capabilities are shared on G
     PBPK Modeling For Therapeutic Nanoparticles Loaded With Drug.
 - [COVID-19 QSP model](https://github.com/insysbio/covid19-qsp-model)
     QSP model describing SARS-CoV-2 virus and host cell life cycles, immune response and therapeutic treatments
+- [Alcohol PK](https://github.com/insysbio/alco)
+    Simple model of alcohol PK build on published data
 
 ## QSP projects
 
@@ -37,5 +39,5 @@ Heta syntax and Heta infrastructure were utilized for the development of web-bas
     A Quantitative Systems Pharmacology (QSP) platform of immune system and tool for development of QSP and mechanistic models related to immune response.
 - [mAb-app](http://shiny.insysbio.com/mAb-app/)
     PK/RO simulator for anti-PD-1 monoclonal Antibodies (Shiny app)
-- [erythropoiesis-app](http://shiny.insysbio.com/erythropoiesis-app/)
+- [ery](http://shiny.insysbio.com/ery/)
     PK/PD simulator for Erythropoiesis-Stimulating Agents (Shiny app)
