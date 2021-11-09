@@ -1,5 +1,21 @@
 ## Publications
 
+### ACOP12
+
+*American Conference on Pharmacometrics. November 9-13, 2020 <https://acop12.pathable.co/>*
+
+**PIA-010. Heta language: Modularity and Reusability in QSP modeling platforms**
+
+Evgeny Metelkin, InSysBio LLC, Moscow
+
+**PDF version**
+
+[DOWNLOAD](https://hetalang.github.io/resources/ACoP12_PIA_Poster010_v1.pdf)
+
+**YouTube version**
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/boJAMjh7EQY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 ### ACOP11
 
 *American Conference on Pharmacometrics. November 9-13, 2020 <https://acop11.pathable.co/>*
