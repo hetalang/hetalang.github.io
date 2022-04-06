@@ -6,6 +6,8 @@ The examples of Heta-based QSP platforms with CI/CD capabilities are shared on G
 
 - [heta-case-mini](https://github.com/insysbio/heta-case-mini/)
     A demo example of QSP platform developed in the framework of Heta.
+- [insulin-signaling-t2d](https://github.com/insysbio/insulin-signaling-t2d)
+    Dynamic notebooks for QSP usage case: Insulin Signaling in Type 2 Diabetes
 - [FAAH inhibitor model](https://github.com/insysbio/faah-inhibitor)
     A platform describing Fatty Acid Amide Hydrolase inhibition in human.
 - [Drug Loaded Nanoparticles](https://github.com/insysbio/drug-loaded-nanoparticles)
@@ -20,16 +22,16 @@ The examples of Heta-based QSP platforms with CI/CD capabilities are shared on G
 ## QSP projects
 
 The Heta language and Heta-based QSP framework were used in several “real world” projects for the development of middle-scale and large-scale models:
--  [Alzheimer-consortium QSP platform](http://insysbio.com/en/news/20180910)
--  A set of [InSysBio](http://insysbio.com) internal projects with more than 1000 components each.
+-  [Alzheimer-consortium QSP platform](https://insysbio.com/en/news/20180910)
+-  A set of [InSysBio](https://insysbio.com) internal projects with more than 1000 components each.
 
 ## Heta supporting tools
 
+- Julia package for simulation of large scale QSP models supporting Heta syntax: [HetaSimulator.jl](https://github.com/hetalang/HetaSimulator.jl) [![version](https://juliahub.com/docs/HetaSimulator/version.svg)](https://juliahub.com/ui/Packages/HetaSimulator/IIE0h)
+- JavaScript framework and command line tool supporting Heta modules: [heta-compiler](https://github.com/hetalang/heta-compiler) [![npm](https://img.shields.io/npm/v/heta-compiler)](https://www.npmjs.com/package/heta-compiler)
 - Syntax highlighting for VSCode: [heta-highlight-vscode](https://github.com/insysbio/heta-highlight-vscode) [![Visual Studio Marketplace Version](https://img.shields.io/visual-studio-marketplace/v/insysbio.heta-highlight-vscode?label=VSMarket)](https://marketplace.visualstudio.com/items?itemName=insysbio.heta-highlight-vscode)
 - Syntax highlighting Atom editor: [heta-highlight-atom](https://github.com/insysbio/heta-highlight-atom) [![APM](https://img.shields.io/apm/v/language-heta)](https://atom.io/packages/language-heta)
 - Parsing of Heta language code in JavaScript: [heta-parser](https://github.com/hetalang/heta-parser) [![npm](https://img.shields.io/npm/v/heta-parser)](https://www.npmjs.com/package/heta-parser)
-- JavaScript framework and command line tool supporting Heta modules: [heta-compiler](https://github.com/hetalang/heta-compiler) [![npm](https://img.shields.io/npm/v/heta-compiler)](https://www.npmjs.com/package/heta-compiler)
-- Julia package for simulation of large scale QSP models supporting Heta syntax: [HetaSimulator.jl](https://github.com/hetalang/HetaSimulator.jl) [![GitHub release](https://img.shields.io/github/release/hetalang/HetaSimulator.jl.svg)](https://github.com/hetalang/HetaSimulator.jl/releases/)
 
 ## Web applications
 
@@ -43,3 +45,5 @@ Heta syntax and Heta infrastructure were utilized for the development of web-bas
     PK/RO simulator for anti-PD-1 monoclonal Antibodies (Shiny app)
 - [ery](https://shiny.insysbio.com/ery/)
     PK/PD simulator for Erythropoiesis-Stimulating Agents (Shiny app)
+- [sbml-mrgsolve-case](https://shiny.insysbio.com/sbml-mrgsolve-case/)
+    An RMarkdown example demonstrating format conversion from SBML into mrgsolve
