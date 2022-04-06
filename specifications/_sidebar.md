@@ -6,6 +6,7 @@
 - [Namespaces](/specifications/namespaces.md)
 - [Math expressions](/specifications/math.md)
 - [Units](/specifications/units.md)
+- [Tabular format](/specifications/tabular-format.md)
 - [Cases](/specifications/cases.md)
 - [Modules](/specifications/modules.md)
 - [Compilation steps](/specifications/compilation.md)
