@@ -16,7 +16,7 @@ The project is currently focused on the following areas:
 ## How to start
 
 - Study [Heta tutorial](https://hetalang.github.io/#/resources/?id=heta-tutorial).
-- See [Heta code](https://hetalang.github.io/#/specifications/cases) examples and the [cheatsheet](heta-cheatsheet.pdf).
+- See [Heta code](https://hetalang.github.io/#/specifications/cases) examples and the [cheatsheet](https://hetalang.github.io/heta-cheatsheet.pdf).
 - Read more about [Specifications](https://hetalang.github.io/#/specifications/), [Heta compiler](https://hetalang.github.io/#/heta-compiler/) and [HetaSimulator.jl](https://hetalang.github.io/#/heta-simulator/).
 
 ## Stay informed
