@@ -21,9 +21,7 @@ The examples of Heta-based QSP platforms with CI/CD capabilities are shared on G
 
 ## QSP projects
 
-The Heta language and Heta-based QSP framework were used in several “real world” projects for the development of middle-scale and large-scale models:
--  [Alzheimer-consortium QSP platform](https://insysbio.com/en/news/20180910)
--  A set of [InSysBio](https://insysbio.com) internal projects with more than 1000 components each.
+The Heta language and Heta-based QSP framework were used in several “real world” projects for the development of middle-scale and large-scale models.
 
 ## Heta supporting tools
 
@@ -37,6 +35,8 @@ The Heta language and Heta-based QSP framework were used in several “real worl
 
 Heta syntax and Heta infrastructure were utilized for the development of web-based tools.
 
+- [Heta compiler online](https://heta-online.insysbio.com/)
+    Web based compiler and editor of Heta code.
 - [SbmlViewer](https://sv.insysbio.com/)
     A tool for fast and easy reading of biological models written in SBML format. It allows you to open SBML in any browser.
 - [Immune Response Template](https://irt.insysbio.com)

@@ -16,6 +16,7 @@ The project is currently focused on the following areas:
 ## How to start
 
 - Study [Heta tutorial](https://hetalang.github.io/#/resources/?id=heta-tutorial).
+- Try [Heta compiler online](https://heta-online.insysbio.com/).
 - See [Heta code](https://hetalang.github.io/#/specifications/cases) examples and the [cheatsheet](https://hetalang.github.io/heta-cheatsheet.pdf).
 - Read more about [Specifications](https://hetalang.github.io/#/specifications/), [Heta compiler](https://hetalang.github.io/#/heta-compiler/) and [HetaSimulator.jl](https://hetalang.github.io/#/heta-simulator/).
 
@@ -32,6 +33,6 @@ The project is currently focused on the following areas:
 
 ---
 
-(c) Heta project, 2019-2022
+(c) Heta project, 2019-2023
 
 Heta project is sponsored by [InSysBio CY Ltd](https://insysbio.com)
