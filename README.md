@@ -31,8 +31,8 @@ The project currently focuses on the following areas:
 
 ## See also
 
+- Set of Heta models for testing: [Simple Heta models](https://github.com/hetalang/simple-heta-models)
 - Test suite for Heta language vs SBML conversion: [SBML Heta cases](https://github.com/insysbio/sbml-heta-cases)
-
 
 ## Contributors
 
