@@ -1,4 +1,5 @@
 * [About](/)
 * [Contributing](CONTRIBUTING.md)
+* [Version compatibility](compatibility.md)
 * [Implemented](implemented.md)
 * [Recommended software](software.md)
