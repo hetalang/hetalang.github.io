@@ -23,4 +23,4 @@ Asterisk * displays the latest version.
 
 __Example:__
 
-    If you use HetaSimulator.jl 0.7.1, it uses internally the heta-compiler 0.9.0, and follows the Heta language specifications 0.5.0. 
+If you use HetaSimulator.jl v0.7.1, it uses internally the heta-compiler v0.9.0, and follows the Heta language specifications v0.5.0.
