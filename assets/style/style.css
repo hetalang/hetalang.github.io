@@ -18,3 +18,11 @@ iframe {
     width: 640px!important;
     max-width: 100%;
 }
+
+body {
+    font-size: 18px;
+}
+
+.sidebar ul li a {
+    font-size: 16px;
+}
