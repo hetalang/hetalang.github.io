@@ -10,7 +10,7 @@ Any contribution is appreciated. Here we summarize how your can help.
 
 ## Tools and applications
 
-List of supporting tools can be found on [implemented](implemented) page.
+List of supporting tools can be found on [ecosystem](ecosystem) page.
 
 - Use **Issues** and **Pull requests** in the particular repository.
 - Let us know if the Heta project helps you to develop model or tool.

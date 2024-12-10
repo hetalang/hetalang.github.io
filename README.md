@@ -2,6 +2,11 @@
 
 *An open-source initiative developing advanced tools and best practices for dynamic system modeling in pharmacology, PK/PD, QSP, and systems biology.*
 
+- **About**
+- [Ecosystem](ecosystem.md)
+- [Version compatibility](compatibility.md)
+- [Contributing](CONTRIBUTING.md)
+
 ---
 
 ## Empowering Modelers in Pharmacology and Systems Biology
@@ -14,7 +19,7 @@ The **Heta Project** is an open-source initiative dedicated to transforming the 
 
 - **Unified Data Structures:** Store model components, datasets, and tasks in a consistent format.
 - **Domain-Specific Language:** Utilize the [Heta language](/specifications/), a DSL tailored for dynamic quantitative models.
-- **Open-Source Tools and Resources:** Access [tools](implemented?id=Heta-supporting-tools), [examples](implemented?id=Open-source-QSP-platforms), and [study materials](resources/).
+- **Open-Source Tools and Resources:** Access [tools](ecosystem?id=Heta-supporting-tools), [examples](ecosystem?id=Open-source-QSP-platforms), and [study materials](resources/).
 - **Best Practices and Workflows:** Follow established methodologies for efficient model development.
 
 ---

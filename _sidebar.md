@@ -1,5 +1,4 @@
 * [About](/)
-* [Contributing](CONTRIBUTING.md)
+* [Ecosystem](ecosystem.md)
 * [Version compatibility](compatibility.md)
-* [Implemented](implemented.md)
-* [Recommended software](software.md)
+* [Contributing](CONTRIBUTING.md)
