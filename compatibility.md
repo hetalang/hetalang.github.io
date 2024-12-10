@@ -4,7 +4,7 @@ This is a compatibility table for the Heta compiler, HetaSimulator.jl, and the H
 
 Asterisk * displays the latest version.
 
-| heta-compiler | Specifications | HetaSimulator.jl |
+| heta-compiler | Heta language | HetaSimulator.jl |
 |---------------|----------------|------------------|
 | ***0.9.1**    | ***0.5.0** | ***0.7.2**       |
 | 0.9.0         | 0.5.0      | 0.7.1, 0.7.0     |

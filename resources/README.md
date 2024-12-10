@@ -40,10 +40,6 @@ Short screencast videos 10-20 minutes explaining Heta features with examples.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/pMOkwwP6kdY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-### Lesson 6. Events. Switchers
-
-*Will be published soon*
-
 ## Publications
 
 ### JOSS
