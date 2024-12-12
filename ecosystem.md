@@ -8,6 +8,10 @@
 - Syntax highlighting for Sublime text: [heta-highlight-sublime](https://github.com/hetalang/heta-highlight-sublime) [![GitHub tag (with filter)](https://img.shields.io/github/v/tag/hetalang/heta-highlight-sublime)](https://packagecontrol.io/packages/heta)
 - Parsing of Heta language code in JavaScript: [heta-parser](https://github.com/hetalang/heta-parser) [![npm](https://img.shields.io/npm/v/heta-parser)](https://www.npmjs.com/package/heta-parser)
 
+![Heta compiler](./assets/img/fig2.png)
+![HetaSimulator](./assets/img/fig5.png)
+![HetaSimulator](./assets/img/fig1.png)
+
 ## Web applications
 
 Heta syntax and Heta infrastructure were utilized for the development of web-based tools.
@@ -26,6 +30,10 @@ Heta syntax and Heta infrastructure were utilized for the development of web-bas
     PK/PD simulator for Erythropoiesis-Stimulating Agents (Shiny app)
 - [sbml-mrgsolve-case](https://shiny.insysbio.com/sbml-mrgsolve-case/)
     An RMarkdown example demonstrating format conversion from SBML into mrgsolve
+
+![mab app](./assets/img/fig7.png)
+![Heta Compiler Online](./assets/img/fig4.png)
+![Heta API](./assets/img/fig6.png)
 
 ## Open source QSP platforms
 
@@ -46,6 +54,8 @@ The examples of Heta-based QSP platforms with CI/CD capabilities are shared on G
 - [ANT model](https://github.com/insysbio/ant-mito-model)
     Adenine Nucleotide Translocase model reproduces from published resources
 
+![Alco](./assets/img/fig8.png)
+
 ## QSP projects
 
 The Heta language and Heta-based QSP framework were used in several “real world” projects for the development of middle-scale and large-scale models.
@@ -57,6 +67,8 @@ To get started with Heta-based platforms, we recommend installing a minimal set 
 For a guided introduction, check out the Heta tutorial's [Lesson #1](https://youtu.be/aIpo9Yksyb8).
 
 ### Minimal Recommended Setup
+
+![VSCode](./assets/img/fig3.png)
 
 1. **VSCode**  
    - Download and Install: [https://code.visualstudio.com/](https://code.visualstudio.com/)  
@@ -74,6 +86,8 @@ For a guided introduction, check out the Heta tutorial's [Lesson #1](https://you
    - Provides Bash console and Git synchronization for version control.
 
 ### Alternative Configuration
+
+![Sublime Text](./assets/img/fig9.png)
 
 If you prefer, you can use **Sublime Text** instead of VSCode:  
 - Download and install: [https://www.sublimetext.com/download](https://www.sublimetext.com/download)  
