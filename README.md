@@ -79,6 +79,6 @@ We are an open project, and contributions are warmly welcomed! For more details 
 
 ---
 
-© Heta Project, 2019-2024
+© Heta Project, 2019-2025
 
 Heta Project is sponsored by [InSysBio CY Ltd](https://insysbio.com)
