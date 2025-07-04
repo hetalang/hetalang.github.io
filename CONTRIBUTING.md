@@ -1,6 +1,6 @@
 # Contributing
 
-Any contribution is appreciated. Here we summarize how your can help.
+Any contribution is appreciated. Here we summarize how you can help.
 
 ## Project feedback
 

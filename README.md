@@ -75,7 +75,7 @@ We are an open project, and contributions are warmly welcomed! For more details 
 
 ## Contact Us
 
-- **Email:** [dev@insysbio.com](mailto:contact@hetalang.org)
+- **Email:** [dev@insysbio.com](mailto:dev@insysbio.com)
 
 ---
 
