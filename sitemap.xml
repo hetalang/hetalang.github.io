@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <urlset 
     xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" 
     xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" 
@@ -15,12 +16,6 @@
     <url>
         <loc>https://hetalang.github.io/#/</loc>
         <lastmod>2025-06-24T15:42:33+03:00</lastmod>
-
-        <image:image>
-            <image:loc>https://hetalang.github.io/assets/img/logo.svg</image:loc>
-            <image:title>Heta project logo</image:title>
-            <image:caption>Heta language for Systems Pharmacology</image:caption>
-        </image:image>
     </url>
     <url>
         <loc>https://hetalang.github.io/#/ecosystem</loc>
@@ -263,4 +258,5 @@
         <loc>https://hetalang.github.io/resources/THU-023_upd.pdf</loc>
         <lastmod>2025-06-24T15:42:33+03:00</lastmod>
     </url>
+
 </urlset>
