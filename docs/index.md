@@ -30,7 +30,7 @@ features:
 - **About**
 - [Ecosystem](ecosystem.md)
 - [Version compatibility](compatibility.md)
-- [Contributing](CONTRIBUTING.md)
+- [Contributing](contributing.md)
 
 ---
 
@@ -60,7 +60,7 @@ The **Heta Project** is an open-source initiative dedicated to transforming the 
 3. Explore Code Examples and Resources
 
     - Check out various [Heta code examples](https://hetalang.github.io/#/specifications/cases).
-    - Download the handy [Heta Cheatsheet](https://hetalang.github.io/heta-cheatsheet.pdf) for quick reference.
+    - Download the handy [Heta Cheatsheet](https://hetalang.github.io/files/heta-cheatsheet.pdf) for quick reference.
 
 4. Learn About Our Tools
 
@@ -72,7 +72,7 @@ The **Heta Project** is an open-source initiative dedicated to transforming the 
 
 ## Join Our Community
 
-We are an open project, and contributions are warmly welcomed! For more details on how you can contribute, please visit the [Contributing](CONTRIBUTING.md) page.
+We are an open project, and contributions are warmly welcomed! For more details on how you can contribute, please visit the [Contributing](contributing) page.
 
 ### How You Can Contribute
 

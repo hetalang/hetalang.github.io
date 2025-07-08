@@ -2,12 +2,14 @@ import { defineConfig } from 'vitepress'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
+  ignoreDeadLinks: true,
+
   lang: 'en-US',
   title: "Heta project",
   description: "Home site for Heta project",
   // https://vitepress.dev/reference/default-theme-config
   themeConfig: {
-    logo: '/assets/img/logo.svg',
+    logo: '/img/logo.svg',
     // siteTitle: 'Hello World',
     footer: {
       message: 'Heta Project is sponsored by InSysBio CY Ltd',

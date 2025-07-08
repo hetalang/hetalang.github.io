@@ -1,4 +1,10 @@
+# user-specific
 /draft
-node_modules
-/docs/.vitepress/cache
 /.vscode
+
+# Node.js
+node_modules
+
+# vitepress
+/docs/.vitepress/cache
+/docs/.vitepress/dist
