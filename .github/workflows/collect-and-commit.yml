@@ -1,0 +1,38 @@
+name: Collect docs from different repos and commit to vite-press branch
+
+on:
+  push:
+    branches: [master, master-temp]
+  workflow_dispatch: {}
+
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout "vite-press" branch
+        uses: actions/checkout@v4
+        with:
+          repository: hetalang/hetalang.github.io
+          ref: vite-press
+          path: vite-press
+          fetch-depth: 0
+          #token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Checkout "master" branch of hetalang/heta-specifications
+        uses: actions/checkout@v4
+        with:
+          repository: hetalang/heta-specifications
+          ref: vite-press
+          path: heta-specifications
+
+      - name: Copy files to hetalang.github.io
+        run: |
+          echo "Copying files to hetalang.github.io..."
+          cp -r heta-specifications/docs/* hetalang.github.io/docs/
+
+      - name: Display all files
+        run: |
+          echo "Current directory:"
+          pwd
+          echo "Listing all files in hetalang.github.io:"
+          find hetalang.github.io -type f
