@@ -7,6 +7,12 @@ export default defineConfig({
   lang: 'en-US',
   title: "Heta project",
   description: "Home site for Heta project",
+  //https://vitepress.dev/reference/default-theme-last-updated
+  lastUpdated: true,
+  // https://vitepress.dev/guide/sitemap-generations
+  sitemap: {
+    hostname: 'https://hetalang.github.io',
+  },
   // https://vitepress.dev/reference/default-theme-config
   themeConfig: {
     logo: '/img/logo.svg',
@@ -16,6 +22,11 @@ export default defineConfig({
       copyright: '© Heta Project, 2019-2025'
     },
     externalLinkIcon: true,
+    // https://vitepress.dev/reference/default-theme-search
+    search: {
+      provider: 'local' 
+    },
+    
     nav: [
       { text: 'Home', link: '/' },
       { text: 'Language', link: '/specifications/' },
