@@ -20,10 +20,6 @@ jobs:
           path: vite-press
           fetch-depth: 0
 
-      - name: Wipe working tree, keep .git
-        run: |
-          find vite-press -mindepth 1 -maxdepth 1 ! -name '.git' -exec rm -rf {} +
-
       - name: Checkout "master" branch of hetalang/hetalang.github.io
         uses: actions/checkout@v4
         with:
@@ -43,12 +39,12 @@ jobs:
 
       - name: Copy files to "vite-press"
         run: |
-          echo "Copying files to docs"
-          mkdir -p vite-press/docs
-          cp -r hetalang.github.io/docs/* vite-press/docs/
+          echo "Copying all files"
+          rsync -av --delete --exclude='.git'  hetalang.github.io/  vite-press/
+
           echo "Copying files to docs/specifications"
           mkdir -p vite-press/docs/specifications
-          cp -r heta-specifications/docs/* vite-press/docs/specifications/
+          rsync -av --exclude='.git' heta-specifications/docs/ vite-press/docs/specifications/
 
       - name: Display all files
         run: |
