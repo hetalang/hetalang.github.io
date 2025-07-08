@@ -1,5 +1,0 @@
-* [About](/)
-* [Language](/specifications/)
-* [Heta compiler](/heta-compiler/)
-* [HetaSimulator.jl](/heta-simulator/)
-* [Resources](/resources/)

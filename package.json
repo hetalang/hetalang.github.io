@@ -1,0 +1,20 @@
+{
+  "name": "hetalang.github.io",
+  "version": "1.0.0",
+  "description": "Home site for Heta project",
+  "main": "index.js",
+  "devDependencies": {
+    "vitepress": "^1.6.3"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:preview": "vitepress preview docs"
+  },
+  "author": "Evgeny Metelkin",
+  "license": "ISC",
+  "engine": {
+    "node": ">=18.0.0"
+  }
+}

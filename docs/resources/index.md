@@ -56,7 +56,7 @@ Evgeny Metelkin, InSysBio LLC, Moscow
 
 **PDF version**
 
-[DOWNLOAD](https://hetalang.github.io/resources/ACoP12_PIA_Poster010_v1.pdf)
+[DOWNLOAD](/resources/ACoP12_PIA_Poster010_v1.pdf)
 
 **YouTube version**
 
@@ -70,7 +70,7 @@ Ivan Borisov, Evgeny Metelkin, InSysBio LLC, Moscow
 
 **PDF version**
 
-[DOWNLOAD](https://hetalang.github.io/resources/PAGE11-borisov.pdf)
+[DOWNLOAD](/resources/PAGE11-borisov.pdf)
 
 ### ACOP11
 
@@ -82,7 +82,7 @@ Evgeny Metelkin, InSysBio LLC, Moscow
 
 **PDF version**
 
-[DOWNLOAD](https://hetalang.github.io/resources/THU-023_upd.pdf)
+[DOWNLOAD](/resources/THU-023_upd.pdf)
 
 **YouTube version**
 
