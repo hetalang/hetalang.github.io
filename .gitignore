@@ -1,5 +1,10 @@
+# user-specific
 /draft
-/drafts
+/.vscode
+
+# Node.js
 node_modules
-package.json
-package-lock.json
+
+# vitepress
+/docs/.vitepress/cache
+/docs/.vitepress/dist
