@@ -73,6 +73,7 @@ jobs:
 
       - name: Install dependencies and build
         run: |
+          cd vite-press
           npm ci
           npm run docs:build
 
