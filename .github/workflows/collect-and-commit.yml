@@ -40,7 +40,7 @@ jobs:
       - name: Copy files to "vite-press"
         run: |
           echo "Copying all files"
-          rsync -av --delete --exclude='.git'  hetalang.github.io/  vite-press/
+          rsync -av --delete --exclude='.git' --exclude '.github' hetalang.github.io/  vite-press/
 
           echo "Copying files to docs/specifications"
           mkdir -p vite-press/docs/specifications
