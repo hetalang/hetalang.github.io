@@ -1,8 +1,11 @@
-name: Collect docs from different repos and commit to vite-press branch
+name: Collect docs from different repos and commit to "vite-press" branch
+
+permissions:
+  contents: write
 
 on:
   push:
-    branches: [master, master-temp]
+    branches: [master]
   workflow_dispatch: {}
 
 jobs:
@@ -16,7 +19,13 @@ jobs:
           ref: vite-press
           path: vite-press
           fetch-depth: 0
-          #token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Checkout "master" branch of hetalang/hetalang.github.io
+        uses: actions/checkout@v4
+        with:
+          repository: hetalang/hetalang.github.io
+          ref: master
+          path: hetalang.github.io
 
       - name: Checkout "master" branch of hetalang/heta-specifications
         uses: actions/checkout@v4
@@ -24,15 +33,32 @@ jobs:
           repository: hetalang/heta-specifications
           ref: vite-press
           path: heta-specifications
+          sparse-checkout: |
+            docs
+          sparse-checkout-cone-mode: false
 
-      - name: Copy files to hetalang.github.io
+      - name: Copy files to "vite-press"
         run: |
-          echo "Copying files to hetalang.github.io..."
-          cp -r heta-specifications/docs/* hetalang.github.io/docs/
+          echo "Copying files to specifications"
+          mkdir -p vite-press/docs/specifications
+          cp -r heta-specifications/docs/* vite-press/docs/specifications/
 
       - name: Display all files
         run: |
           echo "Current directory:"
           pwd
           echo "Listing all files in hetalang.github.io:"
-          find hetalang.github.io -type f
+          find vite-press -type f
+
+      - name: Commit and push
+        run: |
+          cd vite-press
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "No changes – nothing to commit."
+            exit 0
+          fi
+          git commit -m "sync from all repos @ ${{ github.sha }}"
+          git push origin HEAD:vite-press
