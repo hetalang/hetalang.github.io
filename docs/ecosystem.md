@@ -79,7 +79,7 @@ For a guided introduction, check out the Heta tutorial's [Lesson #1](https://you
 
 3. **HetaSimulator**
     - Install Julia: [https://julialang.org/downloads/](https://julialang.org/downloads/)
-    - Install the package: [https://hetalang.github.io/#/HetaSimulator.jl/](https://hetalang.github.io/#/HetaSimulator.jl/)
+    - Install the package: [https://hetalang.github.io/HetaSimulator.jl](https://hetalang.github.io/HetaSimulator.jl/stable/)
 
 4. **Git** *(optional)*  
    - Download: [https://git-scm.com/](https://git-scm.com/)  
