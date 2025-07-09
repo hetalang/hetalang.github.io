@@ -31,7 +31,7 @@ export default defineConfig({
       { text: 'Home', link: '/' },
       { text: 'Language', link: '/specifications/' },
       { text: 'Heta compiler', link: '/heta-compiler/' },
-      { text: 'HetaSimulator.js', link: '/heta-simulator/' },
+      { text: 'HetaSimulator.js', link: 'https://hetalang.github.io/HetaSimulator.jl/stable/' },
       { text: 'Resources', link: '/resources/' }
     ],
     
@@ -79,6 +79,7 @@ export default defineConfig({
           { text: 'Migrate to v0.9', link: '/heta-compiler/migrate-to-v0.9' }
         ]
       }],
+      /*
       '/heta-simulator/': [{
         text: 'HetaSimulator.js',
         items: [
@@ -87,6 +88,7 @@ export default defineConfig({
           { text: 'Change Log', link: '/heta-simulator/CHANGELOG' }
         ]
       }],
+      */
       '/resources/': [{
         text: 'Resources',
         items: [

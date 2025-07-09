@@ -50,7 +50,7 @@ The **Heta Project** is an open-source initiative dedicated to transforming the 
 ---
 ## Get Started with Heta
 
-1. Dive into the [Heta Tutorial](https://hetalang.github.io/#/resources/?id=heta-tutorial)
+1. Dive into the [Heta Tutorial](/resources/?id=heta-tutorial)
     Begin your journey with our step-by-step tutorial designed for both beginners and experienced modelers.
 
 2. Try the [Heta Compiler Online](https://heta-online.insysbio.com/)
@@ -59,14 +59,14 @@ The **Heta Project** is an open-source initiative dedicated to transforming the 
 
 3. Explore Code Examples and Resources
 
-    - Check out various [Heta code examples](https://hetalang.github.io/#/specifications/cases).
-    - Download the handy [Heta Cheatsheet](https://hetalang.github.io/files/heta-cheatsheet.pdf) for quick reference.
+    - Check out various [Heta code examples](/specifications/cases/).
+    - Download the handy [Heta Cheatsheet](/files/heta-cheatsheet.pdf) for quick reference.
 
 4. Learn About Our Tools
 
-    - Understand the [Heta Language](https://hetalang.github.io/#/specifications/).
-    - Discover how to use the [Heta Compiler](https://hetalang.github.io/#/heta-compiler/).
-    - Explore [HetaSimulator.jl](https://hetalang.github.io/#/heta-simulator/) for simulation tasks.
+    - Understand the [Heta Language](/specifications/).
+    - Discover how to use the [Heta Compiler](/heta-compiler/).
+    - Explore [HetaSimulator.jl](https://hetalang.github.io/HetaSimulator/) for simulation tasks.
 
 ---
 
