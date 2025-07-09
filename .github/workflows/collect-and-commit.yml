@@ -37,6 +37,16 @@ jobs:
             docs
           sparse-checkout-cone-mode: false
 
+      - name: Checkout "master" branch of hetalang/heta-compiler
+        uses: actions/checkout@v4
+        with:
+          repository: hetalang/heta-compiler
+          ref: master
+          path: heta-compiler
+          sparse-checkout: |
+            docs
+          sparse-checkout-cone-mode: false
+
       - name: Copy files to "vite-press"
         run: |
           echo "Copying all files"
@@ -45,6 +55,10 @@ jobs:
           echo "Copying files to docs/specifications"
           mkdir -p vite-press/docs/specifications
           rsync -av --exclude='.git' heta-specifications/docs/ vite-press/docs/specifications/
+
+          echo "Copying files to docs/heta-compiler"
+          mkdir -p vite-press/docs/heta-compiler
+          rsync -av --exclude='.git' heta-compiler/docs/ vite-press/docs/heta-compiler/
 
       - name: Display all files
         run: |
