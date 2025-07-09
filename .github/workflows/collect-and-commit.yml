@@ -91,8 +91,30 @@ jobs:
           npm ci
           npm run docs:build
 
-      - name: Upload site output as artifact
-        uses: actions/upload-artifact@v4
+#      - name: Upload site output as artifact
+#        uses: actions/upload-artifact@v4
+#        with:
+#          name: vitepress-dist
+#          path: vite-press/docs/.vitepress/dist
+
+      - name: Upload static files as artifact
+        id: deployment
+        uses: actions/upload-pages-artifact@v3
         with:
-          name: vitepress-dist
-          path: vite-press/docs/.vitepress/dist
+          path: vite-press/docs/.vitepress/dist/
+
+  deploy:
+    needs: job1
+
+    permissions:
+      pages: write      # to deploy to Pages
+      id-token: write   # to verify the deployment originates from an appropriate source
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v4
