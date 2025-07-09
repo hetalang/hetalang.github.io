@@ -59,7 +59,7 @@ The **Heta Project** is an open-source initiative dedicated to transforming the 
 
 3. Explore Code Examples and Resources
 
-    - Check out various [Heta code examples](/specifications/cases/).
+    - Check out various [Heta code examples](/specifications/cases).
     - Download the handy [Heta Cheatsheet](/files/heta-cheatsheet.pdf) for quick reference.
 
 4. Learn About Our Tools
