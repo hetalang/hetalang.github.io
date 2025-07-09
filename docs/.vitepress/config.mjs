@@ -30,7 +30,7 @@ export default defineConfig({
     nav: [
       { text: 'Home', link: '/' },
       { text: 'Language', link: '/specifications/' },
-      { text: 'Heta compiler', link: '/heta-compiler/' },
+      { text: 'Heta compiler', link: '/hetacompiler/' },
       { text: 'HetaSimulator.js', link: 'https://hetalang.github.io/HetaSimulator.jl/stable/' },
       { text: 'Resources', link: '/resources/' }
     ],
@@ -63,18 +63,18 @@ export default defineConfig({
           { text: 'Change Log', link: 'https://github.com/hetalang/heta-specifications/blob/master/changelog.md' },
         ]
       }],
-      '/heta-compiler/': [{
+      '/hetacompiler/': [{
         text: 'Heta compiler',
         items: [
-          { text: 'Intro', link: '/heta-compiler/' },
-          { text: 'Export formats', link: '/heta-compiler/export-formats' },
-          { text: 'CLI references', link: '/heta-compiler/cli-references' },
-          { text: 'qsp-functions.heta', link: '/heta-compiler/qsp-functions.heta' },
-          { text: 'qsp-units.heta', link: '/heta-compiler/qsp-units.heta' },
-          { text: 'Migrate to v0.6', link: '/heta-compiler/migrate-to-v0.6' },
-          { text: 'Migrate to v0.7', link: '/heta-compiler/migrate-to-v0.7' },
-          { text: 'Migrate to v0.8', link: '/heta-compiler/migrate-to-v0.8' },
-          { text: 'Migrate to v0.9', link: '/heta-compiler/migrate-to-v0.9' },
+          { text: 'Intro', link: '/hetacompiler/' },
+          { text: 'Export formats', link: '/hetacompiler/export-formats' },
+          { text: 'CLI references', link: '/hetacompiler/cli-references' },
+          { text: 'qsp-functions.heta', link: '/hetacompiler/qsp-functions.heta' },
+          { text: 'qsp-units.heta', link: '/hetacompiler/qsp-units.heta' },
+          { text: 'Migrate to v0.6', link: '/hetacompiler/migrate-to-v0.6' },
+          { text: 'Migrate to v0.7', link: '/hetacompiler/migrate-to-v0.7' },
+          { text: 'Migrate to v0.8', link: '/hetacompiler/migrate-to-v0.8' },
+          { text: 'Migrate to v0.9', link: '/hetacompiler/migrate-to-v0.9' },
           { text: 'Change Log', link: 'https://github.com/hetalang/heta-compiler/blob/master/CHANGELOG.md' },
           { text: 'License', link: 'https://raw.githubusercontent.com/hetalang/heta-compiler/refs/heads/master/LICENSE' },
         ]

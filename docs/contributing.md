@@ -19,4 +19,4 @@ List of supporting tools can be found on [ecosystem](ecosystem) page.
 
 - Implementation in OpenSource QSP projects.
 - Improvement and critical review of documentation: home-page, Heta specifications, cases.
-- Testing and reporting issues on Heta-compiler.
+- Testing and reporting issues on heta-compiler.

@@ -65,8 +65,8 @@ The **Heta Project** is an open-source initiative dedicated to transforming the 
 4. Learn About Our Tools
 
     - Understand the [Heta Language](/specifications/).
-    - Discover how to use the [Heta Compiler](/heta-compiler/).
-    - Explore [HetaSimulator.jl](https://hetalang.github.io/HetaSimulator/) for simulation tasks.
+    - Discover how to use the [Heta Compiler](/hetacompiler/).
+    - Explore [HetaSimulator.jl](https://hetalang.github.io/HetaSimulator.jl/stable/) for simulation tasks.
 
 ---
 

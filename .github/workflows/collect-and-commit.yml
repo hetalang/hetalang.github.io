@@ -56,9 +56,9 @@ jobs:
           mkdir -p vite-press/docs/specifications
           rsync -av --exclude='.git' heta-specifications/docs/ vite-press/docs/specifications/
 
-          echo "Copying files to docs/heta-compiler"
-          mkdir -p vite-press/docs/heta-compiler
-          rsync -av --exclude='.git' heta-compiler/docs/ vite-press/docs/heta-compiler/
+          echo "Copying files to docs/hetacompiler"
+          mkdir -p vite-press/docs/hetacompiler
+          rsync -av --exclude='.git' heta-compiler/docs/ vite-press/docs/hetacompiler/
 
       - name: Display all files
         run: |
