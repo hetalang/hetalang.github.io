@@ -98,6 +98,13 @@ We are an open project, and contributions are warmly welcomed! For more details 
 
 ---
 
+## Maintainers
+
+- **Evgeny Metelkin** - [Personal Page](https://metelkin.me) | [GitHub](https://github.com/metelkin)
+- **Ivan Borisov** - [GitHub](https://github.com/ivborissov)
+
+---
+
 ## Contact Us
 
 - **Email:** [dev@insysbio.com](mailto:dev@insysbio.com)
