@@ -1,8 +1,10 @@
 import { defineConfig } from 'vitepress'
 
+const hostname = 'https://hetalang.github.io'
+
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  //ignoreDeadLinks: true,
+  ignoreDeadLinks: true,
 
   lang: 'en-US',
   title: "Heta project",
@@ -11,7 +13,7 @@ export default defineConfig({
   lastUpdated: true,
   // https://vitepress.dev/guide/sitemap-generation
   sitemap: {
-    hostname: 'https://hetalang.github.io',
+    hostname: hostname
   },
   // https://vitepress.dev/reference/default-theme-config
   themeConfig: {
@@ -101,5 +103,14 @@ export default defineConfig({
     socialLinks: [
       { icon: 'github', link: 'https://github.com/hetalang' }
     ]
+  },
+
+  transformPageData(pageData) {
+    const canonicalUrl = `${hostname}/${pageData.relativePath}`
+      .replace(/index\.md$/, '')
+      .replace(/\.md$/, '.html')
+
+    pageData.frontmatter.head ??= []
+    pageData.frontmatter.head.push(['link', { rel: 'canonical', href: canonicalUrl }])
   }
 })
