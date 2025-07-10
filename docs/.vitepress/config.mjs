@@ -1,6 +1,22 @@
 import { defineConfig } from 'vitepress'
 
-const hostname = 'https://hetalang.github.io'
+const hostname = 'https://hetalang.github.io';
+const head = [
+  [
+    'script',
+    { async: '', src: 'https://www.googletagmanager.com/gtag/js?id=G-SSNKYMLHTQ' }
+  ],
+  [
+    'script',
+    {},
+    `
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-SSNKYMLHTQ');
+    `
+  ]
+];
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -104,6 +120,8 @@ export default defineConfig({
       { icon: 'github', link: 'https://github.com/hetalang' }
     ]
   },
+
+  head: head,
 
   transformPageData(pageData) {
     const canonicalUrl = `${hostname}/${pageData.relativePath}`
