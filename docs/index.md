@@ -21,6 +21,29 @@ features:
       details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
     - title: Feature C
       details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+
+head:
+  - - meta
+    - name: 'og:locale'
+      content: 'en_US'
+  - - meta
+    - name: 'og:site_name'
+      content: 'Heta Project'
+  - - meta
+    - property: og:title
+      content: 'Bridging Innovation and Simplicity in Model Development'
+  - - meta
+    - name: 'og:description'
+      content: 'An open-source initiative developing advanced tools and best practices for dynamic system modeling in pharmacology, PK/PD, QSP, and systems biology.'
+  - - meta
+    - name: 'og:url'
+      content: 'https://hetalang.github.io/'
+  - - meta
+    - name: 'og:image'
+      content: 'https://hetalang.github.io/img/logo.png'
+  - - meta
+    - name: 'og:type'
+      content: 'website'
 ---
 
 # Heta Project: Bridging Innovation and Simplicity in Model Development
