@@ -1,0 +1,234 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "Heta language",
+	"aliases": ["heta"],
+	"scopeName": "source.heta",
+	"fileTypes": [ "heta" ],
+	"limitLineLength": false,
+	"patterns": [
+		{ "include": "#linecomment" },
+		{ "include": "#blockcomment" },
+		{ "include": "#note" },
+		{ "include": "#includeStatement" },
+		{ "include": "#namespace" },
+		{ "include": "#basestruct" }
+	],
+	"repository": {
+		"unknown": {
+			"name": "invalid.illegal.heta",
+			"match": ".+"
+		},
+		"index": {
+			"name": "meta.index.heta",
+			"match": "(?:([A-Za-z_]\\w*)::)?([A-Za-z_]\\w*)",
+			"captures":{
+				"2": {
+					"name": "variable.parameter.id.heta"
+				}
+			}
+		},
+		"assignmentConst": {
+			"name": "meta.assignment.heta",
+			"match": "(=)\\s*([-+]?[0-9]+[.]?[0-9]*([eE][-+]?[0-9]+)?)",
+			"captures": {
+				"1": {
+					"name": "keyword.operator.short.heta"
+				},
+				"2": {
+					"name": "constant.numeric.heta"
+				}
+			}
+		},
+		"assignment": {
+			"name": "meta.assignment.heta",
+			"begin": "([.:]=)|(\\[(\\w*)\\]=)",
+			"end": "(?=[;{@#'])",
+			"beginCaptures": {
+				"0": {
+					"name": "keyword.operator.short.heta"
+				},
+				"3": {
+					"name": "id.heta"
+				}
+			},
+			"patterns": [
+				{ 
+					"match": "[^;{@#']*", 
+					"name": "string.other.expression.heta"
+				}
+			]
+		},
+		"includeStatement": {
+			"name": "meta.include.heta",
+			"match": "(include)\\s+(\"?[\\w./\\-]+\"?)(?:\\s+(type)\\s+(\"?\\w+\"?))?(?:\\s+(with)\\s+(.+))?",
+			"captures": {
+				"1": {
+					"name": "keyword.control.reserved.heta"
+				},
+				"2": {
+					"name": "string.other.heta"
+				},
+				"3": {
+					"name": "keyword.control.reserved.heta"
+				},
+				"4": {
+					"name": "string.other.heta"
+				},
+				"5": {
+					"name": "keyword.control.reserved.heta"
+				},
+				"6": {
+					"name": "entity.other.heta"
+				}
+			}
+		},
+		"namespace": {
+			"name": "meta.namespace.heta",
+			"begin": "(\\b(abstract|concrete)\\b)?\\s*\\b(namespace)\\b\\s+(.*)\\s+(begin)",
+			"beginCaptures": {
+				"1": {
+					"name": "keyword.control.reserved.heta"
+				},
+				"3": {
+					"name": "keyword.control.reserved.heta"
+				},
+				"5": {
+					"name": "keyword.control.begin.heta"
+				}
+			},
+			"end": "end",
+			"endCaptures": {
+				"0": { "name": "keyword.control.end.heta" }
+			},
+			"patterns": [
+				{ "include": "#linecomment" },
+				{ "include": "#blockcomment" },
+				{ "include": "#includeStatement" },
+				{ "include": "#note"},
+				{ "include": "#basestruct"}
+			]
+		},
+		"basestruct": {
+			"name": "meta.basestruct.heta",
+			"end": ";",
+			"patterns": [
+				{ "include": "#index" },
+				{ "include": "#linecomment" },
+				{ "include": "#blockcomment" },
+				{ "include": "#class" },
+				{ "include": "#action" },
+				{ "include": "#title" },
+				{ "include": "#dict" },
+				{ "include": "#assignmentConst" },
+				{ "include": "#assignment" }
+			]
+		},
+		"dict": {
+			"begin": "\\{",
+			"beginCaptures": {
+				"0": {
+					"name": "dictionary.begin.heta"
+				}
+			},
+			"end": "\\}",
+			"endCaptures": {
+				"0": {
+					"name": "dictionary.end.heta"
+				}
+			},
+			"name": "meta.dictionary.heta",
+			"patterns": [
+				{ "include": "#linecomment" },
+				{ "include": "#blockcomment" },
+				{
+					"name": "entity.other.heta",
+					"begin": "([A-Za-z_][A-Za-z0-9_]*)\\s*:\\s*",
+					"beginCaptures": {
+						"1": {
+							"name": "variable.other.key.heta"
+						}
+					},
+					"end": ",|(?=//)|(?=/\\*)|(?=})",
+					"patterns": [
+						{ "include": "#dict" },
+						{ "include": "#array" },
+						{ "include": "#boolean" },
+						{ "include": "#null" },
+						{ "include": "#number" },
+						{ "include": "#string" }
+					]
+				}
+			]
+		},
+		"number": {
+			"name": "constant.numeric.heta",
+			"match": "[-+]?[0-9]+[.]?[0-9]*([eE][-+]?[0-9]+)?\\b"
+		},
+		"boolean": {
+			"name": "constant.language.heta",
+			"match": "(true)|(false)"
+		},
+		"null": {
+			"name": "constant.language.heta",
+			"match": "null"
+		},
+		"string": {
+			"name": "string.other.heta",
+			"match": "(?<!\\\\)\".*?(?<!\\\\)\"|[^\"]*?(?=(//|/\\*|,|}|]|$))"
+		},
+		"array": {
+			"name": "meta.array.heta",
+			"begin": "\\[",
+			"end": "\\]",
+			"patterns": [
+				{ "include": "#linecomment" },
+				{ "include": "#blockcomment" },
+				{ "match": "\\s+" },
+				{	
+					"begin": "",
+					"end": ",|(?=//)|(?=/\\*)|(?=\\])",
+					"endCaptures": {
+						"0": {
+							"name": "array.end.heta"
+						}
+					},
+					"patterns": [
+						{ "include": "#dict" },
+						{ "include": "#array" },
+						{ "include": "#boolean" },
+						{ "include": "#null" },
+						{ "include": "#number" },
+						{ "include": "#string" }
+					]
+				}
+			]
+		},
+		"note": {
+			"name": "comment.block.documentation.note.heta",
+			"begin": "'''",
+			"end": "'''"
+		},
+		"class": {
+			"name": "support.class.heta",
+			"match": "@\\w+"
+		},
+		"title":{
+			"name": "string.quoted.heta",
+			"match": "'.*?'"
+		},
+		"linecomment": {
+			"name": "comment.line.double-slash.heta",
+			"begin": "//",
+			"end": "$"
+		},
+		"blockcomment": {
+			"name": "comment.block.heta",
+			"begin": "/\\*",
+			"end": "\\*/"
+		},
+		"action": {
+			"name": "support.function.action.heta",
+			"match": "#\\w+"
+		}
+	}
+}
