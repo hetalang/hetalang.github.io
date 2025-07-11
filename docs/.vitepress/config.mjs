@@ -1,4 +1,5 @@
 import { defineConfig } from 'vitepress'
+import myLangGrammar from './tmlLanguage.heta.json' with { type: 'json' }
 
 const hostname = 'https://hetalang.github.io';
 const head = [
@@ -20,7 +21,7 @@ const head = [
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  ignoreDeadLinks: true,
+  //ignoreDeadLinks: true,
 
   lang: 'en-US',
   title: "Heta project",
@@ -130,5 +131,10 @@ export default defineConfig({
 
     pageData.frontmatter.head ??= []
     pageData.frontmatter.head.push(['link', { rel: 'canonical', href: canonicalUrl }])
+  },
+
+  markdown: {
+    // any builtin language name works here
+    languages: [myLangGrammar]
   }
 })
