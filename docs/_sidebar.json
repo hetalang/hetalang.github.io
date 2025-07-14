@@ -1,0 +1,11 @@
+[
+    {
+        "text": "Home",
+        "items": [
+            { "text": "About", "link": "./" },
+            { "text": "Ecosystem", "link": "./ecosystem" },
+            { "text": "Version compatibility", "link": "./compatibility" },
+            { "text": "Contributing", "link": "./contributing" }
+        ]
+    }
+]
