@@ -60,12 +60,12 @@ jobs:
           mkdir -p vite-press/docs/hetacompiler
           rsync -av --exclude='.git' heta-compiler/docs/ vite-press/docs/hetacompiler/
 
-      - name: Display all files
-        run: |
-          echo "Current directory:"
-          pwd
-          echo "Listing all files in hetalang.github.io:"
-          find vite-press -type f
+#      - name: Display all files
+#        run: |
+#          echo "Current directory:"
+#          pwd
+#          echo "Listing all files in hetalang.github.io:"
+#          find vite-press -type f
 
       - name: Commit and push
         run: |
@@ -90,12 +90,6 @@ jobs:
           cd vite-press
           npm ci
           npm run docs:build
-
-#      - name: Upload site output as artifact
-#        uses: actions/upload-artifact@v4
-#        with:
-#          name: vitepress-dist
-#          path: vite-press/docs/.vitepress/dist
 
       - name: Upload static files as artifact
         id: deployment
