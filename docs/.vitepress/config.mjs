@@ -1,5 +1,10 @@
 import { defineConfig } from 'vitepress'
 import myLangGrammar from './tmlLanguage.heta.json' with { type: 'json' }
+import sidebarThis from '../_sidebar.json' with { type: 'json' }
+//import sidebarSpecifications from '../specifications/_sidebar.json' with { type: 'json' }
+//import sidebarHetacompiler from '../hetacompiler/_sidebar.json' with { type: 'json' }
+//import sidebarHetasimulator from '../heta-simulator/_sidebar.json' with { type: 'json' }
+import sidebarResources from '../resources/_sidebar.json' with { type: 'json' }
 
 const hostname = 'https://hetalang.github.io';
 const head = [
@@ -19,9 +24,59 @@ const head = [
   ]
 ];
 
+const sidebar = {
+  '/': sidebarThis,
+  '/resources/': sidebarResources,
+  '/specifications/': [{
+    text: 'Language',
+    items: [
+      { text: 'Intro', link: '/specifications/' },
+      { text: 'Syntax', link: '/specifications/syntax' },
+      { text: 'Tabular format', link: '/specifications/tabular-format' },
+      { text: 'Actions', link: '/specifications/actions' },
+      { text: 'Classes', link: '/specifications/classes' },
+      { text: 'Modules', link: '/specifications/modules' },
+      { text: 'Namespaces', link: '/specifications/namespaces' },
+      { text: 'Math expressions', link: '/specifications/math' },
+      { text: 'Null values', link: '/specifications/null' },
+      { text: 'Units', link: '/specifications/units' },
+      { text: 'Cases', link: '/specifications/cases' },
+      { text: 'Compilation steps', link: '/specifications/compilation' },
+      { text: 'Change Log', link: 'https://github.com/hetalang/heta-specifications/blob/master/changelog.md' },
+    ]
+  }],
+  '/hetacompiler/': [{
+    text: 'Heta compiler',
+    items: [
+      { text: 'Intro', link: '/hetacompiler/' },
+      { text: 'Export formats', link: '/hetacompiler/export-formats' },
+      { text: 'CLI references', link: '/hetacompiler/cli-references' },
+      { text: 'qsp-functions.heta', link: '/hetacompiler/qsp-functions.heta' },
+      { text: 'qsp-units.heta', link: '/hetacompiler/qsp-units.heta' },
+      { text: 'Migrate to v0.6', link: '/hetacompiler/migrate-to-v0.6' },
+      { text: 'Migrate to v0.7', link: '/hetacompiler/migrate-to-v0.7' },
+      { text: 'Migrate to v0.8', link: '/hetacompiler/migrate-to-v0.8' },
+      { text: 'Migrate to v0.9', link: '/hetacompiler/migrate-to-v0.9' },
+      { text: 'Change Log', link: 'https://github.com/hetalang/heta-compiler/blob/master/CHANGELOG.md' },
+      { text: 'License', link: 'https://raw.githubusercontent.com/hetalang/heta-compiler/refs/heads/master/LICENSE' },
+    ]
+  }],
+  /*
+  '/heta-simulator/': [{
+    text: 'HetaSimulator.js',
+    items: [
+      { text: 'README', link: '/heta-simulator/' },
+      { text: 'Documentation', link: 'https://hetalang.github.io/HetaSimulator.jl/stable/' },
+      { text: 'Change Log', link: 'https://github.com/hetalang/HetaSimulator.jl/blob/master/CHANGELOG.md' },
+      { text: 'License', link: 'https://github.com/hetalang/HetaSimulator.jl/blob/master/LICENSE' },
+    ]
+  }],
+  */
+};
+
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  //ignoreDeadLinks: true,
+  ignoreDeadLinks: true,
 
   lang: 'en-US',
   title: "Heta project",
@@ -34,7 +89,7 @@ export default defineConfig({
   },
   // https://vitepress.dev/reference/default-theme-config
   themeConfig: {
-    logo: '/img/logo.svg',
+    logo: { src: '/img/logo.svg', alt: 'Heta project logo' },
     // siteTitle: 'Hello World',
     footer: {
       message: 'Heta Project is sponsored by InSysBio CY Ltd',
@@ -54,68 +109,7 @@ export default defineConfig({
       { text: 'Resources', link: '/resources/' }
     ],
     
-    sidebar: {
-      '/': [{
-        text: 'Home',
-        items: [
-          { text: 'About', link: '/' },
-          { text: 'Ecosystem', link: '/ecosystem' },
-          { text: 'Version compatibility', link: '/compatibility' },
-          { text: 'Contributing', link: '/contributing' }
-        ]
-      }],
-      '/specifications/': [{
-        text: 'Language',
-        items: [
-          { text: 'Intro', link: '/specifications/' },
-          { text: 'Syntax', link: '/specifications/syntax' },
-          { text: 'Tabular format', link: '/specifications/tabular-format' },
-          { text: 'Actions', link: '/specifications/actions' },
-          { text: 'Classes', link: '/specifications/classes' },
-          { text: 'Modules', link: '/specifications/modules' },
-          { text: 'Namespaces', link: '/specifications/namespaces' },
-          { text: 'Math expressions', link: '/specifications/math' },
-          { text: 'Null values', link: '/specifications/null' },
-          { text: 'Units', link: '/specifications/units' },
-          { text: 'Cases', link: '/specifications/cases' },
-          { text: 'Compilation steps', link: '/specifications/compilation' },
-          { text: 'Change Log', link: 'https://github.com/hetalang/heta-specifications/blob/master/changelog.md' },
-        ]
-      }],
-      '/hetacompiler/': [{
-        text: 'Heta compiler',
-        items: [
-          { text: 'Intro', link: '/hetacompiler/' },
-          { text: 'Export formats', link: '/hetacompiler/export-formats' },
-          { text: 'CLI references', link: '/hetacompiler/cli-references' },
-          { text: 'qsp-functions.heta', link: '/hetacompiler/qsp-functions.heta' },
-          { text: 'qsp-units.heta', link: '/hetacompiler/qsp-units.heta' },
-          { text: 'Migrate to v0.6', link: '/hetacompiler/migrate-to-v0.6' },
-          { text: 'Migrate to v0.7', link: '/hetacompiler/migrate-to-v0.7' },
-          { text: 'Migrate to v0.8', link: '/hetacompiler/migrate-to-v0.8' },
-          { text: 'Migrate to v0.9', link: '/hetacompiler/migrate-to-v0.9' },
-          { text: 'Change Log', link: 'https://github.com/hetalang/heta-compiler/blob/master/CHANGELOG.md' },
-          { text: 'License', link: 'https://raw.githubusercontent.com/hetalang/heta-compiler/refs/heads/master/LICENSE' },
-        ]
-      }],
-      /*
-      '/heta-simulator/': [{
-        text: 'HetaSimulator.js',
-        items: [
-          { text: 'README', link: '/heta-simulator/' },
-          { text: 'Documentation', link: 'https://hetalang.github.io/HetaSimulator.jl/stable/' },
-          { text: 'Change Log', link: 'https://github.com/hetalang/HetaSimulator.jl/blob/master/CHANGELOG.md' },
-          { text: 'License', link: 'https://github.com/hetalang/HetaSimulator.jl/blob/master/LICENSE' },
-        ]
-      }],
-      */
-      '/resources/': [{
-        text: 'Resources',
-        items: [
-          { text: 'About', link: '/resources/' },
-        ]
-      }]
-    },
+    sidebar: sidebar,
     
     socialLinks: [
       { icon: 'github', link: 'https://github.com/hetalang' }

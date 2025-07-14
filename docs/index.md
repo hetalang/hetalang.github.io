@@ -46,16 +46,9 @@ head:
       content: 'website'
 ---
 
-# Heta Project: Bridging Innovation and Simplicity in Model Development
+# About
 
 *An open-source initiative developing advanced tools and best practices for dynamic system modeling in pharmacology, PK/PD, QSP, and systems biology.*
-
-- **About**
-- [Ecosystem](ecosystem.md)
-- [Version compatibility](compatibility.md)
-- [Contributing](contributing.md)
-
----
 
 ## Empowering Modelers in Pharmacology and Systems Biology
 
@@ -71,6 +64,7 @@ The **Heta Project** is an open-source initiative dedicated to transforming the 
 - **Best Practices and Workflows:** Follow established methodologies for efficient model development.
 
 ---
+
 ## Get Started with Heta
 
 1. Dive into the [Heta Tutorial](/resources/?id=heta-tutorial)
