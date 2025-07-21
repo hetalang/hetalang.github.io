@@ -8,6 +8,10 @@ import sidebarResources from '../resources/_sidebar.json' with { type: 'json' }
 
 const hostname = 'https://hetalang.github.io';
 const head = [
+  ['link', { rel: 'icon', href: '/favicon.ico' }],
+  ['link', { rel: 'icon', type: 'image/svg+xml', href: '/img/logo.svg' }],
+  //['link', { rel: 'apple-touch-icon', href: '/apple-touch-icon.png' }],
+
   [
     'script',
     { async: '', src: 'https://www.googletagmanager.com/gtag/js?id=G-SSNKYMLHTQ' }
