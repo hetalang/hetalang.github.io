@@ -44,7 +44,7 @@ const sidebar = {
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  ignoreDeadLinks: true,
+  //ignoreDeadLinks: true,
 
   lang: 'en-US',
   title: "Heta project",
