@@ -6,7 +6,8 @@ This is a compatibility table for the Heta compiler, HetaSimulator.jl, and the H
 
 | heta-compiler | Heta language | HetaSimulator.jl |
 |---------------|---------------|------------------|
-| **0.9.7**     |            |     |
+| **0.9.8**     |            |     |
+| 0.9.7         |            |     |
 | 0.9.6         |            | **0.7.7 LTS**    |
 | 0.9.5         | 0.5.1      | 0.7.6            |
 | 0.9.4         |            | 0.7.5            |
