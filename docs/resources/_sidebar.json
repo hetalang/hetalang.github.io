@@ -2,7 +2,10 @@
     {
         "text": "Resources",
         "items": [
-            { "text": "Learn Heta", "link": "/resources/" }
+            { "text": "Index", "link": "/resources" },
+            { "text": "Learn Heta", "link": "/resources/learn-heta" },
+            { "text": "Publications", "link": "/resources/publications" },
+            { "text": "Modeling Insights", "link": "/resources/modeling-insights" }
         ]
     }
 ]
