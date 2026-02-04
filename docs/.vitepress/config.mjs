@@ -35,7 +35,7 @@ const sidebar = {
   '/hetacompiler/': sidebarHetacompiler,
   /*
   '/heta-simulator/': [{
-    text: 'HetaSimulator.js',
+    text: 'HetaSimulator.jl',
     items: [
       { text: 'README', link: '/heta-simulator/' },
       { text: 'Documentation', link: 'https://hetalang.github.io/HetaSimulator.jl/stable/' },
@@ -77,7 +77,8 @@ export default defineConfig({
       { text: 'Home', link: '/' },
       { text: 'Language', link: '/specifications/' },
       { text: 'Heta compiler', link: '/hetacompiler/' },
-      { text: 'HetaSimulator.js', link: 'https://hetalang.github.io/HetaSimulator.jl/stable/' },
+      { text: 'HetaSimulator.jl', link: 'https://hetalang.github.io/HetaSimulator.jl/stable/' },
+      { text: 'DigiPopData.jl', link: 'https://hetalang.github.io/DigiPopData.jl/stable/' },
       { text: 'Resources', link: '/resources/' }
     ],
     
