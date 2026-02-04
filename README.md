@@ -12,6 +12,6 @@ See the [Heta Project](https://hetalang.github.io/) for more information.
 
 ---
 
-© Heta Project, 2019-2025
+© Heta Project, 2019-2026
 
 Heta Project is sponsored by [InSysBio CY Ltd](https://insysbio.com)
