@@ -60,14 +60,14 @@ The **Heta Project** is an open-source initiative dedicated to transforming the 
 
 - **Unified Data Structures:** Store model components, datasets, and tasks in a consistent format.
 - **Domain-Specific Language:** Utilize the [Heta language](/specifications/), a DSL tailored for dynamic quantitative models.
-- **Open-Source Tools and Resources:** Access [tools](ecosystem?id=Heta-supporting-tools), [examples](ecosystem?id=Open-source-QSP-platforms), and [study materials](resources/).
+- **Open-Source Tools and Resources:** Access [tools](ecosystem#Heta-supporting-tools), [examples](ecosystem#Open-source-QSP-platforms), and [study materials](resources/).
 - **Best Practices and Workflows:** Follow established methodologies for efficient model development.
 
 ---
 
 ## Get Started with Heta
 
-1. Dive into the [Heta Tutorial](/resources/?id=heta-tutorial)
+1. Dive into the [Heta Tutorial](/resources/learn-heta.html#heta-video-tutorial)
     Begin your journey with our step-by-step tutorial designed for both beginners and experienced modelers.
 
 2. Try the [Heta Compiler Online](https://heta-online.insysbio.com/)
@@ -103,7 +103,6 @@ We are an open project, and contributions are warmly welcomed! For more details 
 ## Stay Connected
 
 - **Website:** Visit us at [https://hetalang.github.io/](https://hetalang.github.io/).
-- **Chat:** Join our [Gitter community](https://gitter.im/hetalang/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge) to discuss and collaborate.
 - **Events:** Meet us at QSP/SB conferences and say hello.
 
 ---
@@ -128,6 +127,6 @@ We are an open project, and contributions are warmly welcomed! For more details 
 
 ---
 
-© Heta Project, 2019-2025
+© Heta Project, 2019-2026
 
 Heta Project is sponsored by [InSysBio CY Ltd](https://insysbio.com)
