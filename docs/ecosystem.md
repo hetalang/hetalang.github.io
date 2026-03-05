@@ -75,7 +75,7 @@ For a guided introduction, check out the Heta tutorial's [Lesson #1](https://you
    - Install with extensions manager: [Heta Highlight Plugin](https://marketplace.visualstudio.com/items?itemName=heta-highlight)
 
 2. **heta-compiler**  
-   - Installation Guide: [https://hetalang.github.io/hetacompiler/?id=installation](/hetacompiler/?id=installation)
+   - Installation Guide: [https://hetalang.github.io/hetacompiler/installation.html](/hetacompiler/installation.html)
 
 3. **HetaSimulator**
     - Install Julia: [https://julialang.org/downloads/](https://julialang.org/downloads/)

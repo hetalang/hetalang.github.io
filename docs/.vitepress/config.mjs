@@ -75,11 +75,11 @@ export default defineConfig({
     
     nav: [
       { text: 'Home', link: '/' },
+      { text: 'Resources', link: '/resources/' },
       { text: 'Language', link: '/specifications/' },
-      { text: 'Heta compiler', link: '/hetacompiler/' },
+      { text: 'Heta-compiler', link: '/hetacompiler/' },
       { text: 'HetaSimulator.jl', link: 'https://hetalang.github.io/HetaSimulator.jl/stable/' },
-      { text: 'DigiPopData.jl', link: 'https://hetalang.github.io/DigiPopData.jl/stable/' },
-      { text: 'Resources', link: '/resources/' }
+      //{ text: 'DigiPopData.jl', link: 'https://hetalang.github.io/DigiPopData.jl/stable/' },
     ],
     
     sidebar: sidebar,
