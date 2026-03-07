@@ -32,7 +32,7 @@ import { Content } from 'vitepress'
 }
 
 /* container from markdown */
-.cheatsheet-content :deep(.cheatsheet) {
+.cheatsheet-content :deep(> div) {
   display: grid;
   grid-template-columns: 1fr;
   gap: 28px;
@@ -40,15 +40,16 @@ import { Content } from 'vitepress'
 }
 
 /* each column */
-.cheatsheet-content :deep(.cheatsheet > div) {
+.cheatsheet-content :deep(> div > div) {
   min-width: 0;
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  align-items: stretch;
 }
 
 /* to prevent headers from sticking */
-.cheatsheet-content :deep(.cheatsheet > div > :first-child) {
+.cheatsheet-content :deep(> div > div > :first-child) {
   margin-top: 0;
 }
 
@@ -61,13 +62,13 @@ import { Content } from 'vitepress'
 }
 
 @media (min-width: 900px) {
-  .cheatsheet-content :deep(.cheatsheet) {
+  .cheatsheet-content :deep(> div) {
     grid-template-columns: 1fr 1fr;
   }
 }
 
 @media (min-width: 1400px) {
-  .cheatsheet-content :deep(.cheatsheet) {
+  .cheatsheet-content :deep(> div) {
     grid-template-columns: 1fr 1fr 1fr;
   }
 }

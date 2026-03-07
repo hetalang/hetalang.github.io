@@ -2,9 +2,7 @@
 layout: cheat-sheet
 ---
 
-<div class="cheatsheet">
-
-<div>
+<div><!-- This is for 3 column layout -->
 
 # What is Heta?
 
@@ -215,7 +213,5 @@ Math expression can be used in `Record`, `Process`, `Compartment`, `Species`, `R
 ```heta
 piecewise(value1, cond1, value2, cond2, ..., otherwise)
 ```
-
-</div>
 
 </div>
