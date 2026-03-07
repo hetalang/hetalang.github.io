@@ -2,6 +2,10 @@
 layout: cheat-sheet
 ---
 
+<div class="cheatsheet">
+
+<div>
+
 # What is Heta?
 
 [Heta](/) is an open-source modeling language and toolchain designed for building, organizing, and transforming quantitative models used in systems pharmacology, systems biology, and related fields.
@@ -104,6 +108,9 @@ r1 @Reaction {
 } := k1 * A * comp1;
 ```
 
+</div>
+<div>
+
 # Switchers
 
 ## @TimeSwitcher
@@ -160,6 +167,9 @@ volt, ampere, newton, becquerel, candela, coulomb, farad, gram, gray, henry,
 hertz, kelvin, lumen, lux, ohm, pascal, radian, siemens, sievert, steradian,
 tesla, weber, year, day, hour, minute, avogadro |
 
+</div>
+<div>
+
 # Mathematic expressions
 
 Math expression can be used in `Record`, `Process`, `Compartment`, `Species`, `Reaction` **assignment** and switcher **trigger**.
@@ -205,3 +215,7 @@ Math expression can be used in `Record`, `Process`, `Compartment`, `Species`, `R
 ```heta
 piecewise(value1, cond1, value2, cond2, ..., otherwise)
 ```
+
+</div>
+
+</div>
