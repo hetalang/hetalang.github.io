@@ -5,7 +5,7 @@ hero:
     text: Bridging Innovation and Simplicity in Model Development
     tagline: An open-source initiative for dynamic system modeling in pharmacology, PK/PD, QSP, and systems biology.
     image:
-        src: /assets/img/logo.svg
+        src: /img/logo.svg
         alt: Heta Project Logo
     actions:
         - theme: brand
