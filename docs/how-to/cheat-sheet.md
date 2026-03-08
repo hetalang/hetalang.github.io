@@ -8,29 +8,16 @@ layout: cheat-sheet
 
 [Heta](/) is an open-source modeling language and toolchain designed for building, organizing, and transforming quantitative models used in systems pharmacology, systems biology, and related fields.
 
-A Heta model describes the structure of a dynamical system in a compact, human-readable form. The Heta compiler translates these models into multiple formats used in scientific computing and modeling environments.
-
-Heta is designed to help modelers:
-- write models in a clear and modular way
-- reuse model components across projects
-- convert models between different tools and ecosystems
-- integrate models with simulation workflows and analysis tools
-
 The Heta ecosystem currently consists of three main components:
-
 - **Heta language** — a domain-specific language for describing models.
-
 - **Heta compiler** — a tool for compiling and converting models to other formats.
-
 - **HetaSimulator.jl** — a simulation framework based on Julia for running and analyzing models.
 
-Together these components form a flexible workflow for developing and working with quantitative models.
-
-Heta was created in 2017.
-
-# Minimal model example
+# Model example
 
 ```heta
+/* Simple model with two species A and B, 
+one reaction r1, and a time event sw1 */
 comp1 @Compartment .= 1;
 
 A @Species { compartment: comp1 } .= 10;
@@ -40,7 +27,7 @@ r1 @Reaction { actors: A => 2B } := k1 * A * comp1;
 k1 @Const = 1.2e-1;
 
 sw1 @TimeSwitcher { start: 10, period: 5 };
-A [sw1]= A + 1.1;
+A [sw1]= A + 5.1/comp1;
 ```
 
 # Base classes
@@ -64,7 +51,7 @@ p1 @Record {
 
 ## Process
 
-`Process` describes processes which change the system
+`Process` describes income and outcome of records. Inherits from `Record`.
 ```heta
 p1 @Process {
     actors: in => out,
@@ -75,7 +62,7 @@ p1 @Process {
 
 ## Compartment
 
-`Compartment` describes physical spaces. Inherits from `Record`.
+`Compartment` describes physical volumes. Inherits from `Record`.
 ```heta
 comp1 @Compartment {
     units: liter,
@@ -84,7 +71,8 @@ comp1 @Compartment {
 ```
 
 ## Species
-`Species` describes chemical species. Inherits from `Record`.
+
+`Species` describes concentrations or amounts of substances. Inherits from `Record`.
 ```heta
 A @Species {
     compartment: comp1,
@@ -103,74 +91,15 @@ r1 @Reaction {
     reversible: true,
     modifiers: [C, D],  // default - []
     output: true        // default - false
-} := k1 * A * comp1;
+} := k1 * A * C * D * comp1;
 ```
-
-</div>
-<div>
-
-# Switchers
-
-## @TimeSwitcher
-
-`TimeSwitcher` describes changes at specific time points
-```heta
-sw1 @TimeSwitcher {
-    start: 10,
-    period: 6,    // default - 0
-    stop: 10,     // default - 0
-    active: false // default - true
-};
-```
-
-## @CSwitcher
-
-`CSwitcher` manages changes triggered by exact conditions when negative hits zero towards positive values
-```heta
-sw1 @CSwitcher {
-    trigger: 5 - x,
-    active: false   // default - true
-};
-```
-
-## @DSwitcher
-
-`DSwitcher` manages changes triggered when conditions are met at solver steps
-```heta
-sw1 @DSwitcher {
-    trigger: x > 5,
-    active: false   // default - true
-};
-```
-
-# Units
-
-## Units expression
-
-| | |
-|---|---|
-| `second` | simple units |
-| `1/second` | unit expressions |
-| `liter/second` | complex units |
-| `liter/second^2` | complex unit expressions |
-| `(1e-9 mole)` | units with prefixes |
-| `(1e-9 mole)^2/(60 second)` | complex units with prefixes |
-
-##  Core Units
-
-| |
-| --- |
-| mole, litre, second, kilogram, katal, item, joule, metre, dimensionless, watt, 
-volt, ampere, newton, becquerel, candela, coulomb, farad, gram, gray, henry, 
-hertz, kelvin, lumen, lux, ohm, pascal, radian, siemens, sievert, steradian,
-tesla, weber, year, day, hour, minute, avogadro |
 
 </div>
 <div>
 
 # Mathematic expressions
 
-Math expression can be used in `Record`, `Process`, `Compartment`, `Species`, `Reaction` **assignment** and switcher **trigger**.
+Math expression can be used in `Record`, `Process`, `Compartment`, `Species`, `Reaction` **assignment** and `Switcher` **trigger** properties.
 
 ## Assignments
 
@@ -189,10 +118,10 @@ Math expression can be used in `Record`, `Process`, `Compartment`, `Species`, `R
 | `pi`, `e` | mathematical constants |
 | `Infinity`, `-Infinity`, `NaN` | special values |
 |  `+`, `-`, `*`, `/`, `^` | basic math operators |
-| `x > 5 ? 1 : 0` | Ternary operator |
 | `true`, `false`, `1`, `0` | boolean values |
 | `and`, `or`, `xor`, `not` | boolean operators |
 | `==`, `!=`, `<`, `>`, `<=`, `>=` | comparison operators |
+| `x > 5 ? 1 : 0` | Ternary operator |
 
 ## Functions
 
@@ -208,10 +137,134 @@ Math expression can be used in `Record`, `Process`, `Compartment`, `Species`, `R
 | `acos(x)`, `acot(x)`, `acsc(x)`, `asec(x)`, `asin(x)`, `atan(x)`|
 
 
-## Piecewise functions
+## Piecewise function
+
+Return `value1` if `cond1` is true, `value2` if `cond2` is true, and so on. If no conditions are true, return `otherwise` value.
 
 ```heta
 piecewise(value1, cond1, value2, cond2, ..., otherwise)
 ```
+
+# Main actions
+
+| | |
+|---|---|
+| `#insert c1 @Compartment .= 1;` | Insert component into platform |
+| `#update c1 { units: liter };` | Update component properties |
+| `#upsert c1 @Compartment { units: liter } .= 1;` | Insert or update component depending on `@Class` presence |
+| `c1 @Compartment { units: liter } .= 1;` | Insert or update component depending on `@Class` presence, shorter syntax |
+| `#delete c1;` | Delete component from platform |
+| `#include { source: ./my-module.heta };` | Include module into platform |
+| `#defineUnit uM { units: (1e-6 mole)/liter };` | Define user unit |
+| `#defineFunction squares { arguments: [x, y], math: "x^2 + y^2" };` | Define user function |
+
+# Modules
+
+Modules are files which can be included in platform with `#include` action. The source file must be formatted in Heta-compatible format.
+
+| | |
+|---|---|
+| `#include { source: ./my-module.heta };` | Heta module |
+| `#include { source: ./my-module.csv, type: table };`   | Table module |
+| `#include { source: ./my-module.xlsx, type: table, sheet: 0, omitRows: 0 };` | Table module |
+| `#include { source: ./my-module.json, type: json };`  | JSON module |
+| `#include { source: ./my-module.yml, type: yaml };`  | YAML module |
+| `#include { source: ./my-module.xml, type: sbml };`    | SBML module |
+
+</div>
+
+<div>
+
+# Switchers
+
+Switcher in Heta is a component that manages descrete events at simulation time. To update values of `Record`, `Compartment`, `Species` when switcher is active, use `[<switcher id>]=` assignment operator.
+
+```heta
+A_amt [dosage_1]= A_amt + dose1;
+A_amt [dosage_2]= A_amt + dose2;
+```
+
+## @TimeSwitcher
+
+`TimeSwitcher` manages changes triggered at specific time points.
+```heta
+sw1 @TimeSwitcher {
+    start: 10,
+    period: 6,    // default - 0
+    stop: 10,     // default - 0
+    active: false // default - true
+};
+```
+
+## @CSwitcher
+
+`CSwitcher` manages changes triggered when negative hits zero towards positive values.
+```heta
+sw1 @CSwitcher {
+    trigger: 5 - x,
+    active: false   // default - true
+};
+```
+
+## @DSwitcher
+
+`DSwitcher` manages changes triggered when conditions are met at solver steps.
+```heta
+sw1 @DSwitcher {
+    trigger: x > 5,
+    active: false   // default - true
+};
+```
+
+# Units
+
+##  Core Units
+
+| |
+| --- |
+| mole, litre, second, kilogram, katal, **item**, joule, metre, **dimensionless**, watt, 
+volt, ampere, newton, becquerel, candela, coulomb, farad, gram, gray, henry, 
+hertz, kelvin, lumen, lux, ohm, pascal, radian, siemens, sievert, steradian,
+tesla, weber, year, day, hour, minute, avogadro |
+
+## Units expression
+
+Used in `units` property to describe units of `Const`, `Record`, `Process`, `Compartment`, `Species`, `Reaction`.
+
+| | |
+|---|---|
+| `second` | simple units expr. |
+| `1/liter/second*mole^2` | complex units expr. |
+| `(1e-9 mole)` | units with prefixes |
+| `(1e-9 mole)^2/(60 second)*metre` | complex units with prefixes |
+
+## User-defined units
+
+```heta
+#difineUnit uM {
+    units: (1e-6 mole)/liter
+};
+```
+
+</div>
+
+<div>
+
+# Heta-compiler
+
+## qsp-units.heta
+
+**heta-compiler** `init` provides pre-defined units, which can be included in platform as:
+```heta
+#include { source: ./qsp-units.heta };
+```
+
+| |
+| --- |
+| UL, percent, cell, kcell |
+| fmole, pmole, nmole, umole, mmole, fM, pM, nM, uM, mM, M, kM |
+| fL, pL, nL, uL, mL, dL, L, fg, pg, ng, ug, mg, g, kg, fm, pm, nm, um, mm, cm, m |
+| fs, ps, ns, us, ms, s, h, week |
+| kat, cal, kcal |
 
 </div>
