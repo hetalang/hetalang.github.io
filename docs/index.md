@@ -60,7 +60,7 @@ The **Heta Project** is an open-source initiative dedicated to transforming the 
 
 - **Unified Data Structures:** Store model components, datasets, and tasks in a consistent format.
 - **Domain-Specific Language:** Utilize the [Heta language](/specifications/), a DSL tailored for dynamic quantitative models.
-- **Open-Source Tools and Resources:** Access [tools](ecosystem#Heta-supporting-tools), [examples](ecosystem#Open-source-QSP-platforms), and [study materials](resources/).
+- **Open-Source Tools and Resources:** Access [tools](/resources/ecosystem#Heta-supporting-tools), [examples](/resources/ecosystem#open-source-qsp-platforms), and [study materials](/resources/).
 - **Best Practices and Workflows:** Follow established methodologies for efficient model development.
 
 ---
@@ -89,7 +89,7 @@ The **Heta Project** is an open-source initiative dedicated to transforming the 
 
 ## Join Our Community
 
-We are an open project, and contributions are warmly welcomed! For more details on how you can contribute, please visit the [Contributing](contributing) page.
+We are an open project, and contributions are warmly welcomed! For more details on how you can contribute, please visit the [Contributing](/resources/contributing) page.
 
 ### How You Can Contribute
 
