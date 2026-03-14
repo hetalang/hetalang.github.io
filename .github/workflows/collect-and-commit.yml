@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout "vite-press" branch
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           repository: hetalang/hetalang.github.io
           ref: vite-press
@@ -21,14 +21,14 @@ jobs:
           fetch-depth: 0
 
       - name: Checkout "master" branch of hetalang/hetalang.github.io
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           repository: hetalang/hetalang.github.io
           ref: master
           path: hetalang.github.io
 
       - name: Checkout "master" branch of hetalang/heta-specifications
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           repository: hetalang/heta-specifications
           ref: master
@@ -38,7 +38,7 @@ jobs:
           sparse-checkout-cone-mode: false
 
       - name: Checkout "master" branch of hetalang/heta-compiler
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           repository: hetalang/heta-compiler
           ref: master
