@@ -3,10 +3,7 @@
         "text": "Home",
         "items": [
             { "text": "About", "link": "./" },
-            { "text": "Quick start", "link": "./quick-start" },
-            { "text": "Ecosystem", "link": "./ecosystem" },
-            { "text": "Version compatibility", "link": "./compatibility" },
-            { "text": "Contributing", "link": "./contributing" }
+            { "text": "Quick start", "link": "./quick-start" }
         ]
     }
 ]

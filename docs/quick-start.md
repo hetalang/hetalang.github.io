@@ -7,7 +7,7 @@ Heta models can be used in two main workflows:
 
 ## Quick start: conversion
 
-Before you start, make sure you have [installed the following](/ecosystem#recommended-software-for-working-with-heta-models):
+Before you start, make sure you have [installed the following](/resources/ecosystem#recommended-software-for-working-with-heta-models):
 
 - VSCode
 - Heta-compiler
@@ -54,7 +54,7 @@ Open the `dist` directory in VSCode and inspect the generated files.
 
 ## Quick start: simulation
 
-Before you start, make sure you have [installed the following](/ecosystem#recommended-software-for-working-with-heta-models):
+Before you start, make sure you have [installed the following](/resources/ecosystem#recommended-software-for-working-with-heta-models):
 
 - VSCode
 - Julia

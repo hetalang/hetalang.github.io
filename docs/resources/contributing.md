@@ -9,13 +9,7 @@ Any contribution is appreciated. Here we summarize how you can help.
 
 ## Tools and applications
 
-List of supporting tools can be found on [ecosystem](ecosystem) page.
+List of supporting tools can be found on [ecosystem](./ecosystem) page.
 
 - Use **Issues** and **Pull requests** in the particular repository.
 - Let us know if the Heta project helps you to develop model or tool.
-
-## Most critical
-
-- Implementation in OpenSource QSP projects.
-- Improvement and critical review of documentation: home-page, Heta specifications, cases.
-- Testing and reporting issues on heta-compiler.
