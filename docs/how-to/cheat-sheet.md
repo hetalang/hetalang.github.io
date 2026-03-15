@@ -6,9 +6,10 @@ layout: cheat-sheet
 
 # What is Heta?
 
+<https://hetalang.github.io>
+
 [Heta](/) is an open-source modeling language and toolchain designed for building, organizing, and transforming quantitative models used in systems pharmacology, systems biology, and related fields.
 
-The Heta ecosystem currently consists of three main components:
 - **Heta language** — a domain-specific language for describing models.
 - **Heta compiler** — a tool for compiling and converting models to other formats.
 - **HetaSimulator.jl** — a simulation framework based on Julia for running and analyzing models.
@@ -20,14 +21,15 @@ The Heta ecosystem currently consists of three main components:
 one reaction r1, and a time event sw1 */
 comp1 @Compartment .= 1;
 
-A @Species { compartment: comp1 } .= 10;
+A @Species { compartment: comp1 } .= 2;
 B @Species { compartment: comp1 } .= 0;
 r1 @Reaction { actors: A => 2B } := k1 * A * comp1;
 
 k1 @Const = 1.2e-1;
+dose1 @Const = 1;
 
-sw1 @TimeSwitcher { start: 10, period: 5 };
-A [sw1]= A + 5.1/comp1;
+sw1 @TimeSwitcher { start: 12, period: 24 };
+A [sw1]= A + dose1 / comp1;
 ```
 
 # Base classes
@@ -44,8 +46,9 @@ k1 @Const { units: 1/second } = 1.2e-1;
 `Record` describes values which may vary over time
 ```heta
 p1 @Record {
-    units: 1/second,
-    output: true     // default - false
+    units: 1/second,   // optional
+    boundary: false,   // default - false
+    output: true       // default - false
 } := x * y;
 ```
 
@@ -55,8 +58,8 @@ p1 @Record {
 ```heta
 p1 @Process {
     actors: in => out,
-    units: 1/second,
-    output: true     // default - false
+    units: 1/second,   // optional
+    output: true       // default - false
 } := k1 * in;
 ```
 
@@ -65,7 +68,8 @@ p1 @Process {
 `Compartment` describes physical volumes. Inherits from `Record`.
 ```heta
 comp1 @Compartment {
-    units: liter,
+    units: liter,    // optional
+    boundary: true,  // default - false
     output: true     // default - false
 } .= 1;
 ```
@@ -74,10 +78,11 @@ comp1 @Compartment {
 
 `Species` describes concentrations or amounts of substances. Inherits from `Record`.
 ```heta
-A @Species {
+Aamt @Species {
     compartment: comp1,
-    units: mole,
+    units: mole,        // optional
     isAmount: true,     // default - false
+    boundary: false,    // default - false
     output: true        // default - false
 } .= 10;
 ```
@@ -87,15 +92,46 @@ A @Species {
 ```heta
 r1 @Reaction {
     actors: A <=> 2B,
-    units: mole/second,
-    reversible: true,
-    modifiers: [C, D],  // default - []
-    output: true        // default - false
+    units: mole/second,  // optional
+    reversible: true,    // default - false
+    modifiers: [C, D],   // default - []
+    output: true         // default - false
 } := k1 * A * C * D * comp1;
 ```
 
+## Actors expression
+
+Set stoichiometry of a `Process` or `Reaction` using the `actors` property.
+
+| | |
+|---|---|
+| `A => B` | irreversible reaction |
+| `A => 2B + C` | reaction with stoichiometry |
+| `=> A` | source (production) |
+| `A =>` | sink (degradation) |
+| `A <=> B` | reversible reaction |
+
 </div>
 <div>
+
+# Annotations
+
+## Comments
+```heta
+// This is a single-line comment
+/* This is a
+multi-line comment */
+```
+
+## Semantic annotations
+```heta
+'''Here you can write the component notes'''
+A @Species 'Title for component A' {
+    compartment: comp1,
+    tags: [tag1, tag2],   // user-defined tags
+    aux: { key1: value1 } // user-defined metadata
+} .= 10;
+```
 
 # Mathematic expressions
 
@@ -105,9 +141,9 @@ Math expression can be used in `Record`, `Process`, `Compartment`, `Species`, `R
 
 | | |
 |---|---|
-| `=` | assign number, for `Const`, numbers only |
-| `:=` | expression assignment, calculate value at each time step (rule type), for `Record`, `Process`, `Compartment`, `Species`, `Reaction` |
-| `.=` | expression assignment, calculate value at time 0 only, for `Record`, `Compartment`, `Species` |
+| `=` | assign number, for `Const` only |
+| `.=` | initial assignment, calculate value at time 0 only, for `Record`, `Compartment`, `Species` |
+| `:=` | rule assignment, calculate value at each time step, for `Record`, `Process`, `Compartment`, `Species`, `Reaction` |
 | `[sw1]=` | assignment when switcher `sw1` is active, for `Record`, `Compartment`, `Species` |
 
 ## Numbers and operators
@@ -152,24 +188,24 @@ piecewise(value1, cond1, value2, cond2, ..., otherwise)
 | `#insert c1 @Compartment .= 1;` | Insert component into platform |
 | `#update c1 { units: liter };` | Update component properties |
 | `#upsert c1 @Compartment { units: liter } .= 1;` | Insert or update component depending on `@Class` presence |
-| `c1 @Compartment { units: liter } .= 1;` | Insert or update component depending on `@Class` presence, shorter syntax |
+| `c1 @Compartment { units: liter } .= 1;` | Same as `#upsert` but shorter syntax |
 | `#delete c1;` | Delete component from platform |
-| `#include { source: ./my-module.heta };` | Include module into platform |
+| `#include { source: my-module.heta };` | Include module into platform, works as `include` statement |
 | `#defineUnit uM { units: (1e-6 mole)/liter };` | Define user unit |
 | `#defineFunction squares { arguments: [x, y], math: "x^2 + y^2" };` | Define user function |
 
 # Modules
 
-Modules are files which can be included in platform with `#include` action. The source file must be formatted in Heta-compatible format.
+Modules are files which can be included in platform.
 
 | | |
 |---|---|
-| `#include { source: ./my-module.heta };` | Heta module |
-| `#include { source: ./my-module.csv, type: table };`   | Table module |
-| `#include { source: ./my-module.xlsx, type: table, sheet: 0, omitRows: 0 };` | Table module |
-| `#include { source: ./my-module.json, type: json };`  | JSON module |
-| `#include { source: ./my-module.yml, type: yaml };`  | YAML module |
-| `#include { source: ./my-module.xml, type: sbml };`    | SBML module |
+| `include my-module.heta;` | Heta module |
+| `include my-module.csv type table;`   | Table module |
+| `include my-module.xlsx type table with { sheet: 0, omitRows: 0 };` | Table module |
+| `include my-module.json type json;`  | JSON module |
+| `include my-module.yml type yaml;`  | YAML module |
+| `include my-module.xml type sbml;`    | SBML module |
 
 </div>
 
@@ -177,11 +213,12 @@ Modules are files which can be included in platform with `#include` action. The 
 
 # Switchers
 
-Switcher in Heta is a component that manages descrete events at simulation time. To update values of `Record`, `Compartment`, `Species` when switcher is active, use `[<switcher id>]=` assignment operator.
+Switcher can update `Record`, `Compartment`, or `Species` if specified in 
+`[<switcher id>]=` assignment operator.
 
 ```heta
-A_amt [dosage_1]= A_amt + dose1;
-A_amt [dosage_2]= A_amt + dose2;
+A [sw1]= A + dose1 / comp1;
+Bamt [sw2]= Bamt + dose2;
 ```
 
 ## @TimeSwitcher
@@ -190,8 +227,8 @@ A_amt [dosage_2]= A_amt + dose2;
 ```heta
 sw1 @TimeSwitcher {
     start: 10,
-    period: 6,    // default - 0
-    stop: 10,     // default - 0
+    period: 6,    // default - 0, no repeat
+    stop: 10,     // default - 0, no stop
     active: false // default - true
 };
 ```
@@ -200,7 +237,7 @@ sw1 @TimeSwitcher {
 
 `CSwitcher` manages changes triggered when negative hits zero towards positive values.
 ```heta
-sw1 @CSwitcher {
+sw2 @CSwitcher {
     trigger: 5 - x,
     active: false   // default - true
 };
@@ -218,6 +255,16 @@ sw1 @DSwitcher {
 
 # Units
 
+## Units expression
+
+Used in `units` property to describe units of `Const`, `Record`, `Process`, `Compartment`, `Species`, `Reaction`.
+
+| | |
+|---|---|
+| `second` | simple units expr. |
+| `1/liter/second*mole^2` | complex units expr. |
+| `(1e-9 mole)^2/(60 second)*metre` | complex units with prefixes |
+
 ##  Core Units
 
 | |
@@ -227,21 +274,10 @@ volt, ampere, newton, becquerel, candela, coulomb, farad, gram, gray, henry,
 hertz, kelvin, lumen, lux, ohm, pascal, radian, siemens, sievert, steradian,
 tesla, weber, year, day, hour, minute, avogadro |
 
-## Units expression
-
-Used in `units` property to describe units of `Const`, `Record`, `Process`, `Compartment`, `Species`, `Reaction`.
-
-| | |
-|---|---|
-| `second` | simple units expr. |
-| `1/liter/second*mole^2` | complex units expr. |
-| `(1e-9 mole)` | units with prefixes |
-| `(1e-9 mole)^2/(60 second)*metre` | complex units with prefixes |
-
 ## User-defined units
 
 ```heta
-#difineUnit uM {
+#defineUnit uM {
     units: (1e-6 mole)/liter
 };
 ```
@@ -252,16 +288,84 @@ Used in `units` property to describe units of `Const`, `Record`, `Process`, `Com
 
 # Heta-compiler
 
+## Typical workflow
+
+Heta-compiler works from console: bash, cmd, PowerShell, etc.
+
+1. Install **heta-compiler** and check with `heta -v`.
+2. `heta init` — initialize project with default files.
+3. Edit **src/index.heta** and add model components.
+4. Edit **platform.yml** to set build options and export formats.
+5. `heta build` — compile model and export to formats.
+
+## Compile with options
+
+Build options override **platform.yml** settings (if exist) for current build.
+
+| | |
+|---|---|
+| `heta build -h` | Show build options |
+| `heta build --source=src/model.heta` | Compile from file (default: **index.heta**) |
+| `heta build --export=SBML,Dot,Simbio` | Export to formats |
+| `heta build --units-check` | Check units consistency |
+
+## Export formats
+
+Can be used in `--export` build option or **platform.yml** `export` settings.
+
+| | |
+|---|---|
+| `SBML` | Systems Biology Markup Language L2/L3 |
+| `Simbio` | MATLAB SimBiology format |
+| `Mrgsolve` | Model code for the R package **mrgsolve** |
+| `DBSolve` | Model format for DBSolve simulation software |
+| `Julia` | Julia code for **HetaSimulator.jl** |
+| `Matlab` | MATLAB code representation of the model |
+| `Table` | Heta table representation of model components (CSV/TSV/Excel) |
+| `XLSX` | Spreadsheet representation of the model |
+| `JSON` | Heta JSON structured model format |
+| `YAML` | Heta YAML structured model format |
+| `Dot` | Graphviz Dot file for model structure visualization |
+| `Summary` | Human-readable text summary of the model |
+
+Compiled files are written to the **dist/** directory.
+
+## platform.yml
+
+File storing build options and metadata of the project.
+
+```yaml
+{
+  builderVersion: ^0.10.0,
+  id: my-project,
+  notes: My project description,
+  version: v1.2.0,
+  license: MIT,
+  options: {
+    unitsCheck: true
+  },
+  importModule: { source: src/index.heta },
+  export: [
+    { format: JSON, omit: [], useUnitsExpr: false },
+    #{ format: YAML, omit: [], useUnitsExpr: false },
+    #{ format: DBSolve, powTransform: keep, version: 26 },
+    { format: SBML, version: L2V4 },
+    { format: Dot },
+  ]
+}
+```
+
 ## qsp-units.heta
 
-**heta-compiler** `init` provides pre-defined units, which can be included in platform as:
+`heta init` provides pre-defined units, which can be than loaded in **index.heta**. 
+
 ```heta
-#include { source: ./qsp-units.heta };
+include qsp-units.heta;
 ```
 
 | |
 | --- |
-| UL, percent, cell, kcell |
+| **UL** (unitless), percent, cell, kcell |
 | fmole, pmole, nmole, umole, mmole, fM, pM, nM, uM, mM, M, kM |
 | fL, pL, nL, uL, mL, dL, L, fg, pg, ng, ug, mg, g, kg, fm, pm, nm, um, mm, cm, m |
 | fs, ps, ns, us, ms, s, h, week |
