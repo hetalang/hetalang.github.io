@@ -186,26 +186,13 @@ piecewise(value1, cond1, value2, cond2, ..., otherwise)
 | | |
 |---|---|
 | `#insert c1 @Compartment .= 1;` | Insert component into platform |
-| `#update c1 { units: liter };` | Update component properties |
-| `#upsert c1 @Compartment { units: liter } .= 1;` | Insert or update component depending on `@Class` presence |
-| `c1 @Compartment { units: liter } .= 1;` | Same as `#upsert` but shorter syntax |
+| `#update c1 {units: liter};` | Update component properties |
+| `#upsert c1 @Compartment {units: liter} .= 1;` | Insert or update component depending on `@Class` presence |
+| `c1 @Compartment {units: liter} .= 1;` | Same as `#upsert` but shorter syntax |
 | `#delete c1;` | Delete component from platform |
-| `#include { source: my-module.heta };` | Include module into platform, works as `include` statement |
-| `#defineUnit uM { units: (1e-6 mole)/liter };` | Define user unit |
-| `#defineFunction squares { arguments: [x, y], math: "x^2 + y^2" };` | Define user function |
-
-# Modules
-
-Modules are files which can be included in platform.
-
-| | |
-|---|---|
-| `include my-module.heta;` | Heta module |
-| `include my-module.csv type table;`   | Table module |
-| `include my-module.xlsx type table with { sheet: 0, omitRows: 0 };` | Table module |
-| `include my-module.json type json;`  | JSON module |
-| `include my-module.yml type yaml;`  | YAML module |
-| `include my-module.xml type sbml;`    | SBML module |
+| `#include {source: module.xlsx, type: table, sheet: 0};` | Include module into platform, works as `include` statement |
+| `#defineUnit uM {units: (1e-6 mole)/liter};` | Define user unit |
+| `#defineFunction squares {arguments: [x, y], math: "x^2 + y^2"};` | Define user function |
 
 </div>
 
@@ -283,7 +270,64 @@ tesla, weber, year, day, hour, minute, avogadro |
 ```
 
 </div>
+<div>
 
+# Heta modules
+
+## What is a module?
+
+Modules are files that contain model components and can be included in a Heta project.
+Every project must include at least one module. Other modules may be included in the main module or in each other.
+
+```
+my-project/
+  |-- src/
+      |-- index.heta
+      |-- pk.heta
+      |-- doses.heta
+      |-- cells.xml
+      |-- annotation.xlsx
+```
+
+## Types of modules
+
+Modules are included using the `include` statement (or the alternative `#include` action).
+
+| | |
+|---|---|
+| `include my-module.heta;` | Heta code |
+| `include my-module.csv type table;`   | Table (CSV) |
+| `include my-module.xlsx type table with { sheet: 0, omitRows: 0 };` | Table (Excel) |
+| `include my-module.json type json;`  | JSON |
+| `include my-module.yml type yaml;`  | YAML |
+| `include my-module.xml type sbml;`    | SBML |
+
+```heta
+include my-module.heta;                  // Heta code
+include my-module.csv type table;        // Table (CSV)
+include my-module.xlsx type table with { // Table (Excel)
+    sheet: 0, 
+    omitRows: 0
+}; 
+include my-module.json type json;        // JSON
+include my-module.yml type yaml;         // YAML
+include my-module.xml type sbml;         // SBML
+```
+
+## Table modules
+
+- Same structure as the Heta code, but in a tabular format.
+- First line is a header with property names.
+- Support various formats: CSV, TSV, Excel, etc.
+- use `heta init` to generate template table.
+
+| id | class | actors | assignmnents.ode_ |
+|---|---|---|---|
+|r1|Reaction|`A => B`|`k1 * A * comp1`|
+|r2|Reaction|`B => C`|`k2 * B * comp1`|
+|r3|Reaction|`C => A`|`k3 * C * comp1`|
+
+</div>
 <div>
 
 # Heta-compiler
