@@ -5,7 +5,7 @@ import { Content } from 'vitepress'
 <template>
   <main class="cheatsheet-layout">
     <div class="cheatsheet-container">
-      <Content class="vp-doc cheatsheet-content" />
+      <Content class="cheatsheet-content" />
     </div>
   </main>
 </template>
@@ -46,11 +46,40 @@ import { Content } from 'vitepress'
   flex-direction: column;
   gap: 1rem;
   align-items: stretch;
+
+  border: 0 solid #222;
+  border-width: 0 1px 0 1px;
+  padding: 0 6px 0 6px;
+  font-family: 'Manrope', system-ui, sans-serif;
+
+}
+
+.cheatsheet-content :deep(h1) {
+  border: 0 solid red;
+  border-width: 1px 0;
 }
 
 /* to prevent headers from sticking */
 .cheatsheet-content :deep(> div > div > :first-child) {
   margin-top: 0;
+}
+
+/* for code blocks */
+.cheatsheet-content :deep(div[class*='language-']) {
+  background: #f1f3f5;
+  border: 1px solid #e1e4e8;
+  border-radius: 6px;
+  padding: 6px;
+}
+.cheatsheet-content :deep(span.lang) {
+  display: none;
+}
+.cheatsheet-content :deep(button.copy) {
+  display: none;
+}
+
+.cheatsheet-content :deep(code) {
+  font-family: 'JetBrains Mono', monospace;
 }
 
 /* to prevent wide tables and code blocks from breaking the column */
