@@ -18,8 +18,8 @@ import { Content } from 'vitepress'
 }
 
 .cheatsheet-container {
-  width: 297mm;
-  min-height: 210mm;
+  width: 210mm;
+  min-height: 297mm;
   margin: 0 auto;
 }
 
@@ -27,8 +27,8 @@ import { Content } from 'vitepress'
   background: #ffffff;
   border: 1pt solid #cccccc;
   border-radius: 4mm;
-  padding: 6mm;
-  font-size: 8pt;
+  padding: 2mm;
+  font-size: 7pt;
   line-height: 1.4;
 }
 
@@ -36,7 +36,7 @@ import { Content } from 'vitepress'
 .cheatsheet-content :deep(> div) {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 5mm;
+  gap: 3mm;
   align-items: start;
 }
 
@@ -45,7 +45,6 @@ import { Content } from 'vitepress'
   min-width: 0;
   display: flex;
   flex-direction: column;
-  gap: 2mm;
   align-items: stretch;
 
   border: 0 solid #ea580c;
@@ -59,7 +58,7 @@ import { Content } from 'vitepress'
   color: white;
   background-color: #ea580c;
   font-family: "Space Grotesk", system-ui, sans-serif;
-  font-size: 1.4em;
+  font-size: 1.3em;
   font-weight: 600;
 }
 .cheatsheet-content :deep(h2) {
@@ -75,7 +74,7 @@ import { Content } from 'vitepress'
 .cheatsheet-content :deep(ol),
 .cheatsheet-content :deep(ul)  {
   margin: 0;
-  padding: 6pt;
+  padding: 4pt 6pt;
 }
 
 /* for lists */
@@ -151,7 +150,7 @@ import { Content } from 'vitepress'
 /* for printing */
 @page {
   margin: 1mm;
-  size: A4 landscape;
+  size: A4;
 }
 @media print {
   .cheatsheet-content :deep(> div) {
