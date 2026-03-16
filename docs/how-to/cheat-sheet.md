@@ -152,11 +152,10 @@ Math expression can be used in `Record`, `Process`, `Compartment`, `Species`, `R
 
 | |
 | --- |
-| `exp(x)`, `pow(x, n)` |
-| `sqrt(x)`, `nthRoot(x, n)` | n-th root of x |
-| `ln(x)`, `log(x)`, `logbase(x, base)`, `log10(x)`,`log2(x)` |
+| `exp(x)`, `pow(x, n)` <br/> `sqrt(x)`, `nthRoot(x, n)` |
+| `ln(x)`, `log(x)`, `logbase(x, base)`, `log10(x)`, `log2(x)` |
 | `abs(x)`, `ceil(x)`, `floor(x)`, `sign(x)` | 
-| `max(x, y)`, `max(x, y, z)`, `min(x, y)`,`min(x, y, z)` |
+| `max(x, y)`, `max(x, y, z)`, `min(x, y)`, `min(x, y, z)` |
 | `factorial(n)` |
 | `cos(x)`, `cot(x)`, `csc(x)`, `sec(x)`, `sin(x)`, `tan(x)` |
 | `acos(x)`, `acot(x)`, `acsc(x)`, `asec(x)`, `asin(x)`, `atan(x)`|

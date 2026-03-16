@@ -28,7 +28,7 @@ import { Content } from 'vitepress'
   border: 1pt solid #cccccc;
   border-radius: 4mm;
   padding: 6mm;
-  font-size: 10pt;
+  font-size: 8pt;
   line-height: 1.4;
 }
 
@@ -94,8 +94,8 @@ import { Content } from 'vitepress'
 /* for code blocks */
 .cheatsheet-content :deep(div[class*='language-']) {
   background: #f1f3f5;
-  border: 0.3mm solid #e1e4e8;
-  border-radius: 2mm;
+  /*border: 0.3mm solid #e1e4e8;*/
+  /*border-radius: 2mm;*/
   padding: 6pt;
   margin: 0;
 }
@@ -112,14 +112,23 @@ import { Content } from 'vitepress'
 
 /* to prevent wide tables and code blocks from breaking the column */
 
-.cheatsheet-content :deep(table),
+.cheatsheet-content :deep(table) {
+  max-width: 100%;
+  overflow-x: none;
+  margin: 1pt;
+  border-bottom: 3pt solid #ffedd5;
+}
 .cheatsheet-content :deep(div[class*='language-']) {
   max-width: 100%;
   overflow-x: none;
-  margin: 1em;
+  margin: 0;
 }
 
 /* tables */
+.cheatsheet-content :deep(th) {
+  text-align: left;
+  padding: 2pt 8pt;
+}
 .cheatsheet-content :deep(tr:nth-child(odd)) {
   background-color: #ffedd5;
 }
