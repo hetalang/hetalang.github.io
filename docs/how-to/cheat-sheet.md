@@ -34,16 +34,12 @@ A [sw1]= A + dose1 / comp1;
 
 # Base classes
 
-## Const
-
-`Const` describes fixed values
+**@Const** describes fixed values
 ```heta
 k1 @Const { units: 1/second } = 1.2e-1;
 ```
 
-## Record
-
-`Record` describes values which may vary over time
+**@Record** describes values which may vary over time
 ```heta
 p1 @Record {
     units: 1/second,   // optional
@@ -52,9 +48,7 @@ p1 @Record {
 } := x * y;
 ```
 
-## Process
-
-`Process` describes income and outcome of records. Inherits from `Record`.
+**@Process** describes income and outcome of records. Inherits from `@Record`.
 ```heta
 p1 @Process {
     actors: in => out,
@@ -63,9 +57,7 @@ p1 @Process {
 } := k1 * in;
 ```
 
-## Compartment
-
-`Compartment` describes physical volumes. Inherits from `Record`.
+**@Compartment** describes physical volumes. Inherits from `@Record`.
 ```heta
 comp1 @Compartment {
     units: liter,    // optional
@@ -74,9 +66,7 @@ comp1 @Compartment {
 } .= 1;
 ```
 
-## Species
-
-`Species` describes concentrations or amounts of substances. Inherits from `Record`.
+**@Species** describes concentrations or amounts of substances. Inherits from `@Record`.
 ```heta
 Aamt @Species {
     compartment: comp1,
@@ -87,8 +77,7 @@ Aamt @Species {
 } .= 10;
 ```
 
-## Reaction
-`Reaction` describes chemical reactions. Inherits from `Process`.
+**@Reaction** describes chemical reactions. Inherits from `@Process`.
 ```heta
 r1 @Reaction {
     actors: A <=> 2B,
@@ -208,9 +197,7 @@ A [sw1]= A + dose1 / comp1;
 Bamt [sw2]= Bamt + dose2;
 ```
 
-## @TimeSwitcher
-
-`TimeSwitcher` manages changes triggered at specific time points.
+**@TimeSwitcher** manages changes triggered at specific time points.
 ```heta
 sw1 @TimeSwitcher {
     start: 10,
@@ -220,9 +207,7 @@ sw1 @TimeSwitcher {
 };
 ```
 
-## @CSwitcher
-
-`CSwitcher` manages changes triggered when negative hits zero towards positive values.
+**@CSwitcher** manages changes triggered when negative hits zero towards positive values.
 ```heta
 sw2 @CSwitcher {
     trigger: 5 - x,
@@ -230,9 +215,7 @@ sw2 @CSwitcher {
 };
 ```
 
-## @DSwitcher
-
-`DSwitcher` manages changes triggered when conditions are met at solver steps.
+**@DSwitcher** manages changes triggered when conditions are met at solver steps.
 ```heta
 sw1 @DSwitcher {
     trigger: x > 5,

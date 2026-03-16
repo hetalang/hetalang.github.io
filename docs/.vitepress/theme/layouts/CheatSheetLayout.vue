@@ -11,9 +11,10 @@ import { Content } from 'vitepress'
 </template>
 
 <style scoped>
+
 .cheatsheet-layout {
   min-height: 100vh;
-  padding: 20px;
+  padding: 0px;
 }
 
 .cheatsheet-container {
@@ -47,21 +48,46 @@ import { Content } from 'vitepress'
   gap: 1rem;
   align-items: stretch;
 
-  border: 0 solid #222;
-  border-width: 0 1px 0 1px;
-  padding: 0 6px 0 6px;
+  border: 0 solid #ea580c;
+  border-width: 0 2px 0 2px;
+  padding: 0;
   font-family: 'Manrope', system-ui, sans-serif;
-
 }
 
+/* for headers */
 .cheatsheet-content :deep(h1) {
-  border: 0 solid red;
-  border-width: 1px 0;
+  color: white;
+  background-color: #ea580c;
+  font-family: "Space Grotesk", system-ui, sans-serif;
+  font-size: 22px;
+  font-weight: 600;
+}
+.cheatsheet-content :deep(h2) {
+  font-family: "Space Grotesk", system-ui, sans-serif;
+  font-size: 18px;
+  font-weight: 600;
 }
 
-/* to prevent headers from sticking */
-.cheatsheet-content :deep(> div > div > :first-child) {
-  margin-top: 0;
+/* for all elements inside the column */
+.cheatsheet-content :deep(p),
+.cheatsheet-content :deep(h1),
+.cheatsheet-content :deep(h2),
+.cheatsheet-content :deep(ol),
+.cheatsheet-content :deep(ul)  {
+  margin: 0px;
+  padding: 12px;
+}
+
+/* for lists */
+.cheatsheet-content :deep(ul) {
+  padding-left: 2em;
+  list-style: square;
+}
+.cheatsheet-content :deep(ol) {
+  padding-left: 2em;
+}
+.cheatsheet-content :deep(ul li::marker) {
+  color: #ea580c;
 }
 
 /* for code blocks */
@@ -69,7 +95,8 @@ import { Content } from 'vitepress'
   background: #f1f3f5;
   border: 1px solid #e1e4e8;
   border-radius: 6px;
-  padding: 6px;
+  padding: 12px;
+  margin: 0px;
 }
 .cheatsheet-content :deep(span.lang) {
   display: none;
@@ -83,11 +110,24 @@ import { Content } from 'vitepress'
 }
 
 /* to prevent wide tables and code blocks from breaking the column */
-.cheatsheet-content :deep(pre),
+
 .cheatsheet-content :deep(table),
 .cheatsheet-content :deep(div[class*='language-']) {
   max-width: 100%;
-  overflow-x: auto;
+  overflow-x: none;
+  margin: 12px;
+}
+
+/* tables */
+.cheatsheet-content :deep(tr:nth-child(odd)) {
+  background-color: #ffedd5;
+}
+.cheatsheet-content :deep(tr:nth-child(even)) {
+  background-color: #ffffff;
+}
+
+.cheatsheet-content :deep(td) {
+  padding: 2px 8px;
 }
 
 @media (min-width: 900px) {
@@ -97,6 +137,17 @@ import { Content } from 'vitepress'
 }
 
 @media (min-width: 1400px) {
+  .cheatsheet-content :deep(> div) {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+/* for printing */
+@page {
+  margin: 0cm;
+  size: 45 landscape;
+}
+@media print {
   .cheatsheet-content :deep(> div) {
     grid-template-columns: 1fr 1fr 1fr;
   }
