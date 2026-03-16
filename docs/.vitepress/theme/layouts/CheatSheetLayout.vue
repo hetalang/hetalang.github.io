@@ -14,21 +14,21 @@ import { Content } from 'vitepress'
 
 .cheatsheet-layout {
   min-height: 100vh;
-  padding: 0px;
+  padding: 0;
 }
 
 .cheatsheet-container {
+  width: 297mm;
+  min-height: 210mm;
   margin: 0 auto;
-  width: 100%;
-  max-width: 1800px;
 }
 
 .cheatsheet-content {
-  background: var(--vp-c-bg);
-  border: 1px solid var(--vp-c-divider);
-  border-radius: 12px;
-  padding: 24px;
-  font-size: 0.92rem;
+  background: #ffffff;
+  border: 1pt solid #cccccc;
+  border-radius: 4mm;
+  padding: 6mm;
+  font-size: 10pt;
   line-height: 1.4;
 }
 
@@ -36,7 +36,7 @@ import { Content } from 'vitepress'
 .cheatsheet-content :deep(> div) {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 28px;
+  gap: 5mm;
   align-items: start;
 }
 
@@ -45,11 +45,11 @@ import { Content } from 'vitepress'
   min-width: 0;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 2mm;
   align-items: stretch;
 
   border: 0 solid #ea580c;
-  border-width: 0 2px 0 2px;
+  border-width: 0 1.5pt 0 1.5pt;
   padding: 0;
   font-family: 'Manrope', system-ui, sans-serif;
 }
@@ -59,12 +59,12 @@ import { Content } from 'vitepress'
   color: white;
   background-color: #ea580c;
   font-family: "Space Grotesk", system-ui, sans-serif;
-  font-size: 22px;
+  font-size: 1.4em;
   font-weight: 600;
 }
 .cheatsheet-content :deep(h2) {
   font-family: "Space Grotesk", system-ui, sans-serif;
-  font-size: 18px;
+  font-size: 1.2em;
   font-weight: 600;
 }
 
@@ -74,17 +74,18 @@ import { Content } from 'vitepress'
 .cheatsheet-content :deep(h2),
 .cheatsheet-content :deep(ol),
 .cheatsheet-content :deep(ul)  {
-  margin: 0px;
-  padding: 12px;
+  margin: 0;
+  padding: 6pt;
 }
 
 /* for lists */
+.cheatsheet-content :deep(ol) {
+  padding-left: 2em;
+  list-style: decimal;
+}
 .cheatsheet-content :deep(ul) {
   padding-left: 2em;
   list-style: square;
-}
-.cheatsheet-content :deep(ol) {
-  padding-left: 2em;
 }
 .cheatsheet-content :deep(ul li::marker) {
   color: #ea580c;
@@ -93,10 +94,10 @@ import { Content } from 'vitepress'
 /* for code blocks */
 .cheatsheet-content :deep(div[class*='language-']) {
   background: #f1f3f5;
-  border: 1px solid #e1e4e8;
-  border-radius: 6px;
-  padding: 12px;
-  margin: 0px;
+  border: 0.3mm solid #e1e4e8;
+  border-radius: 2mm;
+  padding: 6pt;
+  margin: 0;
 }
 .cheatsheet-content :deep(span.lang) {
   display: none;
@@ -115,7 +116,7 @@ import { Content } from 'vitepress'
 .cheatsheet-content :deep(div[class*='language-']) {
   max-width: 100%;
   overflow-x: none;
-  margin: 12px;
+  margin: 1em;
 }
 
 /* tables */
@@ -127,7 +128,7 @@ import { Content } from 'vitepress'
 }
 
 .cheatsheet-content :deep(td) {
-  padding: 2px 8px;
+  padding: 2pt 8pt;
 }
 
 @media (min-width: 900px) {
@@ -144,8 +145,8 @@ import { Content } from 'vitepress'
 
 /* for printing */
 @page {
-  margin: 0cm;
-  size: 45 landscape;
+  margin: 4mm;
+  size: A4 landscape;
 }
 @media print {
   .cheatsheet-content :deep(> div) {
