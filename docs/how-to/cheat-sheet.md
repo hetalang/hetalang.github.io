@@ -6,9 +6,10 @@ layout: cheat-sheet
 
 # What is Heta?
 
-<https://hetalang.github.io>
+![Heta logo](/img/logo.png)
+Heta is an open-source modeling language and toolchain designed for building, organizing, and transforming quantitative models used in systems pharmacology, systems biology, and related fields.
 
-[Heta](/) is an open-source modeling language and toolchain designed for building, organizing, and transforming quantitative models used in systems pharmacology, systems biology, and related fields.
+**<https://hetalang.github.io>**
 
 - **Heta language** — a language for models.
 - **Heta compiler** — a tool for converting models.
@@ -38,7 +39,7 @@ A [sw1]= A + dose1 / comp1;
 k1 @Const {units: 1/second} = 1.2e-1;
 ```
 
-**@Record** describes values which may vary over time
+**@Record** describes values which may vary over time.
 ```heta
 p1 @Record {
     units: 1/second,   // optional
@@ -47,16 +48,7 @@ p1 @Record {
 } := x * y;
 ```
 
-**@Process** describes income and outcome of records. Inherits from `@Record`.
-```heta
-p1 @Process {
-    actors: in => out,
-    units: 1/second,   // optional
-    output: true       // default - false
-} := k1 * in;
-```
-
-**@Compartment** describes physical volumes. Inherits from `@Record`.
+**@Compartment** describes physical volumes.
 ```heta
 comp1 @Compartment {
     units: liter,    // optional
@@ -65,7 +57,7 @@ comp1 @Compartment {
 } .= 1;
 ```
 
-**@Species** describes concentrations or amounts of substances. Inherits from `@Record`.
+**@Species** describes concentrations or amounts.
 ```heta
 Aamt @Species {
     compartment: comp1,
@@ -76,20 +68,16 @@ Aamt @Species {
 } .= 10;
 ```
 
-**@Reaction** describes chemical reactions. Inherits from `@Process`.
+**@Process** describes income and outcome of records.
 ```heta
-r1 @Reaction {
-    actors: A <=> 2B,
-    units: mole/second,  // optional
-    reversible: true,    // default - false
-    modifiers: [C, D],   // default - []
-    output: true         // default - false
-} := k1 * A * C * D * comp1;
+p1 @Process {
+    actors: in => out,
+    units: 1/second,   // optional
+    output: true       // default - false
+} := k1 * in;
 ```
 
-## Actors expression
-
-Set stoichiometry of a `Process` or `Reaction` using the `actors` property.
+**actors** set stoichiometry of a `Process` or `Reaction`:
 
 | | |
 |---|---|
@@ -101,23 +89,15 @@ Set stoichiometry of a `Process` or `Reaction` using the `actors` property.
 </div>
 <div>
 
-# Annotations
-
-## Comments
+**@Reaction** describes chemical reactions.
 ```heta
-// This is a single-line comment
-/* This is a
-multi-line comment */
-```
-
-## Semantic annotations
-```heta
-'''Here you can write the component notes'''
-A @Species 'Title for component A' {
-    compartment: comp1,
-    tags: [tag1, tag2], // user-defined tags
-    aux: {key1: value1} // user-defined metadata
-} .= 10;
+r1 @Reaction {
+    actors: A <=> 2B,
+    units: mole/second,  // optional
+    reversible: true,    // default - false
+    modifiers: [C, D],   // default - []
+    output: true         // default - false
+} := k1 * A * C * D * comp1;
 ```
 
 # Mathematic expressions
@@ -153,40 +133,44 @@ Math expression can be used in `Record`, `Process`, `Compartment`, `Species`, `R
 | `exp(x)`, `pow(x, n)` <br/> `sqrt(x)`, `nthRoot(x, n)` |
 | `ln(x)`, `log(x)`, `logbase(x, base)`, `log10(x)`, `log2(x)` |
 | `abs(x)`, `ceil(x)`, `floor(x)`, `sign(x)` | 
-| `max(x, y)`, `max(x, y, z)`, `min(x, y)`, `min(x, y, z)` |
-| `factorial(n)` |
+| `max(x, y)`, `max(x, y, z)`, `min(x, y)`, `min(x, y, z)`, `factorial(n)` |
 | `cos(x)`, `cot(x)`, `csc(x)`, `sec(x)`, `sin(x)`, `tan(x)` |
 | `acos(x)`, `acot(x)`, `acsc(x)`, `asec(x)`, `asin(x)`, `atan(x)`|
 
 
 ## Piecewise function
 
-Return `value1` if `cond1` is true, `value2` if `cond2` is true, and so on. If no conditions are true, return `otherwise` value.
+Return `val1` if `cond1` is true, `val2` if `cond2` is true, and so on. If no conditions are true, return `otherwise` value.
 
 ```heta
-piecewise(value1, cond1, value2, cond2, ..., otherwise)
+piecewise(val1, cond1, val2, ..., otherwise)
 ```
 
-# Main actions
+# Annotations
 
-| | |
-|---|---|
-| `#insert c1 @Compartment .= 1;` | Insert component into platform |
-| `#update c1 {units: liter};` | Update component properties |
-| `#upsert c1 @Compartment {units: liter} .= 1;` | Insert or update component depending on `@Class` presence |
-| `c1 @Compartment {units: liter} .= 1;` | Same as `#upsert` but shorter syntax |
-| `#delete c1;` | Delete component from platform |
-| `#include {source: module.xlsx, type: table, sheet: 0};` | Include module into platform, works as `include` statement |
-| `#defineUnit uM {units: (1e-6 mole)/liter};` | Define user unit |
-| `#defineFunction squares {arguments: [x, y], math: "x^2 + y^2"};` | Define user function |
+## Comments
+```heta
+// This is a single-line comment
+/* This is a
+multi-line comment */
+```
 
 </div>
-
 <div>
+
+## Semantic annotations
+```heta
+'''Here you can write the component notes'''
+A @Species 'Title for component A' {
+    compartment: comp1,
+    tags: [tag1, tag2], // user-defined tags
+    aux: {key1: value1} // user-defined metadata
+} .= 10;
+```
 
 # Switchers
 
-Switcher can update `Record`, `Compartment`, or `Species` if specified in 
+Switcher can update **Record**, **Compartment**, or **Species** if specified in
 `[<switcher id>]=` assignment operator.
 
 ```heta
@@ -194,7 +178,7 @@ A [sw1]= A + dose1 / comp1;
 Bamt [sw2]= Bamt + dose2;
 ```
 
-**@TimeSwitcher** manages changes triggered at specific time points.
+**@TimeSwitcher** is triggered at specific time points.
 ```heta
 sw1 @TimeSwitcher {
     start: 10,
@@ -204,7 +188,7 @@ sw1 @TimeSwitcher {
 };
 ```
 
-**@CSwitcher** manages changes triggered when negative hits zero towards positive values.
+**@CSwitcher** is triggered when negative hits zero towards positive values.
 ```heta
 sw2 @CSwitcher {
     trigger: 5 - x,
@@ -212,7 +196,7 @@ sw2 @CSwitcher {
 };
 ```
 
-**@DSwitcher** manages changes triggered when conditions are met at solver steps.
+**@DSwitcher** is triggered when conditions are met at solver steps.
 ```heta
 sw1 @DSwitcher {
     trigger: x > 5,
@@ -228,8 +212,8 @@ Used in `units` property to describe units of `Const`, `Record`, `Process`, `Com
 
 | | |
 |---|---|
-| `second` | simple units expr. |
-| `1/liter/second*mole^2` | complex units expr. |
+| `second` | simple units expression |
+| `1/liter/second*mole^2` | complex units expression |
 | `(1e-9 mole)^2/(60 second)*metre` | complex units with prefixes |
 
 ##  Core Units
@@ -252,6 +236,20 @@ tesla, weber, year, day, hour, minute, avogadro |
 </div>
 <div>
 
+# Main actions
+
+| | |
+|---|---|
+| `#insert k1 @Const = 1;` | Insert component into platform |
+| `#update k1 = 1.1;` | Update component properties |
+| `#upsert k1 @Const = 2;` | Insert or update component depending on `@Class` presence |
+| `        k1 @Const = 2;` | Same as `#upsert` but shorter syntax |
+| `#delete k1;` | Delete component from platform |
+| `#include {source: module.xlsx, type: table, sheet: 0};` | Include module into platform, works as `include` statement |
+| `#defineUnit uM {units: (1e-6 mole)/liter};` | Define user's unit |
+| `#defineFunction sq {arguments: [x, y], math: "x^2 + y^2"};` | Define user function |
+
+
 # Heta modules
 
 ## What is a module?
@@ -273,25 +271,16 @@ my-project/
 
 Modules are included using the `include` statement (or the alternative `#include` action).
 
-| | |
-|---|---|
-| `include my-module.heta;` | Heta code |
-| `include my-module.csv type table;`   | Table (CSV) |
-| `include my-module.xlsx type table with {sheet: 0, omitRows: 0};` | Table (Excel) |
-| `include my-module.json type json;`  | JSON |
-| `include my-module.yml type yaml;`  | YAML |
-| `include my-module.xml type sbml;`    | SBML |
-
 ```heta
-include my-module.heta;                  // Heta code
-include my-module.csv type table;        // Table (CSV)
-include my-module.xlsx type table with { // Table (Excel)
+include mod1.heta;                  // Heta
+include mod2.csv type table;        // Table
+include mod3.xlsx type table with { // Excel
     sheet: 0, 
     omitRows: 0
 }; 
-include my-module.json type json;        // JSON
-include my-module.yml type yaml;         // YAML
-include my-module.xml type sbml;         // SBML
+include mod4.json type json;        // JSON
+include mod5.yml type yaml;         // YAML
+include mod6.xml type sbml;         // SBML
 ```
 
 ## Table modules
@@ -306,6 +295,10 @@ include my-module.xml type sbml;         // SBML
 |r1|Reaction|`A => B`|`k1 * A * comp1`|
 |r2|Reaction|`B => C`|`k2 * B * comp1`|
 |r3|Reaction|`C => A`|`k3 * C * comp1`|
+
+</div>
+<div>
+
 
 </div>
 <div>
