@@ -10,9 +10,9 @@ layout: cheat-sheet
 
 [Heta](/) is an open-source modeling language and toolchain designed for building, organizing, and transforming quantitative models used in systems pharmacology, systems biology, and related fields.
 
-- **Heta language** — a domain-specific language for describing models.
-- **Heta compiler** — a tool for compiling and converting models to other formats.
-- **HetaSimulator.jl** — a simulation framework based on Julia for running and analyzing models.
+- **Heta language** — a language for models.
+- **Heta compiler** — a tool for converting models.
+- **HetaSimulator.jl** — a simulation framework in Julia.
 
 # Model example
 
@@ -21,14 +21,14 @@ layout: cheat-sheet
 one reaction r1, and a time event sw1 */
 comp1 @Compartment .= 1;
 
-A @Species { compartment: comp1 } .= 2;
-B @Species { compartment: comp1 } .= 0;
-r1 @Reaction { actors: A => 2B } := k1 * A * comp1;
+A @Species {compartment: comp1} .= 2;
+B @Species {compartment: comp1} .= 0;
+r1 @Reaction {actors: A => 2B} := k1*A*comp1;
 
 k1 @Const = 1.2e-1;
 dose1 @Const = 1;
 
-sw1 @TimeSwitcher { start: 12, period: 24 };
+sw1 @TimeSwitcher {start: 12, period: 24};
 A [sw1]= A + dose1 / comp1;
 ```
 
@@ -36,7 +36,7 @@ A [sw1]= A + dose1 / comp1;
 
 **@Const** describes fixed values
 ```heta
-k1 @Const { units: 1/second } = 1.2e-1;
+k1 @Const {units: 1/second} = 1.2e-1;
 ```
 
 **@Record** describes values which may vary over time
@@ -117,8 +117,8 @@ multi-line comment */
 '''Here you can write the component notes'''
 A @Species 'Title for component A' {
     compartment: comp1,
-    tags: [tag1, tag2],   // user-defined tags
-    aux: { key1: value1 } // user-defined metadata
+    tags: [tag1, tag2], // user-defined tags
+    aux: {key1: value1} // user-defined metadata
 } .= 10;
 ```
 
@@ -280,7 +280,7 @@ Modules are included using the `include` statement (or the alternative `#include
 |---|---|
 | `include my-module.heta;` | Heta code |
 | `include my-module.csv type table;`   | Table (CSV) |
-| `include my-module.xlsx type table with { sheet: 0, omitRows: 0 };` | Table (Excel) |
+| `include my-module.xlsx type table with {sheet: 0, omitRows: 0};` | Table (Excel) |
 | `include my-module.json type json;`  | JSON |
 | `include my-module.yml type yaml;`  | YAML |
 | `include my-module.xml type sbml;`    | SBML |
@@ -371,13 +371,13 @@ File storing build options and metadata of the project.
   options: {
     unitsCheck: true
   },
-  importModule: { source: src/index.heta },
+  importModule: {source: src/index.heta},
   export: [
-    { format: JSON, omit: [], useUnitsExpr: false },
-    #{ format: YAML, omit: [], useUnitsExpr: false },
-    #{ format: DBSolve, powTransform: keep, version: 26 },
-    { format: SBML, version: L2V4 },
-    { format: Dot },
+    {format: JSON, omit: [], useUnitsExpr: false},
+    #{format: YAML, omit: [], useUnitsExpr: false},
+    #{format: DBSolve, powTransform: keep, version: 26},
+    {format: SBML, version: L2V4},
+    {format: Dot},
   ]
 }
 ```
