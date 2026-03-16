@@ -93,11 +93,13 @@ import { Content } from 'vitepress'
 
 /* for code blocks */
 .cheatsheet-content :deep(div[class*='language-']) {
+  max-width: 100%;
+  overflow-x: none;
   background: #f1f3f5;
   /*border: 0.3mm solid #e1e4e8;*/
   /*border-radius: 2mm;*/
   padding: 6pt;
-  margin: 0;
+  margin: 0.9pt;
 }
 .cheatsheet-content :deep(span.lang) {
   display: none;
@@ -105,7 +107,6 @@ import { Content } from 'vitepress'
 .cheatsheet-content :deep(button.copy) {
   display: none;
 }
-
 .cheatsheet-content :deep(code) {
   font-family: 'JetBrains Mono', monospace;
 }
@@ -117,11 +118,6 @@ import { Content } from 'vitepress'
   overflow-x: none;
   margin: 1pt;
   border-bottom: 3pt solid #ffedd5;
-}
-.cheatsheet-content :deep(div[class*='language-']) {
-  max-width: 100%;
-  overflow-x: none;
-  margin: 0;
 }
 
 /* tables */
@@ -154,12 +150,19 @@ import { Content } from 'vitepress'
 
 /* for printing */
 @page {
-  margin: 4mm;
+  margin: 1mm;
   size: A4 landscape;
 }
 @media print {
   .cheatsheet-content :deep(> div) {
     grid-template-columns: 1fr 1fr 1fr;
+  }
+  * {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .cheatsheet-content :deep(> div > div:nth-child(3n+1)) {
+    break-before: page;
   }
 }
 </style>

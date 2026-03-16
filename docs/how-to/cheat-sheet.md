@@ -20,7 +20,6 @@ layout: cheat-sheet
 /* Simple model with two species A and B, 
 one reaction r1, and a time event sw1 */
 comp1 @Compartment .= 1;
-
 A @Species {compartment: comp1} .= 2;
 B @Species {compartment: comp1} .= 0;
 r1 @Reaction {actors: A => 2B} := k1*A*comp1;
@@ -94,8 +93,7 @@ Set stoichiometry of a `Process` or `Reaction` using the `actors` property.
 
 | | |
 |---|---|
-| `A => B` | irreversible reaction |
-| `A => 2B + C` | reaction with stoichiometry |
+| `A => 2B + C` | irreversible reaction |
 | `=> A` | source (production) |
 | `A =>` | sink (degradation) |
 | `A <=> B` | reversible reaction |
