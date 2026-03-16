@@ -29,7 +29,7 @@ import { Content } from 'vitepress'
   border-radius: 4mm;
   padding: 2mm;
   font-size: 7pt;
-  line-height: 1.4;
+  line-height: 1.3;
 }
 
 /* container from markdown */
@@ -38,6 +38,22 @@ import { Content } from 'vitepress'
   grid-template-columns: 1fr;
   gap: 3mm;
   align-items: start;
+}
+
+/* image */
+.cheatsheet-content :deep(img) {
+  float: right;
+  width: 20mm;
+  margin: 0 0 2pt 2pt;
+  opacity: 0.9;
+}
+
+/* links */
+.cheatsheet-content :deep(a) {
+  color: #862D91;
+  text-decoration: underline;
+  font-size: 1.6em;
+  letter-spacing: 1pt;
 }
 
 /* each column */
