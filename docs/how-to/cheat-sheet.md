@@ -1,5 +1,6 @@
 ---
 layout: cheat-sheet
+title: Cheat Sheet
 ---
 
 <div><!-- This is for 3 column layout -->
@@ -142,7 +143,7 @@ Math expression can be used in `Record`, `Process`, `Compartment`, `Species`, `R
 | `pi`, `e` | mathematical constants |
 | `Infinity`, `-Infinity`, `NaN` | special values |
 |  `+`, `-`, `*`, `/`, `^` | basic math operators |
-| `true`, `false`, `1`, `0` | boolean values |
+| `true`, `false` | boolean values |
 | `and`, `or`, `xor`, `not` | boolean operators |
 | `==`, `!=`, `<`, `>`, `<=`, `>=` | comparison operators |
 | `x > 5 ? 1 : 0` | Ternary operator |
@@ -158,14 +159,14 @@ Math expression can be used in `Record`, `Process`, `Compartment`, `Species`, `R
 | `cos(x)`, `cot(x)`, `csc(x)`, `sec(x)`, `sin(x)`, `tan(x)` |
 | `acos(x)`, `acot(x)`, `acsc(x)`, `asec(x)`, `asin(x)`, `atan(x)`|
 
+## User-defined functions
 
-## Piecewise function
-
-Return `val1` if `cond1` is true, `val2` if `cond2` is true, and so on. If no conditions are true, return `otherwise` value.
-
-| |
-|---|
-|piecewise(val1, cond1, val2, cond2, ..., otherwise)|
+```heta
+#defineFunction myFunc {
+    arguments: [x, y],
+    math: "x^2 + y^2"
+};
+```
 
 </div>
 <div>
@@ -190,7 +191,7 @@ sw1 @TimeSwitcher {
 };
 ```
 
-**@CSwitcher** is triggered when negative hits zero towards positive values.
+**@CSwitcher** is triggered when negative hits zero towards positive.
 ```heta
 sw2 @CSwitcher {
     trigger: 5 - x,
@@ -222,10 +223,11 @@ Used in `units` property to describe units of `Const`, `Record`, `Process`, `Com
 
 | |
 | --- |
-| mole, litre, second, kilogram, katal, **item**, joule, metre, **dimensionless**, watt, 
-volt, ampere, newton, becquerel, candela, coulomb, farad, gram, gray, henry, 
-hertz, kelvin, lumen, lux, ohm, pascal, radian, siemens, sievert, steradian,
-tesla, weber, year, day, hour, minute, avogadro |
+| **dimensionless**, mole, litre, second, kilogram, **item**, joule, metre, watt, volt, gram, kelvin, year, day, hour, minute, avogadro, hertz, |
+| katal, ampere, newton, becquerel, candela, coulomb, farad, gray, henry, lumen, lux, ohm, pascal, radian, siemens, sievert, steradian, tesla, weber |
+
+</div>
+<div>
 
 ## User-defined units
 
@@ -234,23 +236,6 @@ tesla, weber, year, day, hour, minute, avogadro |
     units: (1e-6 mole)/liter
 };
 ```
-
-</div>
-<div>
-
-# Main actions
-
-| | |
-|---|---|
-| `#insert k1 @Const = 1;` | Insert component into platform |
-| `#update k1 = 1.1;` | Update component properties |
-| `#upsert k1 @Const = 2;` | Insert or update component depending on `@Class` presence |
-| `        k1 @Const = 2;` | Same as `#upsert` but shorter syntax |
-| `#delete k1;` | Delete component from platform |
-| `#include {source: module.xlsx, type: table, sheet: 0};` | Include module into platform, works as `include` statement |
-| `#defineUnit uM {units: (1e-6 mole)/liter};` | Define user's unit |
-| `#defineFunction sq {arguments: [x, y], math: "x^2 + y^2"};` | Define user function |
-
 
 # Heta modules
 
@@ -263,10 +248,12 @@ Every project must include at least one module. Other modules may be included in
 my-project/
   |-- src/
       |-- index.heta
-      |-- pk.heta
-      |-- doses.heta
-      |-- cells.xml
-      |-- annotation.xlsx
+      |-- mod1.heta
+      |-- mod2.csv
+      |-- mod3.xlsx
+      |-- mod4.json
+      |-- mod5.yml
+      |-- mod6.xml
 ```
 
 ## Types of modules
@@ -276,10 +263,7 @@ Modules are included using the `include` statement (or the alternative `#include
 ```heta
 include mod1.heta;                  // Heta
 include mod2.csv type table;        // Table
-include mod3.xlsx type table with { // Excel
-    sheet: 0, 
-    omitRows: 0
-}; 
+include mod3.xlsx type table with {sheet: 0, omitRows: 0};
 include mod4.json type json;        // JSON
 include mod5.yml type yaml;         // YAML
 include mod6.xml type sbml;         // SBML
@@ -287,10 +271,10 @@ include mod6.xml type sbml;         // SBML
 
 ## Table modules
 
+- use `heta init` to generate template table.
 - Same structure as the Heta code, but in a tabular format.
 - First line is a header with property names.
 - Support various formats: CSV, TSV, Excel, etc.
-- use `heta init` to generate template table.
 
 | id | class | actors | assignmnents.ode_ |
 |---|---|---|---|
@@ -345,6 +329,27 @@ Can be used in `--export` build option or **platform.yml** `export` settings.
 
 Compiled files are written to the **dist/** directory.
 
+</div>
+<div>
+
+# Other
+
+## qsp-units.heta in heta-compiler
+
+`heta init` provides pre-defined units, which can be than loaded in **index.heta**. 
+
+```heta
+include qsp-units.heta;
+```
+
+| |
+| --- |
+| **UL** (unitless), percent, cell, kcell |
+| fmole, pmole, nmole, umole, mmole, fM, pM, nM, uM, mM, M, kM |
+| fL, pL, nL, uL, mL, dL, L, fg, pg, ng, ug, mg, g, kg, fm, pm, nm, um, mm, cm, m |
+| fs, ps, ns, us, ms, s, h, week |
+| kat, cal, kcal |
+
 ## platform.yml
 
 File storing build options and metadata of the project.
@@ -370,20 +375,28 @@ File storing build options and metadata of the project.
 }
 ```
 
-## qsp-units.heta
+## Piecewise function in heta-compiler
 
-`heta init` provides pre-defined units, which can be than loaded in **index.heta**. 
-
-```heta
-include qsp-units.heta;
-```
+Return `val1` if `cond1` is true, `val2` if `cond2` is true, and so on. If no conditions are true, return `otherwise` value.
 
 | |
-| --- |
-| **UL** (unitless), percent, cell, kcell |
-| fmole, pmole, nmole, umole, mmole, fM, pM, nM, uM, mM, M, kM |
-| fL, pL, nL, uL, mL, dL, L, fg, pg, ng, ug, mg, g, kg, fm, pm, nm, um, mm, cm, m |
-| fs, ps, ns, us, ms, s, h, week |
-| kat, cal, kcal |
+|---|
+|piecewise(val1, cond1, val2, cond2, ..., otherwise)|
+
+</div>
+<div>
+
+# Main actions
+
+| | |
+|---|---|
+| `#insert k1 @Const = 1;` | Insert component into platform |
+| `#update k1 = 1.1;` | Update component properties |
+| `#upsert k1 @Const = 2;` | Insert or update component depending on `@Class` presence |
+| `        k1 @Const = 2;` | Same as `#upsert` but shorter syntax |
+| `#delete k1;` | Delete component from platform |
+| `#include {source: module.xlsx, type: table, sheet: 0};` | Include module into platform, works as `include` statement |
+| `#defineUnit uM {units: (1e-6 mole)/liter};` | Define user's unit |
+| `#defineFunction sq {arguments: [x, y], math: "x^2 + y^2"};` | Define user function |
 
 </div>
