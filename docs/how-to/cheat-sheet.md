@@ -48,6 +48,18 @@ p1 @Record {
 } := x * y;
 ```
 
+**@Process** describes income and outcome of records.
+```heta
+p1 @Process {
+    actors: in => out,
+    units: 1/second,   // optional
+    output: true       // default - false
+} := k1 * in;
+```
+
+</div>
+<div>
+
 **@Compartment** describes physical volumes.
 ```heta
 comp1 @Compartment {
@@ -68,13 +80,14 @@ Aamt @Species {
 } .= 10;
 ```
 
-**@Process** describes income and outcome of records.
+**@Reaction** describes chemical reactions.
 ```heta
-p1 @Process {
-    actors: in => out,
-    units: 1/second,   // optional
-    output: true       // default - false
-} := k1 * in;
+r1 @Reaction {
+    actors: A <=> 2B,
+    units: mole/second,  // optional
+    modifiers: [C, D],   // default - []
+    output: true         // default - false
+} := k1 * A * C * D * comp1;
 ```
 
 **actors** set stoichiometry of a `Process` or `Reaction`:
@@ -86,19 +99,27 @@ p1 @Process {
 | `A =>` | sink (degradation) |
 | `A <=> B` | reversible reaction |
 
+# Annotations
+
+## Comments
+```heta
+// This is a single-line comment
+/* This is a
+multi-line comment */
+```
+
+## Semantic annotations
+```heta
+'''Here you can write the component notes'''
+A @Species 'Title for component A' {
+    compartment: comp1,
+    tags: [tag1, tag2], // user-defined tags
+    aux: {key1: value1} // user-defined metadata
+} .= 10;
+```
+
 </div>
 <div>
-
-**@Reaction** describes chemical reactions.
-```heta
-r1 @Reaction {
-    actors: A <=> 2B,
-    units: mole/second,  // optional
-    reversible: true,    // default - false
-    modifiers: [C, D],   // default - []
-    output: true         // default - false
-} := k1 * A * C * D * comp1;
-```
 
 # Mathematic expressions
 
@@ -142,31 +163,12 @@ Math expression can be used in `Record`, `Process`, `Compartment`, `Species`, `R
 
 Return `val1` if `cond1` is true, `val2` if `cond2` is true, and so on. If no conditions are true, return `otherwise` value.
 
-```heta
-piecewise(val1, cond1, val2, ..., otherwise)
-```
-
-# Annotations
-
-## Comments
-```heta
-// This is a single-line comment
-/* This is a
-multi-line comment */
-```
+| |
+|---|
+|piecewise(val1, cond1, val2, cond2, ..., otherwise)|
 
 </div>
 <div>
-
-## Semantic annotations
-```heta
-'''Here you can write the component notes'''
-A @Species 'Title for component A' {
-    compartment: comp1,
-    tags: [tag1, tag2], // user-defined tags
-    aux: {key1: value1} // user-defined metadata
-} .= 10;
-```
 
 # Switchers
 
@@ -295,10 +297,6 @@ include mod6.xml type sbml;         // SBML
 |r1|Reaction|`A => B`|`k1 * A * comp1`|
 |r2|Reaction|`B => C`|`k2 * B * comp1`|
 |r3|Reaction|`C => A`|`k3 * C * comp1`|
-
-</div>
-<div>
-
 
 </div>
 <div>
