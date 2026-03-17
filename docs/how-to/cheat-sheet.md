@@ -8,18 +8,18 @@ title: Cheat Sheet
 # What is Heta?
 
 ![Heta logo](/img/logo.png)
-Heta is an open-source modeling language and toolchain designed for building, organizing, and transforming quantitative models used in systems pharmacology, systems biology, and related fields.
+Heta is an open-source modeling language and toolchain for building, organizing, and transforming quantitative models used in systems pharmacology, systems biology, and related fields.
 
 **<https://hetalang.github.io>**
 
-- **Heta language** — a language for models.
+- **Heta language** — a language for defining models.
 - **Heta compiler** — a tool for converting models.
 - **HetaSimulator.jl** — a simulation framework in Julia.
 
 # Model example
 
 ```heta
-/* Simple model with two species A and B, 
+/* A simple model with two species A and B, 
 one reaction r1, and a time event sw1 */
 comp1 @Compartment .= 1;
 A @Species {compartment: comp1} .= 2;
@@ -35,12 +35,12 @@ A [sw1]= A + dose1 / comp1;
 
 # Base classes
 
-**@Const** describes fixed values
+**@Const** defines fixed values
 ```heta
 k1 @Const {units: 1/second} = 1.2e-1;
 ```
 
-**@Record** describes values which may vary over time.
+**@Record** defines values which may vary over time.
 ```heta
 p1 @Record {
     units: 1/second,   // optional
@@ -49,7 +49,7 @@ p1 @Record {
 } := x * y;
 ```
 
-**@Process** describes income and outcome of records.
+**@Process** defines income and outcome of records.
 ```heta
 p1 @Process {
     actors: in => out,
@@ -61,7 +61,7 @@ p1 @Process {
 </div>
 <div>
 
-**@Compartment** describes physical volumes.
+**@Compartment** defines physical volumes.
 ```heta
 comp1 @Compartment {
     units: liter,    // optional
@@ -70,7 +70,7 @@ comp1 @Compartment {
 } .= 1;
 ```
 
-**@Species** describes concentrations or amounts.
+**@Species** defines concentrations or amounts.
 ```heta
 Aamt @Species {
     compartment: comp1,
@@ -81,7 +81,7 @@ Aamt @Species {
 } .= 10;
 ```
 
-**@Reaction** describes chemical reactions.
+**@Reaction** defines chemical reactions.
 ```heta
 r1 @Reaction {
     actors: A <=> 2B,
@@ -91,7 +91,7 @@ r1 @Reaction {
 } := k1 * A * C * D * comp1;
 ```
 
-**actors** set stoichiometry of a `Process` or `Reaction`:
+**actors** define stoichiometry of a `Process` or `Reaction`:
 
 | | |
 |---|---|
@@ -122,17 +122,17 @@ A @Species 'Title for component A' {
 </div>
 <div>
 
-# Mathematic expressions
+# Mathematical expressions
 
-Math expression can be used in `Record`, `Process`, `Compartment`, `Species`, `Reaction` **assignment** and `Switcher` **trigger** properties.
+Math expressions can be used in `Record`, `Process`, `Compartment`, `Species`, `Reaction` **assignment** and `Switcher` **trigger** properties.
 
 ## Assignments
 
 | | |
 |---|---|
-| `=` | assign number, for `Const` only |
-| `.=` | initial assignment, calculate value at time 0 only, for `Record`, `Compartment`, `Species` |
-| `:=` | rule assignment, calculate value at each time step, for `Record`, `Process`, `Compartment`, `Species`, `Reaction` |
+| `=` | assign a value, for `Const` only |
+| `.=` | initial assignment, evaluated at time 0 only, for `Record`, `Compartment`, `Species` |
+| `:=` | rule assignment, evaluated at each time step, for `Record`, `Process`, `Compartment`, `Species`, `Reaction` |
 | `[sw1]=` | assignment when switcher `sw1` is active, for `Record`, `Compartment`, `Species` |
 
 ## Numbers and operators
@@ -152,10 +152,10 @@ Math expression can be used in `Record`, `Process`, `Compartment`, `Species`, `R
 
 | |
 | --- |
-| `exp(x)`, `pow(x, n)` <br/> `sqrt(x)`, `nthRoot(x, n)` |
+| `exp(x)`, `pow(x, n)`, `sqrt(x)`, `nthRoot(x, n)` |
 | `ln(x)`, `log(x)`, `logbase(x, base)`, `log10(x)`, `log2(x)` |
-| `abs(x)`, `ceil(x)`, `floor(x)`, `sign(x)` | 
-| `max(x, y)`, `max(x, y, z)`, `min(x, y)`, `min(x, y, z)`, `factorial(n)` |
+| `abs(x)`, `ceil(x)`, `floor(x)`, `sign(x)`, `factorial(n)` | 
+| `max(x, y)`, `max(x, y, z)`, `min(x, y)`, `min(x, y, z)` |
 | `cos(x)`, `cot(x)`, `csc(x)`, `sec(x)`, `sin(x)`, `tan(x)` |
 | `acos(x)`, `acot(x)`, `acsc(x)`, `asec(x)`, `asin(x)`, `atan(x)`|
 
@@ -173,7 +173,7 @@ Math expression can be used in `Record`, `Process`, `Compartment`, `Species`, `R
 
 # Switchers
 
-Switcher can update **Record**, **Compartment**, or **Species** if specified in
+A Switcher can update **Record**, **Compartment**, or **Species** when used with
 `[<switcher id>]=` assignment operator.
 
 ```heta
@@ -191,15 +191,15 @@ sw1 @TimeSwitcher {
 };
 ```
 
-**@CSwitcher** is triggered when negative hits zero towards positive.
+**@CSwitcher** triggers when a value crosses zero (from **-** to **+**).
 ```heta
 sw2 @CSwitcher {
     trigger: 5 - x,
     active: false   // default - true
 };
 ```
-
-**@DSwitcher** is triggered when conditions are met at solver steps.
+    
+**@DSwitcher** triggers when conditions are met during solution.
 ```heta
 sw1 @DSwitcher {
     trigger: x > 5,
@@ -211,7 +211,7 @@ sw1 @DSwitcher {
 
 ## Units expression
 
-Used in `units` property to describe units of `Const`, `Record`, `Process`, `Compartment`, `Species`, `Reaction`.
+Used in the `units` property to describe units of `Const`, `Record`, `Process`, `Compartment`, `Species`, `Reaction`.
 
 | | |
 |---|---|
@@ -223,7 +223,7 @@ Used in `units` property to describe units of `Const`, `Record`, `Process`, `Com
 
 | |
 | --- |
-| **dimensionless**, mole, litre, second, kilogram, **item**, joule, metre, watt, volt, gram, kelvin, year, day, hour, minute, avogadro, hertz, |
+| **dimensionless**, mole, litre, second, kilogram, **item**, joule, metre, watt, volt, gram, kelvin, year, day, hour, minute, avogadro, hertz |
 | katal, ampere, newton, becquerel, candela, coulomb, farad, gray, henry, lumen, lux, ohm, pascal, radian, siemens, sievert, steradian, tesla, weber |
 
 </div>
@@ -241,8 +241,8 @@ Used in `units` property to describe units of `Const`, `Record`, `Process`, `Com
 
 ## What is a module?
 
-Modules are files that contain model components and can be included in a Heta project.
-Every project must include at least one module. Other modules may be included in the main module or in each other.
+Modules are files containing model components and can be included in a Heta project.
+Every project must include at least one module. Other modules can be included in the main module or in other modules.
 
 ```
 my-project/
@@ -258,12 +258,14 @@ my-project/
 
 ## Types of modules
 
-Modules are included using the `include` statement (or the alternative `#include` action).
+Modules are included using the `include` statement (or alternatively with `#include` action).
 
 ```heta
+/* index.heta */
 include mod1.heta;                  // Heta
 include mod2.csv type table;        // Table
 include mod3.xlsx type table with {sheet: 0, omitRows: 0};
+include mod3.xlsx type table with {sheet: 1, omitRows: 0};
 include mod4.json type json;        // JSON
 include mod5.yml type yaml;         // YAML
 include mod6.xml type sbml;         // SBML
@@ -271,8 +273,8 @@ include mod6.xml type sbml;         // SBML
 
 ## Table modules
 
-- use `heta init` to generate template table.
-- Same structure as the Heta code, but in a tabular format.
+- Use `heta init` to generate template table.
+- Same structure as Heta code, but in a tabular format.
 - First line is a header with property names.
 - Support various formats: CSV, TSV, Excel, etc.
 
@@ -289,28 +291,31 @@ include mod6.xml type sbml;         // SBML
 
 ## Typical workflow
 
-Heta-compiler works from console: bash, cmd, PowerShell, etc.
+Heta-compiler runs from console: bash, cmd, PowerShell, etc.
 
-1. Install **heta-compiler** and check with `heta -v`.
+1. Install **heta-compiler** and verify with `heta -v`.
 2. `heta init` — initialize project with default files.
-3. Edit **src/index.heta** and add model components.
+3. Edit **src/index.heta**, include modules, add components.
 4. Edit **platform.yml** to set build options and export formats.
 5. `heta build` — compile model and export to formats.
+6. Repeat steps 3-5 until model is ready.
 
 ## Compile with options
 
-Build options override **platform.yml** settings (if exist) for current build.
+_Build options override settings from **platform.yml** (if they exist) for current build._
+
+**Run from console** in project directory:
 
 | | |
 |---|---|
 | `heta build -h` | Show build options |
-| `heta build --source=src/model.heta` | Compile from file (default: **index.heta**) |
+| `heta build --source=src/model.heta` | Compile from file |
 | `heta build --export=SBML,Dot,Simbio` | Export to formats |
 | `heta build --units-check` | Check units consistency |
 
 ## Export formats
 
-Can be used in `--export` build option or **platform.yml** `export` settings.
+Can be used with `--export=` build option or **platform.yml** `export`.
 
 | | |
 |---|---|
@@ -327,7 +332,7 @@ Can be used in `--export` build option or **platform.yml** `export` settings.
 | `Dot` | Graphviz Dot file for model structure visualization |
 | `Summary` | Human-readable text summary of the model |
 
-Compiled files are written to the **dist/** directory.
+Compiled files are saved to the **dist/** directory.
 
 </div>
 <div>
@@ -336,7 +341,7 @@ Compiled files are written to the **dist/** directory.
 
 ## qsp-units.heta in heta-compiler
 
-`heta init` provides pre-defined units, which can be than loaded in **index.heta**. 
+`heta init` provides pre-defined units, which can be then loaded in **index.heta**. 
 
 ```heta
 include qsp-units.heta;
