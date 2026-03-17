@@ -18,8 +18,8 @@ import { Content } from 'vitepress'
 }
 
 .cheatsheet-container {
-  width: 210mm;
-  min-height: 297mm;
+  width: 297mm;
+  min-height: ;
   margin: 0 auto;
 }
 
@@ -28,8 +28,10 @@ import { Content } from 'vitepress'
   border: 1pt solid #cccccc;
   border-radius: 4mm;
   padding: 2mm;
-  font-size: 7pt;
+  font-size: 8pt;
   line-height: 1.3;
+  font-family: 'Inter', system-ui, sans-serif;
+  /*'Manrope' 'Inter' 'Atkinson Hyperlegible' 'Source Sans 3'*/
 }
 
 /* container from markdown */
@@ -38,22 +40,6 @@ import { Content } from 'vitepress'
   grid-template-columns: 1fr;
   gap: 3mm;
   align-items: start;
-}
-
-/* image */
-.cheatsheet-content :deep(img) {
-  float: right;
-  width: 20mm;
-  margin: 0 0 2pt 2pt;
-  opacity: 0.9;
-}
-
-/* links */
-.cheatsheet-content :deep(a) {
-  color: #862D91;
-  text-decoration: underline;
-  font-size: 1.6em;
-  letter-spacing: 1pt;
 }
 
 /* each column */
@@ -66,7 +52,22 @@ import { Content } from 'vitepress'
   border: 0 solid #ea580c;
   border-width: 0 1.5pt 0 1.5pt;
   padding: 0;
-  font-family: 'Manrope', system-ui, sans-serif;
+}
+
+/* image */
+.cheatsheet-content :deep(img) {
+  float: right;
+  height: 15mm;
+  margin: 0 0 2pt 2pt;
+  opacity: 0.9;
+}
+
+/* links */
+.cheatsheet-content :deep(a) {
+  color: #862D91;
+  text-decoration: underline;
+  font-size: 1.5em;
+  letter-spacing: 1pt;
 }
 
 /* for headers */
@@ -79,7 +80,7 @@ import { Content } from 'vitepress'
 }
 .cheatsheet-content :deep(h2) {
   font-family: "Space Grotesk", system-ui, sans-serif;
-  font-size: 1.2em;
+  font-size: 1.1em;
   font-weight: 600;
 }
 
@@ -115,6 +116,7 @@ import { Content } from 'vitepress'
   /*border-radius: 2mm;*/
   padding: 6pt;
   margin: 0.9pt;
+  font-size: 1em;
 }
 .cheatsheet-content :deep(span.lang) {
   display: none;
@@ -124,6 +126,9 @@ import { Content } from 'vitepress'
 }
 .cheatsheet-content :deep(code) {
   font-family: 'JetBrains Mono', monospace;
+}
+.cheatsheet-content :deep(pre) {
+  margin: 0;
 }
 
 /* to prevent wide tables and code blocks from breaking the column */
@@ -165,8 +170,8 @@ import { Content } from 'vitepress'
 
 /* for printing */
 @page {
-  margin: 1mm;
-  size: A4;
+  margin: 2mm;
+  size: A4 landscape;
 }
 @media print {
   .cheatsheet-content :deep(> div) {
