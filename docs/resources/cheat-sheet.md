@@ -7,10 +7,8 @@ title: Cheat Sheet
 
 # What is Heta?
 
-![Heta logo](/img/logo.png)
-Heta is an open-source modeling language and toolchain for building, organizing, and transforming quantitative models used in systems pharmacology, systems biology, and related fields.
-
-**<https://hetalang.github.io>**
+![logo](/img/logo.png)
+Heta is an open-source modeling language and toolchain for building, organizing, and transforming quantitative models used in systems pharmacology, systems biology, and related fields. **<https://hetalang.github.io>**
 
 - **Heta language** — a language for defining models.
 - **Heta compiler** — a tool for converting models.
@@ -114,8 +112,8 @@ multi-line comment */
 '''Here you can write the component notes'''
 A @Species 'Title for component A' {
     compartment: comp1,
-    tags: [tag1, tag2], // user-defined tags
-    aux: {key1: value1} // user-defined metadata
+    tags: [tag1, tag2, tag3],         // user-defined tags
+    aux: {key1: value1, key2: value2} // user-defined meta
 } .= 10;
 ```
 
@@ -194,7 +192,7 @@ sw1 @TimeSwitcher {
 **@CSwitcher** triggers when a value crosses zero (from **-** to **+**).
 ```heta
 sw2 @CSwitcher {
-    trigger: 5 - x,
+    trigger: x - 5,
     active: false   // default - true
 };
 ```
@@ -211,7 +209,7 @@ sw1 @DSwitcher {
 
 ## Units expression
 
-Used in the `units` property to describe units of `Const`, `Record`, `Process`, `Compartment`, `Species`, `Reaction`.
+Used in the `units` property to set units of `Const`, `Record`, `Process`, `Compartment`, `Species`, `Reaction`, `TimeScale`, and `#defineUnit`.
 
 | | |
 |---|---|
