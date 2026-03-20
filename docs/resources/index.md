@@ -1,7 +1,5 @@
 # Resources
 
-- [Learn Heta](/resources/learn-heta)
-
 - [Ecosystem](/resources/ecosystem)
 
 - [Learn Heta](/resources/learn-heta)
