@@ -19,7 +19,6 @@ import { Content } from 'vitepress'
 
 .cheatsheet-container {
   width: 297mm;
-  min-height: ;
   margin: 0 auto;
 }
 
@@ -55,10 +54,10 @@ import { Content } from 'vitepress'
 }
 
 /* image */
-.cheatsheet-content :deep(img) {
+.cheatsheet-content :deep(img[alt="logo"]) {
   float: right;
-  height: 15mm;
-  margin: 0 0 2pt 2pt;
+  height: 20mm;
+  margin: 0 0 2pt 6pt;
   opacity: 0.9;
 }
 
@@ -66,7 +65,7 @@ import { Content } from 'vitepress'
 .cheatsheet-content :deep(a) {
   color: #862D91;
   text-decoration: underline;
-  font-size: 1.5em;
+  font-size: 1.4em;
   letter-spacing: 1pt;
 }
 
@@ -176,13 +175,14 @@ import { Content } from 'vitepress'
 @media print {
   .cheatsheet-content :deep(> div) {
     grid-template-columns: 1fr 1fr 1fr;
+    break-before: page;
   }
   * {
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
   }
   .cheatsheet-content :deep(> div > div:nth-child(3n+1)) {
-    break-before: page;
+    
   }
 }
 </style>
