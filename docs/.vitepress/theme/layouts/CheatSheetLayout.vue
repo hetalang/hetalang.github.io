@@ -124,7 +124,10 @@ import { Content } from 'vitepress'
   display: none;
 }
 .cheatsheet-content :deep(code) {
-  font-family: 'JetBrains Mono', monospace;
+  /*font-family: 'JetBrains Mono', monospace;*/
+  font-variant-ligatures: none;
+  font-feature-settings: "liga" 0, "calt" 0;
+  font-size: 1em;
 }
 .cheatsheet-content :deep(pre) {
   margin: 0;
@@ -175,14 +178,13 @@ import { Content } from 'vitepress'
 @media print {
   .cheatsheet-content :deep(> div) {
     grid-template-columns: 1fr 1fr 1fr;
-    break-before: page;
   }
   * {
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
   }
   .cheatsheet-content :deep(> div > div:nth-child(3n+1)) {
-    
+    break-before: page;
   }
 }
 </style>
