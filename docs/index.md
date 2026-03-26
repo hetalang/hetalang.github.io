@@ -9,11 +9,11 @@ hero:
         alt: Heta Project Logo
     actions:
         - theme: brand
-          text: Markdown Examples
-          link: /markdown-examples
+          text: QSPC2026 Workshop
+          link: /qspc2026/
         - theme: alt
-          text: API Examples
-          link: /api-examples
+          text: Quick Start
+          link: /quick-start
 features:
     - title: Feature A
       details: Lorem ipsum dolor sit amet, consectetur adipiscing elit

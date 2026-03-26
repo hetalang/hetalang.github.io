@@ -14,7 +14,7 @@ Before you start, make sure you have [installed the following](/resources/ecosys
 
 __What we will build__
 
-In this quick start we create a **simple reaction model** and convert it to SBML, Simbiology, and Heta-Table format.
+In this quick start we create a **simple reaction model** and convert it to SBML, SimBiology, and Heta-Table format.
 
 ### Step 1
 
