@@ -54,16 +54,12 @@ head:
 
 The **Heta Project** is an open-source initiative dedicated to transforming the landscape of pharmacology and systems biology modeling. By developing a unified infrastructure and best practices, we empower researchers and practitioners to create dynamic quantitative models with ease and efficiency.
 
----
-
 ## Why Heta?
 
 - **Unified Data Structures:** Store model components, datasets, and tasks in a consistent format.
 - **Domain-Specific Language:** Utilize the [Heta language](/specifications/), a DSL tailored for dynamic quantitative models.
 - **Open-Source Tools and Resources:** Access [tools](/resources/ecosystem#Heta-supporting-tools), [examples](/resources/ecosystem#open-source-qsp-platforms), and [study materials](/resources/).
 - **Best Practices and Workflows:** Follow established methodologies for efficient model development.
-
----
 
 ## Get Started with Heta
 
@@ -77,7 +73,7 @@ The **Heta Project** is an open-source initiative dedicated to transforming the 
 3. Explore Code Examples and Resources
 
     - Check out various [Heta code examples](/specifications/cases).
-    - Download the handy [Heta Cheatsheet](/files/heta-cheatsheet.pdf) for quick reference.
+    - Print the handy [Heta Cheatsheet](/resources/cheat-sheet) for quick reference.
 
 4. Learn About Our Tools
 
@@ -85,11 +81,9 @@ The **Heta Project** is an open-source initiative dedicated to transforming the 
     - Discover how to use the [Heta Compiler](/hetacompiler/).
     - Explore [HetaSimulator.jl](https://hetalang.github.io/HetaSimulator.jl/stable/) for simulation tasks.
 
----
+## Community
 
-## Join Our Community
-
-We are an open project, and contributions are warmly welcomed! For more details on how you can contribute, please visit the [Contributing](/resources/contributing) page.
+We are an open project, and contributions are welcomed! For more details on how you can contribute, please visit the [Contributing](/resources/contributing) page.
 
 ### How You Can Contribute
 
@@ -98,34 +92,24 @@ We are an open project, and contributions are warmly welcomed! For more details 
 - **Testing:** Participate in testing and provide feedback.
 - **Community Support:** Engage with users on our [Gitter channel](https://gitter.im/hetalang/community?source=orgpage).
 
----
-
 ## Stay Connected
 
 - **Website:** Visit us at [https://hetalang.github.io/](https://hetalang.github.io/).
 - **Events:** Meet us at QSP/SB conferences and say hello.
-
----
 
 ## Resources
 
 - **Simple Heta Models:** A set of Heta models for testing — [GitHub Repository](https://github.com/hetalang/simple-heta-models)
 - **SBML Heta Cases:** Test suite for Heta language vs. SBML conversion — [GitHub Repository](https://github.com/hetalang/sbml-heta-cases)
 
----
-
 ## Maintainers
 
 - **Evgeny Metelkin** - [Personal Page](https://metelkin.me) | [GitHub](https://github.com/metelkin)
 - **Ivan Borisov** - [GitHub](https://github.com/ivborissov)
 
----
-
 ## Contact Us
 
 - **Email:** [dev@insysbio.com](mailto:dev@insysbio.com)
-
----
 
 © Heta Project, 2019-2026
 
