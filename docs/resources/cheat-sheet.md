@@ -24,7 +24,7 @@ Heta is an open-source modeling language and toolchain for building, organizing,
 comp1 @Compartment .= 1;
 A @Species {compartment: comp1} .= 2;
 B @Species {compartment: comp1} .= 0;
-r1 @Reaction {actors: A => 2B} := k1*A*comp1;
+r1 @Reaction {actors: A => 2B} := k1 * A * comp1;
 
 k1 @Const = 1.2e-1;
 dose1 @Const = 1;

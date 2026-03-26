@@ -14,6 +14,9 @@ hero:
         - theme: alt
           text: Quick Start
           link: /quick-start
+        - theme: alt
+          text: Cheat Sheet
+          link: /resources/cheat-sheet
 features:
     - title: Feature A
       details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
