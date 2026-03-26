@@ -17,8 +17,10 @@ Heta is an open-source modeling language and toolchain for building, organizing,
 # Model example
 
 ```heta
-/* A simple model with two species A and B, 
-one reaction r1, and a time event sw1 */
+/* 
+  A simple model with two species A and B, 
+  one reaction r1, and a time event sw1 
+*/
 comp1 @Compartment .= 1;
 A @Species {compartment: comp1} .= 2;
 B @Species {compartment: comp1} .= 0;
@@ -47,7 +49,7 @@ p1 @Record {
 } := x * y;
 ```
 
-**@Process** defines income and outcome of records.
+**@Process** defines flows between records.
 ```heta
 p1 @Process {
     actors: in => out,
@@ -156,6 +158,8 @@ Math expressions can be used in `Record`, `Process`, `Compartment`, `Species`, `
 | `max(x, y)`, `max(x, y, z)`, `min(x, y)`, `min(x, y, z)` |
 | `cos(x)`, `cot(x)`, `csc(x)`, `sec(x)`, `sin(x)`, `tan(x)` |
 | `acos(x)`, `acot(x)`, `acsc(x)`, `asec(x)`, `asin(x)`, `atan(x)`|
+| `piecewise(val1, cond1, val2, cond2, ..., otherwise)` |
+
 
 ## User-defined functions
 
@@ -199,7 +203,7 @@ sw2 @CSwitcher {
     
 **@DSwitcher** triggers when conditions are met during solution.
 ```heta
-sw1 @DSwitcher {
+sw3 @DSwitcher {
     trigger: x > 5,
     active: false   // default - true
 };
@@ -272,11 +276,11 @@ include mod6.xml type sbml;         // SBML
 ## Table modules
 
 - Use `heta init` to generate template table.
-- Same structure as Heta code, but in a tabular format.
+- Similar structure to Heta code, but in a tabular format.
 - First line is a header with property names.
-- Support various formats: CSV, TSV, Excel, etc.
+- Supports various formats: CSV, TSV, Excel, etc.
 
-| id | class | actors | assignmnents.ode_ |
+| id | class | actors | assignments.ode_ |
 |---|---|---|---|
 |r1|Reaction|`A => B`|`k1 * A * comp1`|
 |r2|Reaction|`B => C`|`k2 * B * comp1`|
@@ -377,14 +381,6 @@ File storing build options and metadata of the project.
   ]
 }
 ```
-
-## Piecewise function in heta-compiler
-
-Return `val1` if `cond1` is true, `val2` if `cond2` is true, and so on. If no conditions are true, return `otherwise` value.
-
-| |
-|---|
-|piecewise(val1, cond1, val2, cond2, ..., otherwise)|
 
 </div>
 <div>
