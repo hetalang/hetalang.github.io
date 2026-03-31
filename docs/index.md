@@ -1,29 +1,33 @@
 ---
-#layout: home
+layout: home
 hero:
     name: Heta Project
-    text: Bridging Innovation and Simplicity in Model Development
-    tagline: An open-source initiative for dynamic system modeling in pharmacology, PK/PD, QSP, and systems biology.
+    text: Build reusable QSP and PK/PD models
+    tagline: A domain-specific language and toolchain for structured, modular, and convertible models.
     image:
         src: /img/logo.svg
         alt: Heta Project Logo
     actions:
-        - theme: brand
-          text: QSPC2026 Workshop
-          link: /qspc2026/
+#        - theme: brand
+#          text: QSPC2026 Workshop
+#          link: /qspc2026/
         - theme: alt
           text: Quick Start
           link: /quick-start
         - theme: alt
           text: Cheat Sheet
           link: /resources/cheat-sheet
+        - theme: alt
+          text: Try Online
+          link: https://heta-online.insysbio.com/
+      
 features:
-    - title: Feature A
-      details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-    - title: Feature B
-      details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-    - title: Feature C
-      details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+    - title: Modular model design
+      details: Split complex QSP models into reusable components instead of monolithic scripts.
+    - title: Multi-format export
+      details: Convert models to SBML, SimBiology, mrgsolve, Julia, and more.
+    - title: Domain-specific language
+      details: Write models in a concise DSL designed specifically for PK/PD and systems pharmacology.
 
 head:
   - - meta
@@ -49,10 +53,6 @@ head:
       content: 'website'
 ---
 
-# About
-
-*An open-source initiative developing advanced tools and best practices for dynamic system modeling in pharmacology, PK/PD, QSP, and systems biology.*
-
 ## Empowering Modelers in Pharmacology and Systems Biology
 
 The **Heta Project** is an open-source initiative dedicated to transforming the landscape of pharmacology and systems biology modeling. By developing a unified infrastructure and best practices, we empower researchers and practitioners to create dynamic quantitative models with ease and efficiency.
@@ -61,59 +61,32 @@ The **Heta Project** is an open-source initiative dedicated to transforming the 
 
 - **Unified Data Structures:** Store model components, datasets, and tasks in a consistent format.
 - **Domain-Specific Language:** Utilize the [Heta language](/specifications/), a DSL tailored for dynamic quantitative models.
-- **Open-Source Tools and Resources:** Access [tools](/resources/ecosystem#Heta-supporting-tools), [examples](/resources/ecosystem#open-source-qsp-platforms), and [study materials](/resources/).
+- **Interoperability with Existing Tools:** Integrate with formats like SBML, SimBiology, mrgsolve, and Julia.
 - **Best Practices and Workflows:** Follow established methodologies for efficient model development.
 
 ## Get Started with Heta
 
-1. Dive into the [Heta Tutorial](/resources/learn-heta.html#heta-video-tutorial)
+1. Follow our [Quick Start Guide](/quick-start) to create your first Heta model.
+
+1. Dive into the [Heta Tutorial](/resources/learn-heta.html#heta-video-tutorial).
     Begin your journey with our step-by-step tutorial designed for both beginners and experienced modelers.
 
-2. Try the [Heta Compiler Online](https://heta-online.insysbio.com/)
-
+2. Try the [Heta Compiler Online](https://heta-online.insysbio.com/).
     Experiment with Heta code directly in your browser—no installation required.
 
-3. Explore Code Examples and Resources
-
+3. Explore Code Examples and Resources.
     - Check out various [Heta code examples](/specifications/cases).
     - Print the handy [Heta Cheatsheet](/resources/cheat-sheet) for quick reference.
 
 4. Learn About Our Tools
-
     - Understand the [Heta Language](/specifications/).
     - Discover how to use the [Heta Compiler](/hetacompiler/).
     - Explore [HetaSimulator.jl](https://hetalang.github.io/HetaSimulator.jl/stable/) for simulation tasks.
 
-## Community
-
-We are an open project, and contributions are welcomed! For more details on how you can contribute, please visit the [Contributing](/resources/contributing) page.
-
-### How You Can Contribute
-
-- **Code Development:** Help improve our tools and libraries.
-- **Documentation:** Enhance our tutorials and guides.
-- **Testing:** Participate in testing and provide feedback.
-- **Community Support:** Engage with users on our [Gitter channel](https://gitter.im/hetalang/community?source=orgpage).
-
-## Stay Connected
-
-- **Website:** Visit us at [https://hetalang.github.io/](https://hetalang.github.io/).
-- **Events:** Meet us at QSP/SB conferences and say hello.
-
-## Resources
-
-- **Simple Heta Models:** A set of Heta models for testing — [GitHub Repository](https://github.com/hetalang/simple-heta-models)
-- **SBML Heta Cases:** Test suite for Heta language vs. SBML conversion — [GitHub Repository](https://github.com/hetalang/sbml-heta-cases)
-
-## Maintainers
-
-- **Evgeny Metelkin** - [Personal Page](https://metelkin.me) | [GitHub](https://github.com/metelkin)
-- **Ivan Borisov** - [GitHub](https://github.com/ivborissov)
-
-## Contact Us
-
-- **Email:** [dev@insysbio.com](mailto:dev@insysbio.com)
+---
 
 © Heta Project, 2019-2026
+
+[dev@insysbio.com](mailto:dev@insysbio.com)
 
 Heta Project is sponsored by [InSysBio CY Ltd](https://insysbio.com)
