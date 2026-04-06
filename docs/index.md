@@ -8,9 +8,9 @@ hero:
         src: /img/logo.svg
         alt: Heta Project Logo
     actions:
-#        - theme: brand
-#          text: QSPC2026 Workshop
-#          link: /qspc2026/
+        - theme: brand
+          text: QSPC2026 Workshop
+          link: /qspc2026/
         - theme: alt
           text: Quick Start
           link: /quick-start
