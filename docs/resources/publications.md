@@ -20,6 +20,6 @@
 
 - Borisov, I., Metelkin, E., (2021). **HetaProject – a Single Open Source Platform for Modeling, Simulation and Parameters Estimation in QSP.** PAGE 2021 Abstract Book. DOI: [10.13140/RG.2.2.31275.77608](https://doi.org/10.13140/RG.2.2.31275.77608), [DOWNLOAD](/files/PAGE11-borisov.pdf){download}
 
-- Metelkin, E., (2021). **Heta language: Modularity and Reusability in QSP modeling platforms.** ACoP12 Abstract Book. DOI: [10.13140/RG.2.2.16900.04484](https://doi.org/10.13140/RG.2.2.16900.04484), [DOWNLOAD](/files/THU-023_upd.pdf){download}
+- Metelkin, E., (2021). **Heta language: Modularity and Reusability in QSP modeling platforms.** ACoP12 Abstract Book. DOI: [10.13140/RG.2.2.16900.04484](https://doi.org/10.13140/RG.2.2.16900.04484), [DOWNLOAD](/files/ACoP12_PIA_Poster010_v1.pdf){download}
 
 - Metelkin, E., (2019). **"Heta" is a New Declarative Language to Define the Large-Scale Systems Pharmacology and Systems Biology Models** ACoP10 Abstract Book. DOI: [10.13140/RG.2.2.14881.35682](https://doi.org/10.13140/RG.2.2.14881.35682)
