@@ -2,6 +2,8 @@
 
 *This section provides a list of publications related to Heta language and its applications in Quantitative Systems Pharmacology (QSP) and Systems Biology.*
 
+- Borisov, I., Metelin, E., (2026). **Mixed-Integer Optimization for Virtual Population Selection in QSP Models.** QSPC2026, Leiden, The Netherlands. DOI: [10.13140/RG.2.2.31274.79049](https://doi.org/10.13140/RG.2.2.31274.79049), [DOWNLOAD](/files/QSPC2026_VPopMIP.pdf){download}
+
 - Borisov, I., Demin, A., Metelkin, E., (2026). **LikelihoodProfiler.jl: Unified profile-likelihood workflows for identifiability and confidence intervals.** Journal of Open Source Software. DOI: [10.21105/joss.09501](https://doi.org/10.21105/joss.09501)
 
 - Maliukova, P., Karelina, T. A., (2025). **A Quantitative Systems Pharmacology Model That Describes Neurofilament Light Dynamics During Alzheimer's Disease Progression.** CPT: Pharmacometrics & Systems Pharmacology. DOI: [10.1002/psp4.70062](https://doi.org/10.1002/psp4.70062)
