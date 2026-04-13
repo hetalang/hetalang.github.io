@@ -68,7 +68,7 @@ The **Heta Project** is an open-source initiative dedicated to transforming the 
 
 1. Follow our [Quick Start Guide](/quick-start) to create your first Heta model.
 
-1. Dive into the [Heta Tutorial](/resources/learn-heta.html#heta-video-tutorial).
+1. Dive into the [Heta Tutorials](/resources/learn-heta.html).
     Begin your journey with our step-by-step tutorial designed for both beginners and experienced modelers.
 
 2. Try the [Heta Compiler Online](https://heta-online.insysbio.com/).
