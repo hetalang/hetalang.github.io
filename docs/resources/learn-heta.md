@@ -2,7 +2,15 @@
 
 *This section provides tutorials and video presentations to help you get started with Heta language and its features.*
 
-## Heta Video Tutorial
+## Workshop: Engineering-Style QSP Modeling with Heta
+
+Workshop for a 3 hour tutorial on Heta workflow and features, presented at QSPC2026.
+
+[SLIDES](https://hetalang.github.io/qspc2026/)
+
+![alt text](img/qspc2026-workshop-cover.png)
+
+## Heta Video Tutorial (2021)
 
 Short screencast videos 10-20 minutes explaining Heta features with examples.
 
