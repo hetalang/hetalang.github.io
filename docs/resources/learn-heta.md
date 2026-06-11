@@ -33,7 +33,7 @@ Short screencast videos 10-20 minutes explaining Heta features with examples.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/boJAMjh7EQY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-### Heta compiler" is a framework for the development and management of Quantitative Systems Pharmacology modeling platforms
+### Heta compiler is a framework for the development and management of Quantitative Systems Pharmacology modeling platforms
 
 *American Conference on Pharmacometrics. November 9-13, 2020*
 
