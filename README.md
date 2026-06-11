@@ -1,6 +1,6 @@
 # hetalang.github.io: Home site for Heta project
 
-This is the sources for the Heta project home site, a community-driven initiative focused on developing and promoting the Heta modeling language.
+These are the sources for the Heta project home site, a community-driven initiative focused on developing and promoting the Heta modeling language.
 
 See the [Heta Project](https://hetalang.github.io/) for more information.
 

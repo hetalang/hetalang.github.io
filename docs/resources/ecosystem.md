@@ -8,7 +8,7 @@
 - Syntax highlighting for Sublime text: [heta-highlight-sublime](https://github.com/hetalang/heta-highlight-sublime) [![GitHub tag (with filter)](https://img.shields.io/github/v/tag/hetalang/heta-highlight-sublime)](https://packagecontrol.io/packages/heta)
 - Parsing of Heta language code in JavaScript: [heta-parser](https://github.com/hetalang/heta-parser) [![npm](https://img.shields.io/npm/v/heta-parser)](https://www.npmjs.com/package/heta-parser)
 
-![VSCode displaying Heta sintax highlight](img/fig2.png)
+![VSCode displaying Heta syntax highlight](img/fig2.png)
 ![HetaSimulator plots vs experimental dataset](img/fig5.png)
 ![HetaSimulator confidence bands](img/fig1.png)
 
@@ -72,7 +72,7 @@ For a guided introduction, check out the Heta tutorial's [Lesson #1](https://you
 
 1. **VSCode**  
    - Download and Install: [https://code.visualstudio.com/](https://code.visualstudio.com/)  
-   - Install with extensions manager: [Heta Highlight Plugin](https://marketplace.visualstudio.com/items?itemName=heta-highlight)
+    - Install with extensions manager: [Heta Highlight Plugin](https://marketplace.visualstudio.com/items?itemName=insysbio.heta-highlight-vscode)
 
 2. **heta-compiler**  
    - Installation Guide: [https://hetalang.github.io/hetacompiler/installation.html](/hetacompiler/installation.html)
@@ -87,7 +87,7 @@ For a guided introduction, check out the Heta tutorial's [Lesson #1](https://you
 
 ### Alternative Configuration
 
-![Heta highlight in Sublime test](img/fig9.png)
+![Heta highlight in Sublime Text](img/fig9.png)
 
 If you prefer, you can use **Sublime Text** instead of VSCode:  
 - Download and install: [https://www.sublimetext.com/download](https://www.sublimetext.com/download)  

@@ -4,7 +4,7 @@ Any contribution is appreciated. Here we summarize how you can help.
 
 ## Project feedback
 
-- If you are on Github send your questions, feature requests and any ideas to Heta project [Issues](https://github.com/hetalang/hetalang.github.io/issues/)
+- If you are on GitHub, send your questions, feature requests, and ideas to Heta Project [Issues](https://github.com/hetalang/hetalang.github.io/issues/)
 - Write directly to **dev@insysbio.com**
 
 ## Tools and applications
