@@ -180,10 +180,11 @@ Events modify model states during simulation.
 
 ```json
 {
-    "trigger": {},
-    "actions": [],
-    "priority": 0,
-    "active": true,
+  "trigger": {},
+  "actions": [],
+  "priority": 0,
+  "active": true,
+  "stopSimulation": false
 }
 ```
 
@@ -191,6 +192,7 @@ Events modify model states during simulation.
 - `actions` is an array of state modifications executed when the event is triggered;
 - `priority` determines the execution order of events with the same trigger conditions;
 - `active` indicates whether the event is currently active. Inactive events are ignored during simulation.
+- `stopSimulation` indicates whether the simulation must stop after the event is triggered. The default value is `false`.
 
 ---
 
@@ -326,6 +328,14 @@ Time triggers activate events at specified times.
 }
 ```
 
+Interpretation notes:
+- `start` is required.
+- `period` is optional. If omitted, the trigger is treated as one-shot and activates only at `start`.
+- `period` should be positive. For compatibility, `period <= 0` should be interpreted the same as omitted `period` (one-shot at `start`).
+- `stop` is optional and is mainly used for periodic triggers. For `period > 0`, event times are: `start + k * period`, where `k = 0, 1, 2, ...`, while `time <= stop`.
+- `stop` is inclusive: if `start + k * period == stop`, the event is activated at this final time.
+- If `period` is omitted or less than or equal to `0`, `stop` does not add extra activations and can be ignored by backends.
+
 ---
 
 ### 6.2 Crossing Triggers
@@ -381,6 +391,8 @@ The `detection` field for conditional triggers can be `step` or `root` as well f
 Event actions are executed in an "all-at-once" manner, meaning that all state modifications defined in the event's `actions` are applied simultaneously at the time of event activation.
 
 Before executing event actions, all expressions in the `rhs` of the actions are evaluated based on the state of the model at the moment of event activation. This ensures that the order of actions does not affect the final outcome, as all modifications are applied together after evaluation.
+
+If `stopSimulation` is `true`, the simulation stops after the event is triggered and its actions are applied. This can be used to terminate simulation when unrealistic or out-of-range conditions are reached.
 
 Example:
 
