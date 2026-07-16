@@ -10,28 +10,46 @@ The main goals of DynMS are:
 - support deterministic simulation semantics;
 - simplify testing and validation across simulation platforms.
 
-The shema for DynMS is available at: https://raw.githubusercontent.com/hetalang/heta-compiler/master/src/dynms/dynms.schema.json
+The shema for DynMS is available at: https://raw.githubusercontent.com/hetalang/heta-compiler/v0.12.0/src/dynms/dynms.schema.json
 
 ---
 
 ## 1. DynMS Document Structure
 
-Minimal DynMS structure:
+Minimal valid DynMS structure:
 
 ```json
 {
-  "models": []
+  "dynms": "0.1.0",
+  "models": [
+    {
+      "id": "model1",
+      "constants": [],
+      "states": [],
+      "assignments": [],
+      "derivatives": [],
+      "events": [],
+      "observables": []
+    }
+  ]
 }
 ```
 
-The top level meta info is optional but can include:
+Top level required fields:
+- `dynms`: DynMS version, currently must be `"0.1.0"`;
+- `models`: non-empty array of model definitions.
+
+The top level optional meta info can include:
 - `$schema`: JSON Schema URL for validation;
-- `dynms`: DynMS version;
 - `generator.name`: name of the software that generated the document;
 - `generator.version`: version of the software that generated the document;
 - `created`: ISO 8601 timestamp of document creation;
 - `platformId`: optional identifier for the target simulation platform;
+- `platformVersion`: optional version of the target simulation platform;
+- `platformNotes`: optional platform-specific notes;
 - `license`: optional license information.
+
+If `generator` is present, both `generator.name` and `generator.version` are required.
 
 ## 2. DynMS Model Structure
 
@@ -39,6 +57,7 @@ A DynMS document contains one or more models as an array.
 
 ```json
 {
+  "dynms": "0.1.0",
   "models": [
     {
       "id": "model1",
@@ -52,6 +71,8 @@ A DynMS document contains one or more models as an array.
   ]
 }
 ```
+
+Each model object must include `id`, `constants`, `states`, `assignments`, `derivatives`, `events`, and `observables`. These component arrays may be empty unless additional semantic validation rules require otherwise.
 
 ---
 
@@ -68,7 +89,7 @@ Constants are externally configurable scalar values, model inputs.
 }
 ```
 
-Constants initialized by number (never by expressions) and do not change during simulation unless modified by backend-specific mechanisms.
+Constants are initialized by a number or an expression and do not change during simulation unless modified by backend-specific mechanisms.
 
 ---
 
@@ -180,7 +201,11 @@ Events modify model states during simulation.
 
 ```json
 {
-  "trigger": {},
+  "id": "event1",
+  "trigger": {
+    "type": "time",
+    "start": 0
+  },
   "actions": [],
   "priority": 0,
   "active": true,
@@ -188,6 +213,7 @@ Events modify model states during simulation.
 }
 ```
 
+- `id` is the event identifier;
 - `trigger` defines event activation conditions;
 - `actions` is an array of state modifications executed when the event is triggered;
 - `priority` determines the execution order of events with the same trigger conditions;
@@ -231,6 +257,7 @@ Expressions are represented mathematical formulas used in `assignments`, `deriva
 Supported formats:
 - `heta`
 - `c`
+- `mrgsolve`
 - `julia`
 - `math-json`
 
@@ -238,18 +265,164 @@ Supported formats:
 
 MathJSON is an open format for representing mathematical expressions in JSON. It is designed to be unambiguous and easily parsed by software.
 
-It is default expression format in DynMS and is recommended for maximum interoperability and precision.
+It is the default and recommended expression format in DynMS, preferred for maximum interoperability and precision.
 
 > In future versions of DynMS, support for other expression formats may be deprecated in favor of MathJSON.
 
-See more details about MathJSON here: https://mathlive.io/math-json/
+See the original MathJSON standard here: https://cortexjs.io/math-json/
 
-```heta
+---
+
+#### 4.2.1 DynMS MathJSON schema
+
+DynMS uses its **own JSON Schema profile** of MathJSON, not the upstream library schema. The DynMS schema is available at:
+
+https://raw.githubusercontent.com/hetalang/heta-compiler/v0.12.0/src/dynms/dynms.schema.json
+
+The DynMS MathJSON profile follows the same conceptual model as the original standard but is independently maintained and may diverge over time to better serve simulation use cases.
+
+---
+
+#### 4.2.2 Permitted node forms
+
+A MathJSON node (`mathJsonNode`) in DynMS may be any of the following:
+
+| Form | Example | Description |
+|---|---|---|
+| JSON number | `1`, `3.14` | Numeric literal |
+| JSON string | `"x"`, `"Pi"` | Symbol or named constant |
+| Array | `["Add", "x", 1]` | Function application: `[operator, arg1, arg2, ...]` |
+| `{"num": "..."}` | `{"num": "NaN"}` | Extended numeric literal (e.g. `NaN`, `+Infinity`, `-Infinity`) |
+| `{"sym": "..."}` | `{"sym": "x"}` | Symbol object form |
+| `{"str": "..."}` | `{"str": "hello"}` | String literal object |
+| `{"fn": [...]}` | `{"fn": ["Add", "x", 1]}` | Function object form |
+
+All node types can be used recursively: arguments of an array or `fn` node are themselves `mathJsonNode` values.
+
+Examples of equivalent representations for $x + 1$:
+
+```json
+["Add", "x", 1]
+```
+
+```json
+{"fn": ["Add", {"sym": "x"}, {"num": "1"}]}
+```
+
+Both are valid according to the DynMS schema.
+
+---
+
+#### 4.2.3 Canonical form
+
+Although the DynMS schema accepts all node forms above, **heta-compiler always outputs expressions in canonical form**:
+
+- functions and operators are represented as arrays: `["Add", ...]`, `["Multiply", ...]`
+- plain numeric literals are JSON numbers: `1`, `3.14`
+- symbols are plain JSON strings: `"x"`, `"Pi"`
+- only extended numerics (`NaN`, `+Infinity`, `-Infinity`) use the `{"num": "..."}` object form
+
+This means the canonical form avoids `{"sym": ...}`, `{"str": ...}`, and `{"fn": ...}` object forms entirely, except for special numeric values.
+
+Canonical form example:
+
+```json
 {
-  "expr": ["Add", "x", "y"],
+  "expr": ["Add", "x", 1],
   "format": "math-json"
 }
 ```
+
+The canonical form is simpler to read and process. Consumers of DynMS files generated by heta-compiler can rely on it exclusively.
+
+> Consumers that need to support externally authored DynMS files should accept all permitted forms per the schema.
+
+---
+
+#### 4.2.4 Special values
+
+Extended numeric literals use `{"num": "..."}` for values that cannot be represented as JSON numbers:
+
+| Value | Representation |
+|---|---|
+| Not a number | `{"num": "NaN"}` |
+| Positive infinity | `{"num": "+Infinity"}` |
+| Negative infinity | `{"num": "-Infinity"}` |
+
+---
+
+#### 4.2.5 Associative flattening
+
+For associative operators (`Add`, `Multiply`, `And`, `Or`, `Xor`), heta-compiler flattens nested calls into a single array:
+
+| Heta expression | MathJSON output |
+|---|---|
+| `a + b + c` | `["Add", "a", "b", "c"]` |
+| `a * b * c` | `["Multiply", "a", "b", "c"]` |
+
+This avoids unnecessary nesting such as `["Add", "a", ["Add", "b", "c"]]`.
+
+---
+
+#### 4.2.6 Supported MathJSON functions
+
+DynMS supports the following MathJSON function and operator names. In array form, the first item must be one of these names.
+
+Arithmetic:
+- `Add`
+- `Divide`
+- `Multiply`
+- `Negate`
+- `Power`
+- `Root`
+- `Square`
+
+Elementary functions:
+- `Abs`
+- `Ceil`
+- `Exp`
+- `Factorial`
+- `Floor`
+- `Lb`
+- `Lg`
+- `Ln`
+- `Log`
+- `Max`
+- `Min`
+- `Sign`
+- `Sqrt`
+
+Trigonometric functions:
+- `Arccos`
+- `Arccot`
+- `Arccsc`
+- `Arcsec`
+- `Arcsin`
+- `Arctan`
+- `Cos`
+- `Cot`
+- `Csc`
+- `Sec`
+- `Sin`
+- `Tan`
+
+Comparison and logic:
+- `And`
+- `Equal`
+- `Greater`
+- `GreaterEqual`
+- `Less`
+- `LessEqual`
+- `Not`
+- `NotEqual`
+- `Or`
+- `Xor`
+
+Conditional expressions:
+- `If`
+- `Which`
+
+Named constants and boolean literals such as `Pi`, `ExponentialE`, `True`, and `False` are represented as symbols, not function calls.
 
 ---
 
@@ -269,7 +442,7 @@ Before simulation starts:
 ### 5.2 Zero events
 
 Before running integration we should check if any events are active at simulation start.
-- If `atStart` is `true` for the `condition` or `crossing` trigger, and the trigger condition is satisfied at simulation start, the event is activated immediately.
+- If `atStart` is `true` for the `conditional` or `crossing` trigger, and the trigger condition is satisfied at simulation start, the event is activated immediately.
 - If `start` time trigger is corresponding to the simulation start time, the event is activated immediately.
 
 It may require evaluating `assignments` before checking event conditions.
