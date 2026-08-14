@@ -561,7 +561,7 @@ _No additional properties_
 |MathExpr: boolean operators                             |- |- |+ |+ |+ |+ |+ |+ |+ |na |+ |
 |MathExpr: ternary operator                              |+ |+ |+ |- |+ |+ |+ |+ |+ |na |+ |
 |MathExpr: `piecewise` function                          |- |- |+ |- |+ |+ |+ |+ |+ |na |+ |
-|MathExpr: `e`, `pi`                                     |+ |+ |+ |+ |+ |+ |+ |+ |+ |na |+ |
+|MathExpr: `exponentiale`, `pi`                          |+ |+ |+ |+ |+ |+ |+ |+ |+ |na |+ |
 |MathExpr: `Infinity`, `NaN`                             |- |- |+ |+ |+ |+ |+ |+ |+ |na |+ |
 |Const: `Infinity`, `NaN`                                |- |- |+ |+ |+ |+ |+ |+ |+ |na |- |
 |`@Scenario` support                                     |- |- |- |- |- |- |- |+ |+ |na |- |
@@ -594,7 +594,6 @@ _Skipped cell means no conversion_
 |`log2(x)`|`log(x) / log(2)`|`NaNMath.log2(x)`| |`(log(x)/log(2))`|
 |`multiply(x, y)`|`x * y`|`*(x, y)`| | |
 |`pow(x, y)`| `pow(x, y)` or `x ^ y`|`NaNMath.pow(x, y)`| |`power(x, y)`|
-|`sign(x)`| | | | |
 |`sqrt(x)`| |`NaNMath.sqrt(x)`| | |
 |`nthRoot(x, n)`|`pow(x, 1 / n)` or `x ^ (1 / n)`|`NaNMath.pow(x, 1/(n))`| | |
 |`square(x)`|`pow(x, 2)` or `x ^ 2`|`NaNMath.pow(x, 2)`| | |
@@ -610,7 +609,7 @@ _Skipped cell means no conversion_
 |`ifle(x, y, z1, z2)`| |`x <= y ? z1 : z2`| |`tern__(x<=y, z1, z2)`|
 |`ifeq(x, y, z1, z2)`| |`x == y ? z1 : z2`| |`tern__(x==y, z1, z2)`|
 |`x ^ y`|`x ^ y` or `pow(x, y)`|`NaNMath.pow(x, y)`|`pow(x, y)`| `(x ^ y)` |
-|`e`|`exp(1)`|`exp(1.0)`| | |
+|`exponentiale`|`exp(1)`|`exp(1.0)`| | |
 |`pi`|`acos(-1)` | | | |
 |`Infinity`| |`Inf`| | |
 |`NaN`| |`NaN`| | |
@@ -641,7 +640,6 @@ _Conversion to SBML's MathML_
 |`log2(x)`|`<apply><log/><logbase><cn>2</cn></logbase>(x)</apply>`|
 |`multiply(x, y)`|`<apply><times/>(x) (y)</apply>`|
 |`pow(x, y)`|`<apply><power/>(x) (y)</apply>`|
-|`sign(x)`|`<apply><sign/>(x)</apply>`|
 |`sqrt(x)`|`<apply><root/>(x)</apply>`|
 |`nthRoot(x, n)`|`<apply><root/><degree>(n)</degree>(x)</apply>`|
 |`square(x)`|`<apply><power/>(x)<cn>2</cn></apply>`|
@@ -657,7 +655,7 @@ _Conversion to SBML's MathML_
 |`ifle(x, y, z1, z2)`|not supported|
 |`ifeq(x, y, z1, z2)`|not supported|
 |`x ^ y`|`<apply><power/>(x) (y)</apply>`|
-|`e`|`<exponentiale/>`|
+|`exponentiale`|`<exponentiale/>`|
 |`pi`|`<pi/>`|
 |`Infinity`|`<infinity/>`|
 |`NaN`|`<notanumber/>`|
