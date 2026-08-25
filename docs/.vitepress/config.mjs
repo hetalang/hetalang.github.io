@@ -1,10 +1,11 @@
 import { defineConfig } from 'vitepress'
 import myLangGrammar from './tmlLanguage.heta.json' with { type: 'json' }
-import sidebarThis from '../_sidebar.json' with { type: 'json' }
+//import sidebarThis from '../_sidebar.json' with { type: 'json' }
 import sidebarSpecifications from '../specifications/_sidebar.json' with { type: 'json' }
 import sidebarHetacompiler from '../hetacompiler/_sidebar.json' with { type: 'json' }
 //import sidebarHetasimulator from '../heta-simulator/_sidebar.json' with { type: 'json' }
 import sidebarResources from '../resources/_sidebar.json' with { type: 'json' }
+import sidebarHowTo from '../how-to/_sidebar.json' with { type: 'json' }
 
 const hostname = 'https://hetalang.github.io';
 const head = [
@@ -29,8 +30,9 @@ const head = [
 ];
 
 const sidebar = {
-  '/': sidebarThis,
+  //'/': sidebarThis,
   '/resources/': sidebarResources,
+  '/how-to/': sidebarHowTo,
   '/specifications/': sidebarSpecifications,
   '/hetacompiler/': sidebarHetacompiler,
   /*
@@ -76,6 +78,7 @@ export default defineConfig({
     nav: [
       { text: 'Home', link: '/' },
       { text: 'Resources', link: '/resources/' },
+      { text: 'How-to', link: '/how-to/' },
       { text: 'Language', link: '/specifications/' },
       { text: 'Heta-compiler', link: '/hetacompiler/' },
       { text: 'HetaSimulator.jl', link: 'https://hetalang.github.io/HetaSimulator.jl/stable/' },

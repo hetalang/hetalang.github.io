@@ -11,3 +11,5 @@
 - [Version compatibility](/resources/compatibility)
 
 - [Modeling Insights](/resources/modeling-insights)
+
+- [Contributing](/resources/contributing)
