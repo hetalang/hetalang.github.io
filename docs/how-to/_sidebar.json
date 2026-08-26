@@ -2,11 +2,11 @@
     {
         "text": "How-to guides",
         "items": [
-            { "text": "Index" , "link": "./index" },
-            { "text": "Quick start", "link": "./quick-start" },
-            { "text": "Software version management", "link": "./software-version-management" },
-            { "text": "Build Heta models in Julia", "link": "./build-heta-in-julia" },
-            { "text": "Contributing", "link": "./contributing" }
+            { "text": "Index" , "link": "/how-to/index" },
+            { "text": "Quick start", "link": "/how-to/quick-start" },
+            { "text": "Manage software versions", "link": "/how-to/software-version-management" },
+            { "text": "Build Heta models in Julia", "link": "/how-to/build-heta-in-julia" },
+            { "text": "Contributing", "link": "/how-to/contributing" }
         ]
     }
 ]
