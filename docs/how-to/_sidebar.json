@@ -2,7 +2,10 @@
     {
         "text": "How-to guides",
         "items": [
-            { "text": "Quick start", "link": "./quick-start" }
+            { "text": "Index" , "link": "./index" },
+            { "text": "Quick start", "link": "./quick-start" },
+            { "text": "Software version management", "link": "./software-version-management" },
+            { "text": "Contributing", "link": "./contributing" }
         ]
     }
 ]

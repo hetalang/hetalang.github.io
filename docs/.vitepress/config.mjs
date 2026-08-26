@@ -76,9 +76,9 @@ export default defineConfig({
     },
     
     nav: [
-      { text: 'Home', link: '/' },
+      //{ text: 'Home', link: '/' },
       { text: 'Resources', link: '/resources/' },
-      { text: 'How-to', link: '/how-to/' },
+      { text: 'HOW-TO', link: '/how-to/' },
       { text: 'Language', link: '/specifications/' },
       { text: 'Heta-compiler', link: '/hetacompiler/' },
       { text: 'HetaSimulator.jl', link: 'https://hetalang.github.io/HetaSimulator.jl/stable/' },
