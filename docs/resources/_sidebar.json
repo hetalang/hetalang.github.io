@@ -8,8 +8,7 @@
             { "text": "Cheat Sheet", "link": "/resources/cheat-sheet" },
             { "text": "Publications", "link": "/resources/publications" },
             { "text": "Version compatibility", "link": "/resources/compatibility" },
-            { "text": "Modeling Insights", "link": "/resources/modeling-insights" },
-            { "text": "Contributing", "link": "/resources/contributing" }
+            { "text": "Modeling Insights", "link": "/resources/modeling-insights" }
         ]
     }
 ]

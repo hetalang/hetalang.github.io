@@ -1,9 +1,0 @@
-[
-    {
-        "text": "Home",
-        "items": [
-            { "text": "About", "link": "./" },
-            { "text": "Quick start", "link": "./quick-start" }
-        ]
-    }
-]

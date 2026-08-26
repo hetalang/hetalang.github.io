@@ -13,7 +13,7 @@ hero:
           link: https://hetalang.github.io/qspc2026/
         - theme: alt
           text: Quick Start
-          link: /quick-start
+          link: /how-to/quick-start
         - theme: alt
           text: Cheat Sheet
           link: /resources/cheat-sheet
@@ -66,7 +66,7 @@ The **Heta Project** is an open-source initiative dedicated to transforming the 
 
 ## Get Started with Heta
 
-1. Follow our [Quick Start Guide](/quick-start) to create your first Heta model.
+1. Follow our [Quick Start Guide](/how-to/quick-start) to create your first Heta model.
 
 1. Dive into the [Heta Tutorials](/resources/learn-heta.html).
     Begin your journey with our step-by-step tutorial designed for both beginners and experienced modelers.

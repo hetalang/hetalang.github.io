@@ -1,0 +1,12 @@
+[
+    {
+        "text": "How-to guides",
+        "items": [
+            { "text": "Index" , "link": "./index" },
+            { "text": "Quick start", "link": "./quick-start" },
+            { "text": "Software version management", "link": "./software-version-management" },
+            { "text": "Build Heta models in Julia", "link": "./build-heta-in-julia" },
+            { "text": "Contributing", "link": "./contributing" }
+        ]
+    }
+]

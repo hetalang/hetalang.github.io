@@ -23,6 +23,16 @@ Note: `Infinity`, `-Infinity` and `NaN` should be written if they give a meaning
 
 Boolean constants: `true`, `false`.
 
+In a boolean position, the numeric literals `0` and `1` are also accepted as
+aliases for `false` and `true`, respectively. They are normalized to boolean
+constants while the expression is parsed. Other numeric literals, such as `2`
+or `-1`, are not valid in a boolean position.
+
+Boolean positions include operands of `and`, `or`, `xor`, and `not`; the
+condition of the ternary operator and `piecewise`; and the `trigger` of
+`DSwitcher` and `StopSwitcher`. In numeric positions, including assignment
+values and branches of a conditional expression, `0` and `1` remain numbers.
+
 ## Pre defined constants
 
 There is a set of identifiers which can be used in `MathExpr` but they are not components of platform.
@@ -60,34 +70,32 @@ Here the first operand `b1 < b2` is the boolean expression, then an expression t
 | id | explanation |
 |----|-------------|
 | abs(x) | The absolute value of a number.|
-| add(x, y) | Add two or more values, x + y.|
+| add(x, y, ...) | Add values `x + y + ...`; no arguments correspond to `0`, and one argument is returned unchanged. |
 | ceil(x) | Round a value towards plus. |
-| cube(x) | The cube of a value, x * x * x. |
-| divide(x, y)| Divide two values, x / y. |
+| cube(x) | The cube of a value, `x * x * x`. |
+| divide(x, y) | Divide two values, `x / y`. |
 | exp(x) | The exponent of a value. |
 | floor(x) | Round a value towards minus. |
-| ln(x) | Natural logarithm of a value |
-| log(x) | Natural logarithm of a value |
+| ln(x) | Natural logarithm of a value. |
+| log(x) | Natural logarithm of a value. |
 | logbase(x, base) | The logarithm of a value with base. |
 | log10(x) | The 10-base logarithm of a value. |
-| log2(x) | The 2-base of a value. |
-| multiply(x, y)| Multiply two or more values, x * y. |
-| pow(x, y)	| The power of x to y, x ^ y. |
+| log2(x) | The 2-base logarithm of a value. |
+| multiply(x, y, ...)| Multiply values `x * y * ...`; no arguments correspond to `1`, and one argument is returned unchanged. |
+| pow(x, y)	| The power of x to y, `x ^ y`. |
 | sign(x) | Compute the sign of a value. |
 | sqrt(x) | Calculate the square root of a value. |
 | nthRoot(x, n) | n-th root of x |
-| square(x)| Compute the square of a value, x * x. |
-| subtract(x, y) | Subtract two values, x - y. |
-| max(x, y) | Maximum from two numbers |
-| max(x, y, z) | Maximum from 3 numbers |
-| min(x, y) | Minimum from two numbers |
-| min(x, y, z) | Minimum from 3 numbers |
+| square(x)| Compute the square of a value, `x * x`. |
+| subtract(x, y) | Subtract two values, `x - y`. |
+| max(x, y, ...) | Maximum of values. |
+| min(x, y, ...) | Minimum of values. |
 | factorial(n) | Factorial of number |
-| ifgt(x, y, z1, z2) | Equivalent to : x > y ? z1 : z2 |
-| ifge(x, y, z1, z2) | Equivalent to : x >= y ? z1 : z2 |
-| iflt(x, y, z1, z2) | Equivalent to : x < y ? z1 : z2 |
-| ifle(x, y, z1, z2) | Equivalent to : x <= y ? z1 : z2 |
-| ifeq(x, y, z1, z2) | Equivalent to : x == y ? z1 : z2 |
+| ifgt(x, y, z1, z2) | Equivalent to : `x > y ? z1 : z2` |
+| ifge(x, y, z1, z2) | Equivalent to : `x >= y ? z1 : z2` |
+| iflt(x, y, z1, z2) | Equivalent to : `x < y ? z1 : z2` |
+| ifle(x, y, z1, z2) | Equivalent to : `x <= y ? z1 : z2` |
+| ifeq(x, y, z1, z2) | Equivalent to : `x == y ? z1 : z2` |
 
 ### Trigonometric functions
 

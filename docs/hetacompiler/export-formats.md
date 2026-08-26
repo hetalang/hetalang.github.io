@@ -300,6 +300,7 @@ Export to [SBML format](https://sbml.org/).
 - Older SBML versions may not support all Heta features. Compatibility was checked for L3V2.
 - SBML format does not support `TimeSwitcher` and `CSwitcher`. They will be transformed to `DSwitcher` with settings that give approximate behavior.
 - SBML older than L3V1 does not support `initialValue` in `<trigger>` so `atStart` property of `CSwitcher` and `DSwitcher` will not be applied.
+- `priority` of switchers is exported as an SBML `<priority>` MathML number only for L3V1 and newer. It is omitted when not set.
 - In SBML there is no way to clarify if the switcher works in "root finding" mode. We assume that the switcher works in "step" mode, although other implementations may exist in the SBML ecosystem.
 
 **Example:**
@@ -581,7 +582,9 @@ _Skipped cell means no conversion_
 | | SLV/DBSolve | Julia | Mrgsolve/R | Simbio/Matlab |
 |--|--|--|--|--|
 |`abs(x)`| | |`fabs(x)`| |
-|`add(x, y)`|`x + y`|`+(x, y)`| | |
+|`add()`|`0`|`+()`|`0.0`|`0`|
+|`add(x)`|`x`|`+(x)`|`x`|`x`|
+|`add(x, y, ...)`|`x + y + ...`|`+(x, y, ...)`|`x + y + ...`|`x + y + ...`|
 |`ceil(x)`| | | | |
 |`cube(x)`|`pow(x, 3) or x ^ 3`|`NaNMath.pow(x, 3)`| | |
 |`divide(x, y)`|`x / y`|`/(x, y)`| | |
@@ -592,8 +595,11 @@ _Skipped cell means no conversion_
 |`logbase(x, base)`|`log(x) / log(base)`|`NaNMath.log(base, x)`| |`(log(x)/log(base))`|
 |`log10(x)`| |`NaNMath.log10(x)`| | |
 |`log2(x)`|`log(x) / log(2)`|`NaNMath.log2(x)`| |`(log(x)/log(2))`|
-|`multiply(x, y)`|`x * y`|`*(x, y)`| | |
+|`multiply()`|`1`|`*()`|`1.0`|`1`|
+|`multiply(x)`|`x`|`*(x)`|`x`|`x`|
+|`multiply(x, y, ...)`|`x * y * ...`|`*(x, y, ...)`|`x * y * ...`|`x * y * ...`|
 |`pow(x, y)`| `pow(x, y)` or `x ^ y`|`NaNMath.pow(x, y)`| |`power(x, y)`|
+|`sign(x)`| | | | |
 |`sqrt(x)`| |`NaNMath.sqrt(x)`| | |
 |`nthRoot(x, n)`|`pow(x, 1 / n)` or `x ^ (1 / n)`|`NaNMath.pow(x, 1/(n))`| | |
 |`square(x)`|`pow(x, 2)` or `x ^ 2`|`NaNMath.pow(x, 2)`| | |
@@ -627,7 +633,9 @@ _Conversion to SBML's MathML_
 | | SBML |
 |--|--|
 |`abs(x)`|`<apply><abs/>(x)</apply>`|
-|`add(x, y)`|`<apply><plus/>(x) (y)</apply>`|
+|`add()`|`<apply><plus/></apply>`|
+|`add(x)`|`<apply><plus/>(x)</apply>`|
+|`add(x, y, ...)`|`<apply><plus/>(x) (y) ...</apply>`|
 |`ceil(x)`|`<apply><ceiling/>(x)</apply>`|
 |`cube(x)`|`<apply><power/>(x)<cn>3</cn></apply>`|
 |`divide(x, y)`|`<apply><divide/>(x) (y)</apply>`|
@@ -638,8 +646,11 @@ _Conversion to SBML's MathML_
 |`logbase(x, base)`|`<apply><log/><logbase>(base)</logbase>(x)</apply>`|
 |`log10(x)`|`<apply><log/>(x)</apply>`|
 |`log2(x)`|`<apply><log/><logbase><cn>2</cn></logbase>(x)</apply>`|
-|`multiply(x, y)`|`<apply><times/>(x) (y)</apply>`|
+|`multiply()`|`<apply><times/></apply>`|
+|`multiply(x)`|`<apply><times/>(x)</apply>`|
+|`multiply(x, y, ...)`|`<apply><times/>(x) (y) ...</apply>`|
 |`pow(x, y)`|`<apply><power/>(x) (y)</apply>`|
+|`sign(x)`|`<piecewise><piece><cn>-1</cn><apply><lt/>(x)<cn>0</cn></apply></piece><piece><cn>1</cn><apply><gt/>(x)<cn>0</cn></apply></piece><otherwise><cn>0</cn></otherwise></piecewise>`|
 |`sqrt(x)`|`<apply><root/>(x)</apply>`|
 |`nthRoot(x, n)`|`<apply><root/><degree>(n)</degree>(x)</apply>`|
 |`square(x)`|`<apply><power/>(x)<cn>2</cn></apply>`|
