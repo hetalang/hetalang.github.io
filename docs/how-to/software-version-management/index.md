@@ -125,7 +125,7 @@ For modelers:
 - Agree on a compiler range for the whole team (or particular platform), for example `^0.12.0`.
 - Install compiler and simulator versions that match that range. You can take newer releases only while they remain inside it.
 - Migrate reused models to the team's range before starting new work, then save them as a new model version.
-- If you work mainly in Julia, consider [building with HetaSimulator](/how-to/build-in-heta-simulator/). This can make it easier to use different compiler versions in different Julia environments.
+- If you work mainly in Julia, consider [building with HetaSimulator](/how-to/build-heta-in-julia/). This can make it easier to use different compiler versions in different Julia environments.
 
 Heta developers aim to:
 
