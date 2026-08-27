@@ -35,7 +35,7 @@ jobs:
         id: heta-specifications-release
         env:
           GH_TOKEN: ${{ github.token }}
-        run: echo "tag=$(gh release view --repo hetalang/heta-specifications --json tagName --jq '.tagName')" >> "$GITHUB_OUTPUT"
+        run: echo "tag=$(gh release list --repo hetalang/heta-specifications --limit 100 --json isLatest,tagName --jq '.[] | select(.isLatest) | .tagName')" >> "$GITHUB_OUTPUT"
 
       - name: Checkout latest release of hetalang/heta-specifications
         uses: actions/checkout@v6
@@ -47,11 +47,17 @@ jobs:
             docs
           sparse-checkout-cone-mode: false
 
-      - name: Checkout "master" branch of hetalang/heta-compiler
+      - name: Get latest release of hetalang/heta-compiler
+        id: heta-compiler-release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: echo "tag=$(gh release list --repo hetalang/heta-compiler --limit 100 --json isLatest,tagName --jq '.[] | select(.isLatest) | .tagName')" >> "$GITHUB_OUTPUT"
+
+      - name: Checkout latest release of hetalang/heta-compiler
         uses: actions/checkout@v6
         with:
           repository: hetalang/heta-compiler
-          ref: master
+          ref: ${{ steps.heta-compiler-release.outputs.tag }}
           path: heta-compiler
           sparse-checkout: |
             docs
