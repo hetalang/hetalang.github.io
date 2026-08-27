@@ -63,18 +63,10 @@ Instead of the `export` property in the declaration file, one can use the CLI `-
 heta build --export '{format: JSON, filepath: output, omit: ["aux.wiki"], spaceFilter: "nameless|another"}, {format: SBML, version: L2V4, filepath: model}, Table'
 ```
 
-## Inline export (deprecated)
+## Inline export
 
-In older versions of Heta compiler, inline export in any **.heta** file was supported.
+Inline `#export` actions in **.heta** files are not supported. Define exports in the declaration file's `export` array or use the CLI `--export` option.
 
-Example 1
-
-```heta
-#export {format: JSON, filepath: output};
-```
-
-Starting from heta-compiler version 0.9.0 the inline export is deprecated.
-Use the `export` property in the declaration file or the CLI `--export` option.
 See [migrate to v0.9](./migrate/migrate-to-v0.9.md) and [CLI references](./cli-references.md) for details.
 
 ## JSON
@@ -182,9 +174,7 @@ Export to **DynMS** (Dynamic Model Specifications) format which is an experiment
 
 ### Properties
 
-| property | type | required | default | ref | description |
-| ---------|------|----------|---------|-----|-------------|
-| exprFormat | "math-json" / "heta" / "c" / "julia" | | "math-json" | | The format of mathematical expressions in the exported model. "heta" means that the expressions will be exported in the same format as they are defined in Heta. |
+_No additional properties._
 
 ### Output files
 
@@ -196,8 +186,7 @@ Export to **DynMS** (Dynamic Model Specifications) format which is an experiment
 {
     format: DynMS,
     filepath: dynms,       # save result in directory "dist/dynms"
-    spaceFilter: nameless, # output everything from nameless namespace
-    exprFormat: julia      # export math expressions in Julia code format
+    spaceFilter: nameless  # output everything from nameless namespace
 }
 ```
 
@@ -225,6 +214,7 @@ This is the recommended version of the SLV export format. It supports time-varyi
 - boolean operators like `and`, `or`, etc. are not supported
 - `DSwitcher` supports only simple comparison operators in `trigger`.
 - `CSwitcher` is transformed to `DSwitcher`-like step detection, so root finding is not supported.
+- Event `priority` is not supported and is ignored with an export warning.
 
 **Example**
 
@@ -267,6 +257,7 @@ This exporter keeps the older SLV structure and supports only a limited subset o
 - Initialization of `Record` by expression does not work: `x1 .= k1 * A` is not supported.
 - `Infinity`, `-Infinity`, `NaN` values are not supported
 - boolean operators like `and`, `or`, etc. are not supported
+- Event `priority` is not supported and is ignored with an export warning.
 
 **Example**
 
@@ -300,7 +291,7 @@ Export to [SBML format](https://sbml.org/).
 - Older SBML versions may not support all Heta features. Compatibility was checked for L3V2.
 - SBML format does not support `TimeSwitcher` and `CSwitcher`. They will be transformed to `DSwitcher` with settings that give approximate behavior.
 - SBML older than L3V1 does not support `initialValue` in `<trigger>` so `atStart` property of `CSwitcher` and `DSwitcher` will not be applied.
-- `priority` of switchers is exported as an SBML `<priority>` MathML number only for L3V1 and newer. It is omitted when not set.
+- `priority` of `TimeSwitcher`, `DSwitcher`, and `CSwitcher` is exported as an SBML `<priority>` MathML expression only for L3V1 and newer. For older versions and `StopSwitcher`, it is ignored with an export warning.
 - In SBML there is no way to clarify if the switcher works in "root finding" mode. We assume that the switcher works in "step" mode, although other implementations may exist in the SBML ecosystem.
 
 **Example:**
@@ -333,6 +324,7 @@ Export to [SimBiology](https://www.mathworks.com/products/simbiology.html)/Matla
 
 - `TimeSwitcher` and `CSwitcher` are transformed to `DSwitcher` with settings that give approximate behavior. The precision of switching time depends on the solver `maxstep` parameter, so you may need to set `maxstep` to a small value.
 - `DSwitcher` in Simbio does not support the `atStart` property. The solver always acts as if it is set to `false`.
+- Event `priority` is not supported and is ignored with an export warning.
 
 **Example:**
 ```yaml
@@ -361,6 +353,7 @@ _No additional properties_
 - `CSwitcher` works without root finding.
 - Both `CSwitcher` and `DSwitcher` can trigger only with `delta` precision. So you need to set `delta` to a small value to have more precise switching time. For example, `delta = 1e-3` will give you millisecond precision for switching time. Update of `hmax` solution parameter in mrgsolve may also help to improve precision.
 - If expressions inside `@Record` depend explicitly on time `t`, the simulation may give incorrect results. To fix it, you should replace `TIME` variable in `$ODE` block by `SOLVERTIME` manually in **model.cpp**. It will be fixed in future versions.
+- Event `priority` is not supported and is ignored with an export warning.
 
 **Example:**
 
@@ -463,6 +456,10 @@ _No additional properties_
 **[filepath]/model.jl** : File storing model code for all namespaces.
 **[filepath]/run.jl** : Code to run model.
 
+### Known restrictions
+
+- Event `priority` is not supported and is ignored with an export warning.
+
 **Example:**
 
 ```yaml
@@ -492,6 +489,7 @@ _No additional properties_
 - `DSwitcher` and `TimeSwitcher` are not supported directly. They are transformed to `CSwitcher` with settings that give approximate behavior.
 - The `atStart` property is not supported for `CSwitcher` and `DSwitcher`. The solver always acts as if it is set to `false`.
 - Unstable behavior may occur when two or more switchers run simultaneously.
+- Event `priority` is not supported and is ignored with an export warning.
 
 **Example:**
 
@@ -558,6 +556,7 @@ _No additional properties_
 |`@CSwitcher` root finding                               |- |- |+ |- |+ |+ |- |na |na |na |+ |
 |`@DSwitcher` class                                      |- |+ |+ |+ |+ (converts to DSwitcher) |+ |+ |+ |+ |na |+ |
 |`atStart` in `@CSwitcher` and `@DSwitcher`              |- |+ |+ |+ |- (never run at 0) |- (never run at 0) |+ (use initialValue in trigger) |+ |+ |na |+ |
+|`priority` in switchers                                  |- |- |- |- |- |- |+* |+ |+ |na |+ |
 |MathExpr: arithmetic functions                          |+ |+ |+ |+ |+ |+ |+ |+ |+ |na |+ |
 |MathExpr: boolean operators                             |- |- |+ |+ |+ |+ |+ |+ |+ |na |+ |
 |MathExpr: ternary operator                              |+ |+ |+ |- |+ |+ |+ |+ |+ |na |+ |
@@ -570,6 +569,8 @@ _No additional properties_
 |`#defineFunction`                                       |+(sub) |+(sub) |+ |+(sub) |+ |+(sub) |+ |+ |+ |na |+(sub) |
 
 **(sub)** means that the function will be substituted by its body in the output code.
+
+**(*)** means that SBML priority support applies to `TimeSwitcher`, `DSwitcher`, and `CSwitcher` in Level 3 only.
 
 **(?)** means that the support depends on the specific case or need to be checked.
 

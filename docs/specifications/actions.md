@@ -337,11 +337,7 @@ scn2 #setScenario {
 
 1. Identifiers of components can be updated using `prefix`, `suffix`, `rename` properties. If no `prefix`, `suffix`, `rename` is declared identifiers remain the same.
 
-1. If `prefix` or `suffix` are declared (for example as `pref_`, `suf`) the id changes follows the rules: `old` => `pref_oldsuf`. `prefix` and `suffix` do not act on a component of classes: `unitDef`.
-
-1. A non-empty `prefix` must follow the ID format. Otherwise, the import shall report an error.
-
-1. The destination namespace retains its system time scale `t`. The time scale is not prefixed or duplicated.
+1. If `prefix` or `suffix` are declared (for example as `pref_`, `_suf`) the id changes follows the rules: `old` => `pref_old_suf`. `prefix` and `suffix` do not act on a component of classes: `unitDef`.
 
 1. `rename` states the rename rule directly. If `rename` set rule for id, `suffix` and `prefix` not used for the particular id.
 
@@ -449,15 +445,13 @@ end
 
 The `defineFunction` action allows users to write a simple function in the platform and use it together with pre-defined functions [from the list](math#list-of-functions).
 
-The `math` property of `defineFunction` may include arithmetic operators, boolean operators, pre-defined constants, identifiers of arguments, pre-defined functions and functions added with other `defineFunction` statements. It cannot include other identifiers like for components.
-
-The function may return either a numeric or a boolean value depending on the expression.
+The `math` property of `defineFunction` may include arythmetic operators, pre-defined constants, identifiers of arguments, pre-defined functions and functions added with other `defineFunction` statements. It cannot include other identifiers like for components.
 
 | property | type | required | default | ref | description | 
 | ---------|------|----------|---------|-----|-------------|
 | id | `ID` | true | | | unique identifier of `FunctionDef` |
 | arguments | `ID[]` | | `[]` | | arguments |
-| math | `string[]` | true | | | single string representing math expression returning a numeric or boolean value |
+| math | `string[]` | true | | | single string representing math expression |
 
 ### Example 1
 
@@ -474,15 +468,6 @@ The function may return either a numeric or a boolean value depending on the exp
 #defineFunction f3 {
   arguments: [x1, x2, x3],
   math: sqrt(x1^2 + x2^2 + x3^2)
-};
-```
-
-### Example 3 (boolean result)
-
-```heta
-#defineFunction isPositive {
-  arguments: [x],
-  math: "x > 0"
 };
 ```
 

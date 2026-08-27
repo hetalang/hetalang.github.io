@@ -2,6 +2,7 @@
 
 ## 0.3.0
 
+- Expressions are direct MathJSON values. The legacy `{ "expr": ..., "format": "math-json" }` wrapper and alternate expression formats were removed from DynMS.
 - Added required model-level `timeVariable` with an `id` that identifies simulation time in expressions.
 - Removed the globally reserved identifier `t`. Simulation time is now resolved through `timeVariable.id`.
 
@@ -12,7 +13,7 @@
 - `t` is reserved for simulation time and cannot be used as a model identifier.
 - `constants[].value` accepts only finite JSON numbers or extended numeric objects. Arbitrary expression objects are no longer permitted.
 - Extended numeric constants and MathJSON literals use `{"num": "NaN"}`, `{"num": "+Infinity"}`, and `{"num": "-Infinity"}`. The exporter also preserves special state initial values as MathJSON expressions.
-- `timeEvents[].priority` and `events[].priority` are optional numbers, including non-integer values. The default value `0` was removed, and the exporter omits priority when it is not set.
+- `timeEvents[].priority` and `events[].priority` are optional expressions. The default value `0` was removed, and the exporter omits priority when it is not set.
 
 ## 0.2.0
 

@@ -43,8 +43,6 @@ include ./my-module.heta;
 This is module in JSON format (array of objects) which can be mapped to Heta code.
 
 This module type is a dicret solution to import the Heta code from/to other tools without parsing Heta syntax.
-For `Const.num`, `Infinity`, `-Infinity`, and `NaN` are represented by the strings
-`"Infinity"`, `"-Infinity"`, and `"NaN"`.
 
 **Example:**
 
@@ -84,8 +82,6 @@ The module can be loaded into heta platform by the code
 ## yaml module
 
 This is alternative and one-to-one equivalent of type `json` but written in YAML format.
-For `Const.num`, YAML accepts `.inf`, `-.inf`, and `.nan`, as well as the strings
-`"Infinity"`, `"-Infinity"`, and `"NaN"`.
 
 **Example:**
 
@@ -125,7 +121,6 @@ _See also the [Tabular format](tabular-format) chapter._
 
 This module type allows to write a model's components in table file format: CSV, XLSX, TAB, etc.
 This might be useful for users preferring to work with spreadsheets or when tabular formats are required for reporting.
-For `Const.num`, `Infinity`, `-Infinity`, and `NaN` are special-number markers.
 
 The first row must include property identifiers, the other rows includes the values of the properties.
 The column with reserved header `on` can be used to turn off the import of the row. Zero or empty value here means: "do not compile this line".
@@ -193,8 +188,6 @@ file: "index.heta" (combining all together)
 ## sbml module
 
 This type of module was created to adopt [SBML formatted](https://sbml.org) models into Heta modeling platform. Currently SBML of levels 2 and 3 are supported.
-
-For more information about SBML conversion to Heta code, see [SBML conversion](sbml-conversion) chapter.
 
 **Example:**
 

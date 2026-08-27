@@ -67,7 +67,7 @@ The Heta code represents a sequence of statements that create and modify element
     };
     ```
 
-4. The \<Number\> value inside a dictionary is in \<Double\> format. Property values are finite numbers, except `Const.num`, which also accepts `Infinity`, `+Infinity`, `-Infinity`, and `NaN`.
+4. The \<Number\> value inside a dictionary is in \<Double\> format. `Infinity` and `NaN` values are not supported when used as property values.
 
     
     Example:
@@ -80,17 +80,15 @@ The Heta code represents a sequence of statements that create and modify element
     };
     ```
 
-    Extended numbers are only valid for `Const.num`:
+    Wrong:
     ```heta
     {
-        id: k1,
-        class: Const,
-        num: Infinity
+        prop1: Infinity,
+        prop2: NaN
     };
     ```
 
 5. The \<Boolean\> value inside a dictionary may have two values: `true` or `false`.
-   For a property whose declared type is `boolean`, numeric literals `0` and `1` are also accepted as aliases for `false` and `true`. Other numeric values are invalid.
 
     Example:
     ```heta
@@ -376,22 +374,22 @@ The ID format is used for indexing Heta components, creating identifiers for com
 - References used inside `MathExpr`, `UnitsExpr`, `ProcessExpr`.
 The base rules for an ID are as follows:
 
-1. The first symbol must be a letter.
-1. The second and following elements must be letters, numbers, or underscores.
-1. It is not recommended for the last symbol to be an underscore.
-1. Some words cannot be used as identifiers because they are reserved for statements or specific object names, such as 
-`NaN`, `Infinity`, `exponentiale`, `pi`, `true`, `false`, `null`,
+1. The first symbol should be a letter or underscore.
+1. The second and following elements should be letters, numbers, or underscores.
+1. The last symbol should not be an underscore.
+Additionally, some words cannot be used as identifiers because they are reserved for statements or specific object names, such as 
+`NaN`, `Infinity`, `e`, `pi`, 
 `include`, `block`, `namespace`, `abstract`, `concrete`, `begin`, `end`
 
 __Example__
 
-**Correct:** `x`, `x12`, `x_12`, `x___12`
+**Correct:** `x`, `x12`, `x_12`, `_12`, `x___12`, `_begin`
 
-**Incorrect:** `12x`, `x-12`, `x 9`, `_12`, `_1`
+**Incorrect:** `12x`, `x-12`, `x 9`
 
 **Incorrect usage of reserved words as an ID**: `begin`, `block`
 
-**Not recommended underscore position**: `x12_`
+**Incorrect underscore position**: `_`, `x12_`
 
 ### Filepath
 
