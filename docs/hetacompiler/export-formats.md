@@ -63,10 +63,18 @@ Instead of the `export` property in the declaration file, one can use the CLI `-
 heta build --export '{format: JSON, filepath: output, omit: ["aux.wiki"], spaceFilter: "nameless|another"}, {format: SBML, version: L2V4, filepath: model}, Table'
 ```
 
-## Inline export
+## Inline export (deprecated)
 
-Inline `#export` actions in **.heta** files are not supported. Define exports in the declaration file's `export` array or use the CLI `--export` option.
+In older versions of Heta compiler, inline export in any **.heta** file was supported.
 
+Example 1
+
+```heta
+#export {format: JSON, filepath: output};
+```
+
+Starting from heta-compiler version 0.9.0 the inline export is deprecated.
+Use the `export` property in the declaration file or the CLI `--export` option.
 See [migrate to v0.9](./migrate/migrate-to-v0.9.md) and [CLI references](./cli-references.md) for details.
 
 ## JSON
@@ -174,7 +182,9 @@ Export to **DynMS** (Dynamic Model Specifications) format which is an experiment
 
 ### Properties
 
-_No additional properties._
+| property | type | required | default | ref | description |
+| ---------|------|----------|---------|-----|-------------|
+| exprFormat | "math-json" / "heta" / "c" / "julia" | | "math-json" | | The format of mathematical expressions in the exported model. "heta" means that the expressions will be exported in the same format as they are defined in Heta. |
 
 ### Output files
 
@@ -186,7 +196,8 @@ _No additional properties._
 {
     format: DynMS,
     filepath: dynms,       # save result in directory "dist/dynms"
-    spaceFilter: nameless  # output everything from nameless namespace
+    spaceFilter: nameless, # output everything from nameless namespace
+    exprFormat: julia      # export math expressions in Julia code format
 }
 ```
 
@@ -214,7 +225,6 @@ This is the recommended version of the SLV export format. It supports time-varyi
 - boolean operators like `and`, `or`, etc. are not supported
 - `DSwitcher` supports only simple comparison operators in `trigger`.
 - `CSwitcher` is transformed to `DSwitcher`-like step detection, so root finding is not supported.
-- Event `priority` is not supported and is ignored with an export warning.
 
 **Example**
 
@@ -257,7 +267,6 @@ This exporter keeps the older SLV structure and supports only a limited subset o
 - Initialization of `Record` by expression does not work: `x1 .= k1 * A` is not supported.
 - `Infinity`, `-Infinity`, `NaN` values are not supported
 - boolean operators like `and`, `or`, etc. are not supported
-- Event `priority` is not supported and is ignored with an export warning.
 
 **Example**
 
@@ -291,7 +300,6 @@ Export to [SBML format](https://sbml.org/).
 - Older SBML versions may not support all Heta features. Compatibility was checked for L3V2.
 - SBML format does not support `TimeSwitcher` and `CSwitcher`. They will be transformed to `DSwitcher` with settings that give approximate behavior.
 - SBML older than L3V1 does not support `initialValue` in `<trigger>` so `atStart` property of `CSwitcher` and `DSwitcher` will not be applied.
-- `priority` of `TimeSwitcher`, `DSwitcher`, and `CSwitcher` is exported as an SBML `<priority>` MathML expression only for L3V1 and newer. For older versions and `StopSwitcher`, it is ignored with an export warning.
 - In SBML there is no way to clarify if the switcher works in "root finding" mode. We assume that the switcher works in "step" mode, although other implementations may exist in the SBML ecosystem.
 
 **Example:**
@@ -324,7 +332,6 @@ Export to [SimBiology](https://www.mathworks.com/products/simbiology.html)/Matla
 
 - `TimeSwitcher` and `CSwitcher` are transformed to `DSwitcher` with settings that give approximate behavior. The precision of switching time depends on the solver `maxstep` parameter, so you may need to set `maxstep` to a small value.
 - `DSwitcher` in Simbio does not support the `atStart` property. The solver always acts as if it is set to `false`.
-- Event `priority` is not supported and is ignored with an export warning.
 
 **Example:**
 ```yaml
@@ -353,7 +360,6 @@ _No additional properties_
 - `CSwitcher` works without root finding.
 - Both `CSwitcher` and `DSwitcher` can trigger only with `delta` precision. So you need to set `delta` to a small value to have more precise switching time. For example, `delta = 1e-3` will give you millisecond precision for switching time. Update of `hmax` solution parameter in mrgsolve may also help to improve precision.
 - If expressions inside `@Record` depend explicitly on time `t`, the simulation may give incorrect results. To fix it, you should replace `TIME` variable in `$ODE` block by `SOLVERTIME` manually in **model.cpp**. It will be fixed in future versions.
-- Event `priority` is not supported and is ignored with an export warning.
 
 **Example:**
 
@@ -456,10 +462,6 @@ _No additional properties_
 **[filepath]/model.jl** : File storing model code for all namespaces.
 **[filepath]/run.jl** : Code to run model.
 
-### Known restrictions
-
-- Event `priority` is not supported and is ignored with an export warning.
-
 **Example:**
 
 ```yaml
@@ -489,7 +491,6 @@ _No additional properties_
 - `DSwitcher` and `TimeSwitcher` are not supported directly. They are transformed to `CSwitcher` with settings that give approximate behavior.
 - The `atStart` property is not supported for `CSwitcher` and `DSwitcher`. The solver always acts as if it is set to `false`.
 - Unstable behavior may occur when two or more switchers run simultaneously.
-- Event `priority` is not supported and is ignored with an export warning.
 
 **Example:**
 
@@ -556,12 +557,11 @@ _No additional properties_
 |`@CSwitcher` root finding                               |- |- |+ |- |+ |+ |- |na |na |na |+ |
 |`@DSwitcher` class                                      |- |+ |+ |+ |+ (converts to DSwitcher) |+ |+ |+ |+ |na |+ |
 |`atStart` in `@CSwitcher` and `@DSwitcher`              |- |+ |+ |+ |- (never run at 0) |- (never run at 0) |+ (use initialValue in trigger) |+ |+ |na |+ |
-|`priority` in switchers                                  |- |- |- |- |- |- |+* |+ |+ |na |+ |
 |MathExpr: arithmetic functions                          |+ |+ |+ |+ |+ |+ |+ |+ |+ |na |+ |
 |MathExpr: boolean operators                             |- |- |+ |+ |+ |+ |+ |+ |+ |na |+ |
 |MathExpr: ternary operator                              |+ |+ |+ |- |+ |+ |+ |+ |+ |na |+ |
 |MathExpr: `piecewise` function                          |- |- |+ |- |+ |+ |+ |+ |+ |na |+ |
-|MathExpr: `exponentiale`, `pi`                          |+ |+ |+ |+ |+ |+ |+ |+ |+ |na |+ |
+|MathExpr: `e`, `pi`                                     |+ |+ |+ |+ |+ |+ |+ |+ |+ |na |+ |
 |MathExpr: `Infinity`, `NaN`                             |- |- |+ |+ |+ |+ |+ |+ |+ |na |+ |
 |Const: `Infinity`, `NaN`                                |- |- |+ |+ |+ |+ |+ |+ |+ |na |- |
 |`@Scenario` support                                     |- |- |- |- |- |- |- |+ |+ |na |- |
@@ -569,8 +569,6 @@ _No additional properties_
 |`#defineFunction`                                       |+(sub) |+(sub) |+ |+(sub) |+ |+(sub) |+ |+ |+ |na |+(sub) |
 
 **(sub)** means that the function will be substituted by its body in the output code.
-
-**(*)** means that SBML priority support applies to `TimeSwitcher`, `DSwitcher`, and `CSwitcher` in Level 3 only.
 
 **(?)** means that the support depends on the specific case or need to be checked.
 
@@ -583,9 +581,7 @@ _Skipped cell means no conversion_
 | | SLV/DBSolve | Julia | Mrgsolve/R | Simbio/Matlab |
 |--|--|--|--|--|
 |`abs(x)`| | |`fabs(x)`| |
-|`add()`|`0`|`+()`|`0.0`|`0`|
-|`add(x)`|`x`|`+(x)`|`x`|`x`|
-|`add(x, y, ...)`|`x + y + ...`|`+(x, y, ...)`|`x + y + ...`|`x + y + ...`|
+|`add(x, y)`|`x + y`|`+(x, y)`| | |
 |`ceil(x)`| | | | |
 |`cube(x)`|`pow(x, 3) or x ^ 3`|`NaNMath.pow(x, 3)`| | |
 |`divide(x, y)`|`x / y`|`/(x, y)`| | |
@@ -596,9 +592,7 @@ _Skipped cell means no conversion_
 |`logbase(x, base)`|`log(x) / log(base)`|`NaNMath.log(base, x)`| |`(log(x)/log(base))`|
 |`log10(x)`| |`NaNMath.log10(x)`| | |
 |`log2(x)`|`log(x) / log(2)`|`NaNMath.log2(x)`| |`(log(x)/log(2))`|
-|`multiply()`|`1`|`*()`|`1.0`|`1`|
-|`multiply(x)`|`x`|`*(x)`|`x`|`x`|
-|`multiply(x, y, ...)`|`x * y * ...`|`*(x, y, ...)`|`x * y * ...`|`x * y * ...`|
+|`multiply(x, y)`|`x * y`|`*(x, y)`| | |
 |`pow(x, y)`| `pow(x, y)` or `x ^ y`|`NaNMath.pow(x, y)`| |`power(x, y)`|
 |`sign(x)`| | | | |
 |`sqrt(x)`| |`NaNMath.sqrt(x)`| | |
@@ -616,7 +610,7 @@ _Skipped cell means no conversion_
 |`ifle(x, y, z1, z2)`| |`x <= y ? z1 : z2`| |`tern__(x<=y, z1, z2)`|
 |`ifeq(x, y, z1, z2)`| |`x == y ? z1 : z2`| |`tern__(x==y, z1, z2)`|
 |`x ^ y`|`x ^ y` or `pow(x, y)`|`NaNMath.pow(x, y)`|`pow(x, y)`| `(x ^ y)` |
-|`exponentiale`|`exp(1)`|`exp(1.0)`| | |
+|`e`|`exp(1)`|`exp(1.0)`| | |
 |`pi`|`acos(-1)` | | | |
 |`Infinity`| |`Inf`| | |
 |`NaN`| |`NaN`| | |
@@ -634,9 +628,7 @@ _Conversion to SBML's MathML_
 | | SBML |
 |--|--|
 |`abs(x)`|`<apply><abs/>(x)</apply>`|
-|`add()`|`<apply><plus/></apply>`|
-|`add(x)`|`<apply><plus/>(x)</apply>`|
-|`add(x, y, ...)`|`<apply><plus/>(x) (y) ...</apply>`|
+|`add(x, y)`|`<apply><plus/>(x) (y)</apply>`|
 |`ceil(x)`|`<apply><ceiling/>(x)</apply>`|
 |`cube(x)`|`<apply><power/>(x)<cn>3</cn></apply>`|
 |`divide(x, y)`|`<apply><divide/>(x) (y)</apply>`|
@@ -647,11 +639,9 @@ _Conversion to SBML's MathML_
 |`logbase(x, base)`|`<apply><log/><logbase>(base)</logbase>(x)</apply>`|
 |`log10(x)`|`<apply><log/>(x)</apply>`|
 |`log2(x)`|`<apply><log/><logbase><cn>2</cn></logbase>(x)</apply>`|
-|`multiply()`|`<apply><times/></apply>`|
-|`multiply(x)`|`<apply><times/>(x)</apply>`|
-|`multiply(x, y, ...)`|`<apply><times/>(x) (y) ...</apply>`|
+|`multiply(x, y)`|`<apply><times/>(x) (y)</apply>`|
 |`pow(x, y)`|`<apply><power/>(x) (y)</apply>`|
-|`sign(x)`|`<piecewise><piece><cn>-1</cn><apply><lt/>(x)<cn>0</cn></apply></piece><piece><cn>1</cn><apply><gt/>(x)<cn>0</cn></apply></piece><otherwise><cn>0</cn></otherwise></piecewise>`|
+|`sign(x)`|`<apply><sign/>(x)</apply>`|
 |`sqrt(x)`|`<apply><root/>(x)</apply>`|
 |`nthRoot(x, n)`|`<apply><root/><degree>(n)</degree>(x)</apply>`|
 |`square(x)`|`<apply><power/>(x)<cn>2</cn></apply>`|
@@ -667,7 +657,7 @@ _Conversion to SBML's MathML_
 |`ifle(x, y, z1, z2)`|not supported|
 |`ifeq(x, y, z1, z2)`|not supported|
 |`x ^ y`|`<apply><power/>(x) (y)</apply>`|
-|`exponentiale`|`<exponentiale/>`|
+|`e`|`<exponentiale/>`|
 |`pi`|`<pi/>`|
 |`Infinity`|`<infinity/>`|
 |`NaN`|`<notanumber/>`|
