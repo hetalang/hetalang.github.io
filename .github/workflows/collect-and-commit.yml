@@ -31,11 +31,17 @@ jobs:
           ref: master
           path: hetalang.github.io
 
-      - name: Checkout "master" branch of hetalang/heta-specifications
+      - name: Get latest release of hetalang/heta-specifications
+        id: heta-specifications-release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: echo "tag=$(gh release view --repo hetalang/heta-specifications --json tagName --jq '.tagName')" >> "$GITHUB_OUTPUT"
+
+      - name: Checkout latest release of hetalang/heta-specifications
         uses: actions/checkout@v6
         with:
           repository: hetalang/heta-specifications
-          ref: master
+          ref: ${{ steps.heta-specifications-release.outputs.tag }}
           path: heta-specifications
           sparse-checkout: |
             docs
