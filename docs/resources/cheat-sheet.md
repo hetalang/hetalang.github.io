@@ -131,7 +131,7 @@ Math expressions can be used in `Record`, `Process`, `Compartment`, `Species`, `
 | | |
 |---|---|
 | `=` | assign a value, for `Const` only |
-| `.=` | initial assignment, evaluated at time 0 only, for `Record`, `Compartment`, `Species` |
+| `.=` | initial assignment, evaluated at initial time only, for `Record`, `Compartment`, `Species` |
 | `:=` | rule assignment, evaluated at each time step, for `Record`, `Process`, `Compartment`, `Species`, `Reaction` |
 | `[sw1]=` | assignment when switcher `sw1` is active, for `Record`, `Compartment`, `Species` |
 
