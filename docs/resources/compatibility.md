@@ -2,10 +2,11 @@
 
 This is a compatibility table for the Heta compiler, HetaSimulator.jl, and the Heta language specifications.
 
-| heta-compiler | Heta language | HetaSimulator.jl |
-|---------------|---------------|------------------|
-| 0.12.1        | 0.5.3      | 0.8.5            |
-| **0.12.0**    | 0.5.3      | **0.8.4**        |
+| heta-compiler | Heta language | HetaSimulator.jl | DynMS |
+|---------------|---------------|------------------|-------|
+| **0.12.2**    | 0.5.3      | **0.8.7**        | 0.2.1 |
+| 0.12.1        | 0.5.3      | 0.8.5, 0.8.6     | 0.2.0 |
+| 0.12.0        | 0.5.3      | 0.8.4            |
 | 0.11.1        | 0.5.2      | 0.8.3            |
 | 0.11.0        | 0.5.2      |                  |
 | 0.10.0        | 0.5.2      | 0.8.1, 0.8.2     |

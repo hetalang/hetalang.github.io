@@ -11,7 +11,7 @@ The main goals of DynMS are:
 - support deterministic simulation semantics;
 - simplify testing and validation across simulation platforms.
 
-The schema for DynMS is available at: https://raw.githubusercontent.com/hetalang/heta-compiler/v0.12.1/src/dynms/dynms.schema.json
+The schema for DynMS is available at: https://raw.githubusercontent.com/hetalang/heta-compiler/v0.12.2/src/dynms/dynms.schema.json
 
 ---
 
@@ -21,7 +21,7 @@ Minimal valid DynMS structure:
 
 ```json
 {
-  "dynms": "0.2.0",
+  "dynms": "0.2.1",
   "models": [
     {
       "id": "model1",
@@ -39,7 +39,7 @@ Minimal valid DynMS structure:
 
 Top-level required fields:
 
-- `dynms`: DynMS version; currently must be `"0.2.0"`;
+- `dynms`: DynMS version; currently must be `"0.2.1"`;
 - `models`: non-empty array of model definitions.
 
 The optional top-level metadata fields are `$schema`, `generator`, `created`, `platformId`, `platformVersion`, `platformNotes`, and `license`. If `generator` is present, it must contain both `name` and `version`.
@@ -58,7 +58,7 @@ The following sections describe one model-object type at a time.
 
 ### 3.1 Constants
 
-`constants` contains externally configurable scalar values, such as model inputs. A constant is initialized by a number or an expression and does not change during simulation unless a backend-specific mechanism changes it.
+`constants` contains externally configurable scalar values, such as model inputs. A constant is initialized by a JSON number and does not change during simulation unless a backend-specific mechanism changes it.
 
 ```json
 {
@@ -268,17 +268,16 @@ Observables do not affect simulation.
 
 Expressions are mathematical formulas. They may occur at the following JSON paths:
 
-- `constants[].value`;
-- `dynamic[].initial`;
+- `dynamic[].initial`: may reference constants only;
 - `dynamic[].derivative`;
-- `static[].initial`;
-- `assignments[].rhs`;
-- `timeEvents[].trigger.start`;
-- `timeEvents[].trigger.period`;
-- `timeEvents[].trigger.stop`;
+- `static[].initial`: may reference constants only;
+- `assignments[].rhs`: dependencies must be ordered and non-circular;
+- `timeEvents[].trigger.start`: may reference constants only;
+- `timeEvents[].trigger.period`: may reference constants only;
+- `timeEvents[].trigger.stop`: may reference constants only;
 - `timeEvents[].actions[].rhs`;
 - `events[].trigger.rhs`;
-- `events[].actions[].rhs`.
+- `events[].actions[].rhs`;
 
 The canonical DynMS representation is a MathJSON expression object:
 
@@ -356,7 +355,7 @@ At each solver step:
 
 ### 5.4 Time variable
 
-The time variable `t` is available globally during simulation and can be used in any expression.
+`t` is the special, globally available time variable. It is reserved and cannot be used as a model-component identifier; it may be used in derivatives, assignments, state-event triggers, and event actions, but not in initial values or time-trigger fields.
 
 ---
 
@@ -395,7 +394,7 @@ Every reference must resolve within the same model and point to an object type a
 
 - Symbols in expressions must resolve to a constant, state, assignment, or the special time symbol `t`, unless a more restrictive rule below applies.
 - `timeEvents[].actions[].state` and `events[].actions[].state` must reference an existing dynamic or static state.
-- `observables[].symbol` must reference an existing dynamic state, static state, or assignment. Constants and events cannot be observables in DynMS 0.2.0.
+- `observables[].symbol` must reference an existing dynamic state, static state, or assignment. Constants and events cannot be observables in DynMS 0.2.1.
 
 ### 7.4 Dynamic states and derivatives
 
