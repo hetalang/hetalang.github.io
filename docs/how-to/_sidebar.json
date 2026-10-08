@@ -8,6 +8,7 @@
             { "text": "Manage multiple Heta models", "link": "/how-to/multiple-models/" },
             { "text": "Create model variants...", "link": "/how-to/model-variants/" },
             { "text": "Clone model components...", "link": "/how-to/clone-model-components/" },
+            { "text": "Simulate repeated dosing", "link": "/how-to/repeated-dosing/" },
             { "text": "Use heta-compiler from Julia", "link": "/how-to/build-heta-in-julia" },
             { "text": "Contributing", "link": "/how-to/contributing" }
         ]

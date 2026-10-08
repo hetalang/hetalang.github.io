@@ -1,0 +1,18 @@
+/* A simple one-compartment model with first-order drug elimination. */
+central @Compartment .= 1;
+drug @Species { compartment: central, output: true } .= 0;
+elimination @Reaction { actors: drug => } := k_elim * drug * central;
+k_elim @Const = 1e-2;
+
+/*
+  First series: four doses of 10 at times 144, 168, 192, and 216.
+  Add dose / volume to the current concentration at each event.
+*/
+series1 @TimeSwitcher { start: 144, period: 24, stop: 216 };
+dose1 @Const = 10;
+drug [series1]= drug + dose1 / central;
+
+/* Second series: four doses of 20 after a treatment break. */
+series2 @TimeSwitcher { start: 384, period: 24, stop: 456 };
+dose2 @Const = 20;
+drug [series2]= drug + dose2 / central;
