@@ -1,0 +1,29 @@
+/*
+  Conversion model: s1 is converted into s2.
+  All components in this block belong to conversion.
+*/
+namespace conversion begin
+  comp1 @Compartment .= 1;
+  s1 @Species { compartment: comp1 } .= 10;
+  s2 @Species { compartment: comp1 } .= 0;
+  r1 @Reaction { actors: s1 => s2 } := k1 * s1 * comp1;
+  k1 @Const = 2e-3;
+end
+
+/*
+  Elimination model: s1 is removed from the system.
+  These comp1, s1, r1, and k1 are independent of those in conversion.
+*/
+namespace elimination begin
+  comp1 @Compartment .= 5;
+  s1 @Species { compartment: comp1 } .= 10;
+  r1 @Reaction { actors: s1 => } := k1 * s1 * comp1;
+  k1 @Const = 1e-3;
+end
+
+/*
+  Use space::id to update a component outside its namespace block.
+  Each statement affects only the named model.
+*/
+conversion::s1 .= 20;
+elimination::k1 = 5e-4;
