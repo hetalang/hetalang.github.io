@@ -8,6 +8,6 @@
 
 - [Create model variants with Heta namespaces](/how-to/model-variants/)
 
-- [Build Heta models in Julia](/how-to/build-heta-in-julia/)
+- [Use heta-compiler from Julia](/how-to/build-heta-in-julia/)
 
 - [Contributing](/how-to/contributing)

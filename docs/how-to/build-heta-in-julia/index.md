@@ -1,6 +1,6 @@
-# Build Heta models in Julia
+# Use heta-compiler from Julia
 
-*This guide shows how to create and build Heta projects directly from Julia with the compiler included in HetaSimulator.*
+*This guide shows how to call **heta-compiler** commands from Julia instead of the command line, using the compiler included in HetaSimulator.*
 
 ## Why use the compiler from Julia?
 
