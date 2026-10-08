@@ -4,7 +4,7 @@
 
 Instead of copying an entire model, include the same file in separate namespaces and describe only the changes. Each namespace produces an independent model.
 
-Before you start, follow the [Quick start](/how-to/quick-start) to install Heta-compiler, Julia, HetaSimulator, and Plots.
+Before you start, follow the [Quick start](/how-to/quick-start) to install heta-compiler, Julia, HetaSimulator, and Plots.
 
 Create a directory named **model-variants**. In the steps below, you will add these files:
 

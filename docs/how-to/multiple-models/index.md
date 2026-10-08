@@ -4,7 +4,7 @@
 
 Use a separate namespace for each model. Components can have the same names in different namespaces without referring to each other.
 
-Before you start, follow the [Quick start](/how-to/quick-start) to install Heta-compiler, Julia, HetaSimulator, and Plots.
+Before you start, follow the [Quick start](/how-to/quick-start) to install heta-compiler, Julia, HetaSimulator, and Plots.
 
 Create a directory named **multiple-models** with these files:
 
