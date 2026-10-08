@@ -1,0 +1,24 @@
+include ./cell-type.heta;
+
+/*
+  Import all template components into nameless, the default namespace.
+  suffix gives each cell type its own identifiers and updates references.
+  rename keeps blood and m3 shared. Keep t unchanged for compiler 0.12.x.
+*/
+#importNS {
+  fromSpace: cell_template, suffix: "_type1",
+  rename: { blood: blood, m3: m3, t: t }
+};
+
+#importNS {
+  fromSpace: cell_template, suffix: "_type2",
+  rename: { blood: blood, m3: m3, t: t }
+};
+
+/* Type 3 uses the same structure but different parameter values. */
+#importNS {
+  fromSpace: cell_template, suffix: "_type3",
+  rename: { blood: blood, m3: m3, t: t }
+};
+k_prol_type3 = 0.6e-3;
+ksyn_type3 = 2e-2;
