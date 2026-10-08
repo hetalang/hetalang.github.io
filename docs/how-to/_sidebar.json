@@ -5,8 +5,9 @@
             { "text": "Index" , "link": "/how-to/index" },
             { "text": "Quick start", "link": "/how-to/quick-start" },
             { "text": "Manage software versions", "link": "/how-to/software-version-management" },
-            { "text": "Build Heta models in Julia", "link": "/how-to/build-heta-in-julia" },
+            { "text": "Manage multiple Heta models", "link": "/how-to/multiple-models/" },
             { "text": "Create model variants...", "link": "/how-to/model-variants/" },
+            { "text": "Build Heta models in Julia", "link": "/how-to/build-heta-in-julia" },
             { "text": "Contributing", "link": "/how-to/contributing" }
         ]
     }
