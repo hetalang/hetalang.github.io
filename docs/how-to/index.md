@@ -8,6 +8,8 @@
 
 - [Create model variants with Heta namespaces](/how-to/model-variants/)
 
+- [Clone model components with #importNS](/how-to/clone-model-components/)
+
 - [Use heta-compiler from Julia](/how-to/build-heta-in-julia/)
 
 - [Contributing](/how-to/contributing)
