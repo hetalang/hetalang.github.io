@@ -12,6 +12,8 @@
 
 - [Simulate repeated dosing](/how-to/repeated-dosing/)
 
+- [Trigger events at a threshold](/how-to/threshold-events/)
+
 - [Use heta-compiler from Julia](/how-to/build-heta-in-julia/)
 
 - [Contributing](/how-to/contributing)

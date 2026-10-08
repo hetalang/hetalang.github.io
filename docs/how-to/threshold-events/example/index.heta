@@ -1,0 +1,18 @@
+/* A is converted into B in a compartment of constant volume. */
+cell @Compartment .= 1;
+A @Species { compartment: cell } .= 10;
+B @Species { compartment: cell, output: true } .= 0;
+conversion @Reaction { actors: A => B } := k * A * cell;
+k @Const = 1e-2;
+
+/*
+  Switch the response on when B rises through the threshold.
+  The trigger must cross zero from negative to positive.
+*/
+threshold @Const = 3;
+response @Record { output: true } .= 0;
+threshold_reached @CSwitcher {
+  trigger: "B - threshold",
+  atStart: false
+};
+response [threshold_reached]= 1;
