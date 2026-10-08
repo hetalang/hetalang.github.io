@@ -1,0 +1,30 @@
+/*
+  Base model: without an explicit namespace, components belong
+  to the default namespace, nameless.
+*/
+include ./base-model.heta;
+
+/*
+  Variant 1: include the base model in its own namespace, then
+  replace r2 with Michaelis-Menten kinetics and add its parameters.
+  Deleting the unused k2 is optional. These changes affect only variant1.
+*/
+namespace variant1 begin
+  include ./base-model.heta;
+
+  r2 := Vmax * s2 * comp1 / (Km + s2);
+  Vmax @Const = 5e-3;
+  Km @Const = 1e-4;
+  #delete k2;
+end
+
+/*
+  Variant 2: add s3 as the product of r2 instead of removing s2
+  from the system. Updating actors keeps the original rate expression.
+*/
+namespace variant2 begin
+  include ./base-model.heta;
+
+  s3 @Species { compartment: comp1 } .= 0;
+  r2 { actors: s2 => s3 };
+end
