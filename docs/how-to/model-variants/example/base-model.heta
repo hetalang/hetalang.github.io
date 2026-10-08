@@ -1,0 +1,10 @@
+comp1 @Compartment .= 1;
+
+s1 @Species { compartment: comp1 } .= 10;
+s2 @Species { compartment: comp1 } .= 0;
+
+r1 @Reaction { actors: s1 => 2 * s2 } := k1 * s1 * comp1;
+r2 @Reaction { actors: s2 => } := k2 * s2 * comp1;
+
+k1 @Const = 1e-3;
+k2 @Const = 1e-4;
