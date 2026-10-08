@@ -10,6 +10,8 @@
 
 - [Clone model components with #importNS](/how-to/clone-model-components/)
 
+- [Simulate repeated dosing](/how-to/repeated-dosing/)
+
 - [Use heta-compiler from Julia](/how-to/build-heta-in-julia/)
 
 - [Contributing](/how-to/contributing)
