@@ -1,0 +1,6 @@
+/out.csv
+/heta-mc.*.out
+/heta-mc.*.err
+/dist/
+/meta/
+/build.log

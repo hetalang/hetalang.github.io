@@ -1,0 +1,19 @@
+/* Conversion and reversible binding in two compartments. */
+comp1 @Compartment .= 1.1;
+comp2 @Compartment .= 2.2;
+
+a @Species { compartment: comp1, output: true } .= 10;
+b @Species { compartment: comp1, output: true } .= 0;
+c @Species { compartment: comp1, output: true } .= 1;
+d @Species { compartment: comp2 } .= 0;
+
+r1 @Reaction { actors: a => b } := k1 * a;
+r2 @Reaction { actors: b + c <=> d } := k2 * b * c - k3 * d;
+
+k1 @Const = 1e-3;
+k2 @Const = 1e-4;
+k3 @Const = 2.2e-2;
+
+/* Add to a at time 50. */
+sw1 @TimeSwitcher { start: 50 };
+a [sw1]= a + 1;

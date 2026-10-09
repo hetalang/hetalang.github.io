@@ -14,6 +14,8 @@
 
 - [Trigger events at a threshold](/how-to/threshold-events/)
 
+- [Run SLURM with HetaSimulator](/how-to/run-in-slurm/)
+
 - [Use heta-compiler from Julia](/how-to/build-heta-in-julia/)
 
 - [Contributing](/how-to/contributing)
