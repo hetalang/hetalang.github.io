@@ -10,6 +10,7 @@
             { "text": "Clone model components...", "link": "/how-to/clone-model-components/" },
             { "text": "Simulate repeated dosing", "link": "/how-to/repeated-dosing/" },
             { "text": "Trigger events at a threshold", "link": "/how-to/threshold-events/" },
+            { "text": "Run SLURM with...", "link": "/how-to/run-in-slurm/" },
             { "text": "Use heta-compiler from Julia", "link": "/how-to/build-heta-in-julia" },
             { "text": "Contributing", "link": "/how-to/contributing" }
         ]

@@ -105,7 +105,7 @@ Create **run.jl**:
 ```julia
 using HetaSimulator, Plots
 
-platform = load_platform(@__DIR__)
+platform = load_platform(".")
 model = models(platform)[:nameless]
 scenario = Scenario(
   model, (0., 1e4);
