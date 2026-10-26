@@ -581,29 +581,29 @@ _Skipped cell means no conversion_
 | | SLV/DBSolve | Julia | Mrgsolve/R | Simbio/Matlab |
 |--|--|--|--|--|
 |`abs(x)`| | |`fabs(x)`| |
-|`add(x, y)`|`x + y`|`+(x, y)`| | |
+|`add(x, y)`|`x + y`|`+(x, y)`|`x + y`|`plus(x, y)`|
 |`ceil(x)`| | | | |
 |`cube(x)`|`pow(x, 3) or x ^ 3`|`NaNMath.pow(x, 3)`| | |
-|`divide(x, y)`|`x / y`|`/(x, y)`| | |
+|`divide(x, y)`|`x / y`|`/(x, y)`|`x / y`|`rdivide(x, y)`|
 |`exp(x)`| | | | |
 |`floor(x)`| | | | |
 |`ln(x)`| |`NaNMath.log(x)`| | |
 |`log(x)`| |`NaNMath.log(x)`| |`log(x)`|
-|`logbase(x, base)`|`log(x) / log(base)`|`NaNMath.log(base, x)`|`log(x) / log(base)`|`(log(x)/log(base))`|
+|`logbase(x, base)`|`log(x) / log(base)`|`(NaNMath.log(x) / NaNMath.log(base))`|`log(x) / log(base)`|`(log(x)/log(base))`|
 |`log10(x)`| |`NaNMath.log10(x)`| | |
 |`log2(x)`|`log(x) / log(2)`|`NaNMath.log2(x)`| |`(log(x)/log(2))`|
-|`multiply(x, y)`|`x * y`|`*(x, y)`| | |
+|`multiply(x, y)`|`x * y`|`*(x, y)`|`x * y`|`times(x, y)`|
 |`pow(x, y)`| `pow(x, y)` or `x ^ y`|`NaNMath.pow(x, y)`| |`power(x, y)`|
 |`sign(x)`| | | | |
 |`sqrt(x)`| |`NaNMath.sqrt(x)`| | |
 |`nthRoot(x, n)`|`pow(x, 1 / n)` or `x ^ (1 / n)`|`NaNMath.pow(x, 1/(n))`| | |
 |`square(x)`|`pow(x, 2)` or `x ^ 2`|`NaNMath.pow(x, 2)`| | |
-|`subtract(x, y)`|`x - y`|`-(x, y)`| | |
+|`subtract(x, y)`|`x - y`|`-(x, y)`|`x - y`|`minus(x, y)`|
 |`max(x, y)`|`max2(x, y)`| |`std::max(x, y)`|`max(x, y)`|
 |`max(x, y, z)`|`max3(x, y, z)`| |`std::max(x, y, z)`|`max([x, y, z])`|
 |`min(x, y)`|`min2(x, y)`| |`std::min(x, y)`|`min(x, y)`|
 |`min(x, y, z)`|`min3(x, y, z)`| |`std::min(x, y, z)`|`min([x, y, z])`|
-|`factorial(n)`| |`fact(n)`|`tgamma(n + 1.0)`| |
+|`factorial(n)`| |`SpecialFunctions.gamma((n) + 1)`|`tgamma(n + 1.0)`| |
 |`ifgt(x, y, z1, z2)`| |`x > y ? z1 : z2`| |`tern__(x>y, z1, z2)`|
 |`ifge(x, y, z1, z2)`| |`x >= y ? z1 : z2`| |`tern__(x>=y, z1, z2)`|
 |`iflt(x, y, z1, z2)`| |`x < y ? z1 : z2`| |`tern__(x<y, z1, z2)`|
@@ -622,6 +622,8 @@ _Skipped cell means no conversion_
 |`b1 < b2 ? x : y`|`iflt(b1, b2, x, y)`|`(b1 < b2) ? x : y`|`(b1 < b2) ? x : y`|`tern__(b1 < b2, x, y)`|
 |`piecewise(value1, cond1, value2, cond2, ..., otherwise)`|not supported| + |not supported| |
 |`acos(x)`, `acot(x)`, `acsc(x)`,`asec(x)`, `asin(x)`, `atan(x)`, `cos(x)`, `cot(x)`, `csc(x)`, `sec(x)`, `sin(x)`, `tan(x)`| | | | |
+
+Nested arithmetic functions retain their grouping. For example, `divide(add(a, b), c)` becomes `(a + b) / c` in DBSolve, SLV (for supported RHS expressions), Mrgsolve, and DynMS with `exprFormat: c`; Matlab and Simbio output `rdivide(plus(a, b), c)`.
 
 _Conversion to SBML's MathML_
 
