@@ -22,20 +22,26 @@
 
 Heta syntax and Heta infrastructure were utilized for the development of web-based tools.
 
-- [Heta API](https://heta-api.insysbio.com/)
-    A public API for Heta language compilation.
+- [Heta API and MCP](https://heta-api.insysbio.com/)
+    A public service for validating and compiling Heta models through a REST API or MCP-compatible AI assistants.
+
 - [Heta compiler online](https://heta-online.insysbio.com/)
     Web based compiler and editor of Heta code.
+
 - [SbmlViewer](https://sv.insysbio.com/)
     A tool for fast and easy reading of biological models written in SBML format. It allows you to open SBML in any browser.
+
+- [DynMS Viewer](https://shiny.insysbio.com/dynms-viewer/)
+    A Shiny app for exploring DynMS models, running simulations with DynMSR and mrgsolve, and viewing the results as plots.
+
 - [Immune Response Template](https://irt.insysbio.com)
     A Quantitative Systems Pharmacology (QSP) platform of immune system and tool for development of QSP and mechanistic models related to immune response.
+
 - [mAb-app](https://shiny.insysbio.com/mAb-app/)
     PK/RO simulator for anti-PD-1 monoclonal Antibodies (Shiny app)
+
 - [ery](https://shiny.insysbio.com/ery/)
     PK/PD simulator for Erythropoiesis-Stimulating Agents (Shiny app)
-- [sbml-mrgsolve-case](https://shiny.insysbio.com/sbml-mrgsolve-case/)
-    An RMarkdown example demonstrating format conversion from SBML into mrgsolve
 
 ![Heta powered R-Shiny application](img/fig7.png)
 ![Heta Compiler Online app](img/fig4.png)
