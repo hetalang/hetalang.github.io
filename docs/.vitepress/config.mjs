@@ -82,6 +82,7 @@ export default defineConfig({
       { text: 'Language', link: '/specifications/' },
       { text: 'Heta-compiler', link: '/hetacompiler/' },
       { text: 'HetaSimulator.jl', link: 'https://hetalang.github.io/HetaSimulator.jl/stable/' },
+      { text: 'DynMSR', link: 'https://cran.r-project.org/web/packages/DynMSR/refman/DynMSR.html' },
       //{ text: 'DigiPopData.jl', link: 'https://hetalang.github.io/DigiPopData.jl/stable/' },
     ],
     

@@ -3,9 +3,15 @@
 ## Heta supporting tools
 
 - Julia package for simulation of large scale QSP models supporting Heta syntax: [HetaSimulator.jl](https://github.com/hetalang/HetaSimulator.jl) [![version](https://juliahub.com/docs/HetaSimulator/version.svg)](https://juliahub.com/ui/Packages/HetaSimulator/IIE0h)
+
 - Command line tool compiling Heta and JS package: [heta-compiler](https://github.com/hetalang/heta-compiler) [![npm](https://img.shields.io/npm/v/heta-compiler)](https://www.npmjs.com/package/heta-compiler)
-- Syntax highlighting for VSCode: [heta-highlight-vscode](https://github.com/hetalang/heta-highlight-vscode) [![Visual Studio Marketplace Version](https://img.shields.io/visual-studio-marketplace/v/insysbio.heta-highlight-vscode?label=VSMarket)](https://marketplace.visualstudio.com/items?itemName=insysbio.heta-highlight-vscode)
+
+- R package for working with Heta, SBML, and DynMS models: [DynMSR](https://github.com/hetalang/DynMSR) [![CRAN version](https://www.r-pkg.org/badges/version/DynMSR)](https://cran.r-project.org/package=DynMSR)
+
+- Syntax highlighting for VSCode: [heta-highlight-vscode](https://github.com/hetalang/heta-highlight-vscode) [![Visual Studio Marketplace Version](https://badgen.net/vs-marketplace/v/insysbio.heta-highlight-vscode)](https://marketplace.visualstudio.com/items?itemName=insysbio.heta-highlight-vscode)
+
 - Syntax highlighting for Sublime text: [heta-highlight-sublime](https://github.com/hetalang/heta-highlight-sublime) [![GitHub tag (with filter)](https://img.shields.io/github/v/tag/hetalang/heta-highlight-sublime)](https://packagecontrol.io/packages/heta)
+
 - Parsing of Heta language code in JavaScript: [heta-parser](https://github.com/hetalang/heta-parser) [![npm](https://img.shields.io/npm/v/heta-parser)](https://www.npmjs.com/package/heta-parser)
 
 ![VSCode displaying Heta syntax highlight](img/fig2.png)
