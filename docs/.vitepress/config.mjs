@@ -101,7 +101,9 @@ export default defineConfig({
       .replace(/\.md$/, '.html')
 
     pageData.frontmatter.head ??= []
-    pageData.frontmatter.head.push(['link', { rel: 'canonical', href: canonicalUrl }])
+    if (!pageData.frontmatter.head.some(([tag, attrs]) => tag === 'link' && attrs?.rel === 'canonical')) {
+      pageData.frontmatter.head.push(['link', { rel: 'canonical', href: canonicalUrl }])
+    }
   },
 
   markdown: {
