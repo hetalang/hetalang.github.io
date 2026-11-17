@@ -1,3 +1,23 @@
+---
+description: "Choose compatible Heta compiler and simulator versions and keep model projects reproducible over time."
+head:
+  - - meta
+    - property: og:type
+      content: article
+  - - meta
+    - property: og:title
+      content: "Manage software versions"
+  - - meta
+    - property: og:description
+      content: "Choose compatible Heta compiler and simulator versions and keep model projects reproducible over time."
+  - - meta
+    - property: og:url
+      content: "https://hetalang.github.io/how-to/software-version-management/"
+  - - meta
+    - name: twitter:card
+      content: summary
+---
+
 # Manage software versions
 
 *This guide explains how to choose compatible compiler and simulator versions, share models safely, and keep archived projects reproducible.*

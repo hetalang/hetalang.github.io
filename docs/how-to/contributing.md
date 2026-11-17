@@ -1,3 +1,23 @@
+---
+description: "Learn how to contribute feedback, report issues, and help improve the Heta project."
+head:
+  - - meta
+    - property: og:type
+      content: article
+  - - meta
+    - property: og:title
+      content: "Contributing"
+  - - meta
+    - property: og:description
+      content: "Learn how to contribute feedback, report issues, and help improve the Heta project."
+  - - meta
+    - property: og:url
+      content: "https://hetalang.github.io/how-to/contributing.html"
+  - - meta
+    - name: twitter:card
+      content: summary
+---
+
 # Contributing
 
 Any contribution is appreciated. Here we summarize how you can help.

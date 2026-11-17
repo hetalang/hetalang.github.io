@@ -17,11 +17,8 @@ head:
     - property: og:url
       content: 'https://hetalang.github.io/how-to/heta-models-in-r/'
   - - meta
-    - property: og:image
-      content: 'https://hetalang.github.io/how-to/heta-models-in-r/img/heta-model-rstudio.png'
-  - - meta
     - name: twitter:card
-      content: summary_large_image
+      content: summary
 ---
 
 # How to Run Heta Models in R with DynMSR and mrgsolve

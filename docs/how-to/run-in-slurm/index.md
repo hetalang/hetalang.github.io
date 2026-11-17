@@ -1,3 +1,23 @@
+---
+description: "Run distributed Monte Carlo simulations with HetaSimulator on a SLURM cluster and save results to CSV."
+head:
+  - - meta
+    - property: og:type
+      content: article
+  - - meta
+    - property: og:title
+      content: "Run SLURM with HetaSimulator"
+  - - meta
+    - property: og:description
+      content: "Run distributed Monte Carlo simulations with HetaSimulator on a SLURM cluster and save results to CSV."
+  - - meta
+    - property: og:url
+      content: "https://hetalang.github.io/how-to/run-in-slurm/"
+  - - meta
+    - name: twitter:card
+      content: summary
+---
+
 # Run SLURM with HetaSimulator
 
 *This guide shows how to run 120 Monte Carlo simulations across SLURM workers and save the results to CSV.*

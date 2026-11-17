@@ -1,3 +1,23 @@
+---
+description: "Use Heta CSwitcher to trigger model events when a concentration crosses a threshold."
+head:
+  - - meta
+    - property: og:type
+      content: article
+  - - meta
+    - property: og:title
+      content: "Trigger events at a threshold"
+  - - meta
+    - property: og:description
+      content: "Use Heta CSwitcher to trigger model events when a concentration crosses a threshold."
+  - - meta
+    - property: og:url
+      content: "https://hetalang.github.io/how-to/threshold-events/"
+  - - meta
+    - name: twitter:card
+      content: summary
+---
+
 # Trigger events at a threshold
 
 *This guide shows how to use `CSwitcher` to change a model variable when a concentration crosses a threshold.*
