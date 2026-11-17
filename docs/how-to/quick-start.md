@@ -1,3 +1,23 @@
+---
+description: "Get started with Heta by compiling a model, exporting it to other formats, and running simulations with HetaSimulator."
+head:
+  - - meta
+    - property: og:type
+      content: article
+  - - meta
+    - property: og:title
+      content: "Quick start"
+  - - meta
+    - property: og:description
+      content: "Get started with Heta by compiling a model, exporting it to other formats, and running simulations with HetaSimulator."
+  - - meta
+    - property: og:url
+      content: "https://hetalang.github.io/how-to/quick-start.html"
+  - - meta
+    - name: twitter:card
+      content: summary
+---
+
 # Quick start
 
 Heta models can be used in two main workflows:

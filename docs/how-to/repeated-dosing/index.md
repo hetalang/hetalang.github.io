@@ -1,3 +1,23 @@
+---
+description: "Schedule and simulate repeated drug dosing in Heta, including multiple treatment series and a treatment break."
+head:
+  - - meta
+    - property: og:type
+      content: article
+  - - meta
+    - property: og:title
+      content: "Simulate repeated dosing"
+  - - meta
+    - property: og:description
+      content: "Schedule and simulate repeated drug dosing in Heta, including multiple treatment series and a treatment break."
+  - - meta
+    - property: og:url
+      content: "https://hetalang.github.io/how-to/repeated-dosing/"
+  - - meta
+    - name: twitter:card
+      content: summary
+---
+
 # Simulate repeated dosing
 
 *This guide shows how to schedule repeated doses with `TimeSwitcher` and simulate two dosing series separated by a treatment break.*

@@ -1,3 +1,23 @@
+---
+description: "Create and simulate independent variants of a Heta model using namespaces and a shared base model."
+head:
+  - - meta
+    - property: og:type
+      content: article
+  - - meta
+    - property: og:title
+      content: "Create model variants with Heta namespaces"
+  - - meta
+    - property: og:description
+      content: "Create and simulate independent variants of a Heta model using namespaces and a shared base model."
+  - - meta
+    - property: og:url
+      content: "https://hetalang.github.io/how-to/model-variants/"
+  - - meta
+    - name: twitter:card
+      content: summary
+---
+
 # Create model variants with Heta namespaces
 
 *This guide shows how to reuse a base model, create two variants, and simulate them in one Heta platform.*

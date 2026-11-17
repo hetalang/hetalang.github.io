@@ -1,3 +1,23 @@
+---
+description: "Explore practical guides for building, organizing, and simulating Heta models with the Heta toolchain."
+head:
+  - - meta
+    - property: og:type
+      content: article
+  - - meta
+    - property: og:title
+      content: "How-to guides"
+  - - meta
+    - property: og:description
+      content: "Explore practical guides for building, organizing, and simulating Heta models with the Heta toolchain."
+  - - meta
+    - property: og:url
+      content: "https://hetalang.github.io/how-to/"
+  - - meta
+    - name: twitter:card
+      content: summary
+---
+
 # How-to guides
 
 - [Quick start](/how-to/quick-start)

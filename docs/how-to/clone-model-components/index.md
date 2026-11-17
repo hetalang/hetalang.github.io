@@ -1,3 +1,23 @@
+---
+description: "Reuse and connect copies of model components with Heta importNS to represent multiple cell types in one model."
+head:
+  - - meta
+    - property: og:type
+      content: article
+  - - meta
+    - property: og:title
+      content: "Clone model components with #importNS"
+  - - meta
+    - property: og:description
+      content: "Reuse and connect copies of model components with Heta importNS to represent multiple cell types in one model."
+  - - meta
+    - property: og:url
+      content: "https://hetalang.github.io/how-to/clone-model-components/"
+  - - meta
+    - name: twitter:card
+      content: summary
+---
+
 # Clone model components with #importNS
 
 *This guide shows how to use `#importNS` to copy the same model components multiple times, rename them automatically, and connect them within one model.*

@@ -1,3 +1,23 @@
+---
+description: "Organize independent Heta models in one platform and select them for export or simulation."
+head:
+  - - meta
+    - property: og:type
+      content: article
+  - - meta
+    - property: og:title
+      content: "Manage multiple Heta models"
+  - - meta
+    - property: og:description
+      content: "Organize independent Heta models in one platform and select them for export or simulation."
+  - - meta
+    - property: og:url
+      content: "https://hetalang.github.io/how-to/multiple-models/"
+  - - meta
+    - name: twitter:card
+      content: summary
+---
+
 # Manage multiple Heta models
 
 *This guide shows how to keep independent models in one platform and select them for export or simulation.*

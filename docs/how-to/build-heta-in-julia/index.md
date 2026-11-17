@@ -1,3 +1,23 @@
+---
+description: "Run Heta compiler commands from Julia using HetaSimulator to initialize, build, and export model projects."
+head:
+  - - meta
+    - property: og:type
+      content: article
+  - - meta
+    - property: og:title
+      content: "Use heta-compiler from Julia"
+  - - meta
+    - property: og:description
+      content: "Run Heta compiler commands from Julia using HetaSimulator to initialize, build, and export model projects."
+  - - meta
+    - property: og:url
+      content: "https://hetalang.github.io/how-to/build-heta-in-julia/"
+  - - meta
+    - name: twitter:card
+      content: summary
+---
+
 # Use heta-compiler from Julia
 
 *This guide shows how to call **heta-compiler** commands from Julia instead of the command line, using the compiler included in HetaSimulator.*
