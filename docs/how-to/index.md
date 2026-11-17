@@ -18,4 +18,6 @@
 
 - [Use heta-compiler from Julia](/how-to/build-heta-in-julia/)
 
+- [Run Heta models in R with DynMSR and mrgsolve](/how-to/heta-models-in-r/)
+
 - [Contributing](/how-to/contributing)
