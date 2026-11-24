@@ -1,0 +1,8 @@
+// Original SBML, unchanged.
+include ./BIOMD0000000521_url.xml type sbml;
+
+// Five extra cycles; C(0) = 1 already supplies the first.
+repeat_cycle @TimeSwitcher { start: 2, period: 2, stop: 10 };
+
+// Add one dose; the paper instead resets C to 1.
+C [repeat_cycle]= 1 + C;

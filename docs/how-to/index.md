@@ -40,4 +40,6 @@ head:
 
 - [Run Heta models in R with DynMSR and mrgsolve](/how-to/heta-models-in-r/)
 
+- [Run SBML models in R](/how-to/sbml-models-in-r/)
+
 - [Contributing](/how-to/contributing)
