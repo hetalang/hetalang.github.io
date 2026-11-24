@@ -13,6 +13,7 @@
             { "text": "Run SLURM with...", "link": "/how-to/run-in-slurm/" },
             { "text": "Use heta-compiler from Julia", "link": "/how-to/build-heta-in-julia" },
             { "text": "Run Heta models in R", "link": "/how-to/heta-models-in-r/" },
+            { "text": "Run SBML models in R", "link": "/how-to/sbml-models-in-r/" },
             { "text": "Contributing", "link": "/how-to/contributing" }
         ]
     }
