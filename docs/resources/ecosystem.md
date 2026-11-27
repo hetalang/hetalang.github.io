@@ -18,6 +18,10 @@
 ![HetaSimulator plots vs experimental dataset](img/fig5.png)
 ![HetaSimulator confidence bands](img/fig1.png)
 
+## Heta Assistant
+
+[Heta Assistant](https://chatgpt.com/plugins/plugin_asdk_app_6ad8633bb8cc8191b04155d82e587f59) is an AI assistant for working with Heta models in ChatGPT and Codex. It can help you create and check models, explain Heta code, diagnose errors, and export models to formats used in simulation workflows. In Codex, it can also support local modeling projects and simulations.
+
 ## Web applications
 
 Heta syntax and Heta infrastructure were utilized for the development of web-based tools.
